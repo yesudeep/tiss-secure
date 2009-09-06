@@ -1,14 +1,37 @@
 {% extends "base.html" %}
 
+{% block tag_header %}
+<nav>
+    <div>
+        <a href="/" id="home"></a>
+        <ul>
+            <li><a href="">students</a></li>
+            <li><a href="">alumni</a></li>
+            <li><a href="">faculty</a></li>
+            <li><a href="">placements</a></li>
+            <li><a href="">tattva bodha</a></li>
+            <li><a href="">forum</a></li>
+            <li><form><input type="search" name="query" value="" /></form></li>
+        </ul>
+    </div>
+</nav>
+<header>
+
+</header>
+{% endblock %}
+
 {% block tag_trunk %}
-<p>hi.</p>
+<div id="trunk">
+
+</div>
 {% endblock %}
 
 {% block tag_scripts %}
 <script type="text/javascript">
     window.scripts.push(
-            "{{ MEDIA_URL }}script/lib/page/index{{ MINIFIED }}.js",
-            "{{ MEDIA_URL }}script/index{{ MINIFIED }}.js");
+            "{{ MEDIA_URL }}script/lib/page/index{{ MINIFIED }}.js"
+            //"{{ MEDIA_URL }}script/index{{ MINIFIED }}.js"
+            );
 </script>
 {% endblock %}
 

@@ -4,13 +4,8 @@
 
         var elements = {
             body: jQuery('body')
-        };
-
-        /**
-         * Cycles the background color
-         */
-        function cycleBackgroundColor(){
-            var colors = ["#0c50dc",
+        },
+        colors = ["#0c50dc",
                 "#7cb306",
                 "#800080",
                 "#602414",
@@ -36,8 +31,14 @@
                 "#2f4385",
                 "#5c3c0f"
                 ];
+
+        /**
+         * Cycles the background color
+         */
+        function cycleBackgroundColor(){
+            var c = colors;
             elements.body.animate({
-                backgroundColor: colors[Math.floor(Math.random() * colors.length)]
+                backgroundColor: c[Math.floor(Math.random() * c.length)]
             }, 2000);
         }
         setInterval(cycleBackgroundColor, 6000);

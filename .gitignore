@@ -2,7 +2,7 @@
 *.bkp
 *.bak
 *~
-*.swp
+*.sw[op]
 
 .sconsign.dblite
 

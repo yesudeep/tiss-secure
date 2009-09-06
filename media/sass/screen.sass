@@ -1,13 +1,56 @@
 @import base.sass
 
-.background-green
-  :background-color= !color_bg_green
-
-.background-blue
-  :background-color= !color_bg_blue
-
-.background-purple
-  :background-color= !color_bg_purple
-
 body
   :background-color= !color_bg_purple
+  :font-family= !font_stack_verdana
+
+a
+  :text-decoration none
+
+nav
+  :overflow hidden
+  :background-color= !color_bg_nav
+  :background-color= !color_bg_nav_rgba
+  :background= "transparent" !url_nav_bg "repeat-x scroll 0 0"
+  > div
+    :width 960px
+    :margin 0px auto
+    > ul
+      :float right
+      > li
+        +display-inline-block
+        //:float right
+        :margin-right 10px
+        a:link, a:visited
+          //:font-variant small-caps
+          //:font-weight bold
+          //:letter-spacing 0.2em
+          :font-size 0.8em
+          :background-color= !color_nav_link_bg
+          :background-color= !color_nav_link_bg_rgba
+          :color= !color_nav_link
+          :padding 6px 8px 0px 8px
+          :margin-bottom 10px
+          :height 22px
+          :display block
+          +border-bottom-left-radius(10px)
+          +border-bottom-right-radius(10px)
+        a:hover, a:visited:hover
+          :color= !color_nav_link_hover
+          :background-color= !color_nav_link_hover_bg
+          :background-color= !color_nav_link_hover_bg_rgba
+
+header
+  +grid-container
+  :background= "transparent" !url_header_bg "no-repeat scroll 0 0"
+  :min-height 400px
+
+
+#home
+  :background= "transparent" !url_logo_small "no-repeat scroll 0 0"
+  :display block
+  :margin-top 5px
+  :width 69px
+  :height 28px
+  :float left
+
