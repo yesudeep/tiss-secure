@@ -2,7 +2,17 @@
 
 {% block tag_header %}
 <nav>
-    <div>
+    <ul class="panes">
+        <li>
+            <ul>
+                <li>Links</li>
+            </ul>
+        </li>
+        <li>
+            <ul><li>More links</li></ul>
+        </li>
+    </ul>
+    <div class="handle"><div>
         <a href="/" id="home"></a>
         <ul>
             <li><a href="">students</a></li>
@@ -13,7 +23,7 @@
             <li><a href="">forum</a></li>
             <li><form><input type="search" name="query" value="" /></form></li>
         </ul>
-    </div>
+</div></div>
 </nav>
 <header>
 

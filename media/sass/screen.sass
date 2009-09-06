@@ -7,39 +7,55 @@ body
 a
   :text-decoration none
 
+
+//nav:hover
+  :margin-top 0px
+
 nav
   :overflow hidden
-  :background-color= !color_bg_nav
-  :background-color= !color_bg_nav_rgba
-  :background= "transparent" !url_nav_bg "repeat-x scroll 0 0"
-  > div
-    :width 960px
-    :margin 0px auto
-    > ul
-      :float right
-      > li
-        +display-inline-block
-        //:float right
-        :margin-right 10px
-        a:link, a:visited
-          //:font-variant small-caps
-          //:font-weight bold
-          //:letter-spacing 0.2em
-          :font-size 0.8em
-          :background-color= !color_nav_link_bg
-          :background-color= !color_nav_link_bg_rgba
-          :color= !color_nav_link
-          :padding 6px 8px 0px 8px
-          :margin-bottom 10px
-          :height 22px
-          :display block
-          -webkit-transition: background-color 0.3s linear
-          +border-bottom-left-radius(10px)
-          +border-bottom-right-radius(10px)
-        a:hover, a:visited:hover
-          :color= !color_nav_link_hover
-          :background-color= !color_nav_link_hover_bg
-          :background-color= !color_nav_link_hover_bg_rgba
+  :background-color= !color_nav_link_bg
+  :background-color rgba(0, 0, 0, 0.8)
+  :position fixed
+  :width 100%
+  :margin-top -200px
+  > ul.panes
+    +grid-container
+    :height 200px
+    > li
+      :display none
+      > ul
+        > li
+          +grid(2, 12)
+  > div.handle
+    :background= !color_nav_bg_rgba !url_nav_bg "repeat-x scroll 0 0"
+    :min-height 38px
+    > div
+      +grid-container
+      > ul
+        :float right
+        > li
+          +display-inline-block
+          //:float right
+          :margin-right 10px
+          a:link, a:visited
+            //:font-variant small-caps
+            //:font-weight bold
+            //:letter-spacing 0.2em
+            :font-size 0.8em
+            :background-color= !color_nav_link_bg
+            :background-color= !color_nav_link_bg_rgba
+            :color= !color_nav_link
+            :padding 6px 8px 0px 8px
+            :margin-bottom 10px
+            :height 22px
+            :display block
+            -webkit-transition: background-color 0.3s linear
+            +border-bottom-left-radius(10px)
+            +border-bottom-right-radius(10px)
+          a:hover, a:visited:hover
+            :color= !color_nav_link_hover
+            :background-color= !color_nav_link_hover_bg
+            :background-color= !color_nav_link_hover_bg_rgba
 
 header
   +grid-container

@@ -12,8 +12,10 @@ SRC_DIR = './'
 DEST_DIR = '../' + env['MEDIA_DEST_DIR'] + '/'
 
 SCRIPT_FILES = Split("""
-    script/index.js
+    script/base.js
     script/lib/chickoojs/src/jquery/color/jquery.color.js
+    script/lib/chickoojs/src/jquery/tools/tools.tabs-1.0.1.js
+    script/lib/chickoojs/src/jquery/easing/jquery.easing.1.3.js
 """)
 #SCRIPT_FILES = ["script/" + f for f in SCRIPT_FILES]
 
@@ -103,7 +105,9 @@ for f in minifiables(MINIFIABLE_FILES, NON_MINIFIABLE_FILES):
 #script/angelina_400.font.js
 LIB_INDEX_JS_FILES =  Split("""
     script/lib/chickoojs/src/jquery/color/jquery.color.js
-    script/index.js
+    script/lib/chickoojs/src/jquery/tools/tools.tabs-1.0.1.js
+    script/lib/chickoojs/src/jquery/easing/jquery.easing.1.3.js
+    script/base.js
 """)
 LIB_INDEX_JS_FILES = [SRC_DIR + f for f in LIB_INDEX_JS_FILES]
 lib_index_js = env.Concatenate([DEST_DIR + 'script/lib/page/index.js'], LIB_INDEX_JS_FILES)

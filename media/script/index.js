@@ -3,7 +3,8 @@
     jQuery(function(){
 
         var elements = {
-            body: jQuery('body')
+            body: jQuery('body'),
+            nav: jQuery('nav')
         },
         colors = [
                 "#362d1d",
@@ -44,6 +45,15 @@
             }, 2000);
         }
         setInterval(cycleBackgroundColor, 3000);
+
+        /**
+         * Set the nav element to slide out and back in.
+         */
+        elements.nav.hover(function(){
+            elements.nav.animate({marginTop: "0px"}, 400, "easeInOutQuint");
+        }, function(){
+            elements.nav.animate({marginTop: "-200px"}, 400, "easeInOutQuint");
+        });
     });
 
 })(jQuery);
