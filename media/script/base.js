@@ -50,9 +50,9 @@
          * Set the nav element to slide out and back in.
          */
         elements.nav.hover(function(){
-            elements.nav.animate({marginTop: "0px"}, 400, "easeInOutQuint");
+            elements.nav.animate({marginTop: "0px"}, 800, "easeInOutQuint");
         }, function(){
-            elements.nav.animate({marginTop: "-200px"}, 400, "easeInOutQuint");
+            elements.nav.animate({marginTop: "-200px"}, 800, "easeInOutQuint");
         });
     });
 
