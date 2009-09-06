@@ -6,7 +6,7 @@
             body: jQuery('body'),
             nav: jQuery('nav'),
             nav_tabs: jQuery('nav > div.handle > div > ul'),
-            nav_panes: jQuery('nav > ul.panes')
+            nav_panes: jQuery('nav > div > ul.panes')
         },
         colors = [
                 "#362d1d",
@@ -55,14 +55,14 @@
             elements.nav.stop().animate({marginTop: "0px"}, 800, "easeInOutQuint");
         },
         function(){
-            elements.nav.stop().animate({marginTop: "-200px"}, 600, "easeInOutQuint");
+            elements.nav.stop().animate({marginTop: "-250px"}, 600, "easeInOutQuint");
         });
 
         elements.nav_tabs.click(function(event){
             event.preventDefault();
             event.stopPropagation();
             return false;
-        }).tabs('nav > ul.panes > li', {
+        }).tabs('nav > div > ul.panes > li', {
             event: 'mouseover'
         });
     });

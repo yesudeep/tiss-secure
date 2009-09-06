@@ -10,22 +10,43 @@ a
 
 //nav:hover
   :margin-top 0px
+h1
+  :font-family= !font_stack_georgia
+  :font-weight normal
+  :line-height 1.4
+p
+  :font-weight normal
 
 nav
   :overflow hidden
-  :background-color= !color_nav_link_bg
-  :background-color rgba(0, 0, 0, 0.8)
   :position fixed
   :width 100%
-  :margin-top -200px
-  > ul.panes
-    :height 200px
-    +grid-container
-    > li
-      :color #fff
-      > ul
-        > li
-          +grid(2, 12)
+  :margin-top -250px
+  > div
+    > ul.panes
+      :background-color= !color_nav_link_bg
+      :max-height 250px
+      :height 250px
+      :background-color rgba(0, 0, 0, 0.7)
+      > li
+        :color #fff
+        > ul
+          +grid-container
+          > li
+            +grid(4, 16)
+            :background-color rgba(255, 255, 255, 0.1)
+            :padding 10px
+            +border-bottom-left-radius(10px)
+            +border-bottom-right-radius(10px)
+            h1
+              :font-size 1.6em
+              :text-shadow 0px 1px 1px #000
+              :color #fde310
+            p
+              :font-size 0.8em
+              :margin-bottom 0.6em
+              :color #b5b5b5
+              :color rgba(255, 255, 255, 0.8)
   > div.handle
     :background= !color_nav_bg_rgba !url_nav_bg "repeat-x scroll 0 0"
     :min-height 38px
