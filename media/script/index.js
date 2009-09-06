@@ -5,7 +5,9 @@
         var elements = {
             body: jQuery('body')
         },
-        colors = ["#0c50dc",
+        colors = [
+                "#362d1d",
+                "#0c50dc",
                 "#7cb306",
                 "#800080",
                 "#602414",
@@ -41,7 +43,7 @@
                 backgroundColor: c[Math.floor(Math.random() * c.length)]
             }, 2000);
         }
-        setInterval(cycleBackgroundColor, 6000);
+        setInterval(cycleBackgroundColor, 3000);
     });
 
 })(jQuery);
