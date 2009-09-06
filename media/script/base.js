@@ -49,10 +49,15 @@
         /**
          * Set the nav element to slide out and back in.
          */
-        elements.nav.hover(function(){
-            elements.nav.animate({marginTop: "0px"}, 800, "easeInOutQuint");
-        }, function(){
-            elements.nav.animate({marginTop: "-200px"}, 800, "easeInOutQuint");
+        elements.nav.hoverIntent({
+            sensitivity: 7,
+            interval: 100,
+            over: function(){
+                elements.nav.animate({marginTop: "0px"}, 800, "easeInOutQuint");
+            },
+            out: function(){
+                elements.nav.animate({marginTop: "-200px"}, 600, "easeInOutQuint");
+            }
         });
     });
 
