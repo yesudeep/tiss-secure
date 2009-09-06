@@ -4,7 +4,9 @@
 
         var elements = {
             body: jQuery('body'),
-            nav: jQuery('nav')
+            nav: jQuery('nav'),
+            nav_tabs: jQuery('nav > div.handle > div > ul'),
+            nav_panes: jQuery('nav > ul.panes')
         },
         colors = [
                 "#362d1d",
@@ -49,15 +51,20 @@
         /**
          * Set the nav element to slide out and back in.
          */
-        elements.nav.hoverIntent({
-            sensitivity: 7,
-            interval: 100,
-            over: function(){
-                elements.nav.animate({marginTop: "0px"}, 800, "easeInOutQuint");
-            },
-            out: function(){
-                elements.nav.animate({marginTop: "-200px"}, 600, "easeInOutQuint");
-            }
+        elements.nav.hoverIntent(function(){
+            elements.nav.stop().animate({marginTop: "0px"}, 800, "easeInOutQuint");
+        },
+        function(){
+            elements.nav.stop().animate({marginTop: "-200px"}, 600, "easeInOutQuint");
+        });
+
+        elements.nav_tabs.click(function(event){
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
+        }).tabs('nav > ul.panes > li', {
+            event: 'mouseover',
+            effect: 'fade'
         });
     });
 
