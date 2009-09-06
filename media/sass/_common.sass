@@ -1,0 +1,163 @@
+!color_awesome_green = #91bd09
+!color_awesome_green_dark = #749a02
+!color_awesome_leaf_green = #00a064
+!color_awesome_leaf_green_dark = #00893d
+!color_awesome_blue = #2daebf
+!color_awesome_blue_dark = #007d9a
+!color_awesome_red = #e33100
+!color_awesome_red_dark = #872300
+!color_awesome_magenta = #a9014b
+!color_awesome_magenta_dark = #630030
+!color_awesome_orange = #ff5c00
+!color_awesome_orange_dark = #d45500
+!color_awesome_yellow = #ffb515
+!color_awesome_yellow_dark = #fc9200
+
+!font_stack_georgia = "Georgia", "Constantia", "Lucida Bright", "Lucidabright", "Lucida Serif", "Lucida", "DejaVu Serif," "Bitstream Vera Serif", "Liberation Serif", "serif"
+!font_stack_times = "Cambria", "Hoefler Text", "Utopia", "Liberation Serif", "Nimbus Roman No9 L Regular", "Times", "Times New Roman", "serif"
+!font_stack_garamond = "Palatino Linotype", "Palatino", "Palladio", "URW Palladio L", "Book Antiqua", "Baskerville", "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", "Garamond", "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", "Georgia", "serif"
+!font_stack_helvetica = "Calibri", "Helvetica Neue", "Helvetica", "Frutiger", "Frutiger Linotype", "Univers", "Gill Sans", "Gill Sans MT", "Myriad Pro", "Myriad", "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Tahoma", "Geneva", "Arial", "sans-serif"
+!font_stack_verdana = "Corbel", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", "Verdana", "Verdana Ref", "sans-serif"
+!font_stack_trebuchet = "Segoe UI", "Candara", "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", "Verdana", "Verdana Ref", "sans-serif"
+!font_stack_impact = "Impact", "Haettenschweiler", "Franklin Gothic Bold", "Charcoal", "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", "sans-serif"
+!font_stack_monospace = "Consolas", "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Monaco", "Courier New", "Courier", "monospace"
+
+!tab_border_radius = 10px
+
+!image_button_overlay = url("../image/background/button_overlay.png")
+
+// Border radius mixins to ease repeating proprietary extensions.
+=border-radius(!radius)
+    -moz-border-radius= !radius
+    -webkit-border-radius= !radius
+
+=border-top-right-radius(!radius)
+    -moz-border-radius-topright= !radius
+    -webkit-border-top-right-radius= !radius
+
+=border-top-left-radius(!radius)
+    -moz-border-radius-topleft= !radius
+    -webkit-border-top-left-radius= !radius
+
+=border-bottom-left-radius(!radius)
+    -moz-border-radius-bottomleft= !radius
+    -webkit-border-bottom-left-radius= !radius
+
+=border-bottom-right-radius(!radius)
+    -moz-border-radius-bottomright= !radius
+    -webkit-border-bottom-right-radius= !radius
+
+=box-shadow(!value)
+    -moz-box-shadow= !value
+    -webkit-box-shadow= !value
+
+// http://foohack.com/2007/11/cross-browser-support-for-inline-block-styling/
+=display-inline-block()
+    :display -moz-inline-block
+    :display inline-block
+    *display: inline
+    :zoom 1
+
+=awesome-stuff(!background_color=#222, !padding=8px 10px)
+    :background= !background_color !image_button_overlay
+    :text-shadow 0 1px 1px rgba(0, 0, 0, .4)
+    :text-decoration none
+    :padding= !padding
+    :cursor pointer
+    :font-family= !font_sans_serif
+    :font-weight bold
+    :line-height 1
+    :color white
+    //+display-inline-block
+
+=awesome-button(!background_color=#222, !padding=5px 10px, !radius=5px)
+    +awesome-stuff(!background_color, !padding)
+    //+box-shadow(0 1px 3px "rgba(0, 0, 0, 0.5)")
+    :border 0
+    :border-bottom 1px solid rgba(0, 0, 0, .4)
+    +border-radius(!radius)
+    :font-size 0.9em
+
+=awesome-top-tab(!background_color=#222, !padding=8px 10px, !radius=10px)
+    +awesome-stuff(!background_color, !padding)
+    +border-top-left-radius(!radius)
+    +border-top-right-radius(!radius)
+
+=accordion-magic()
+    >li
+        >h1:before
+            :content ''
+=accordion-styles()
+    :margin-top 10px
+    :margin-bottom 10px
+    >li:nth-child(2n)
+        :background-color #f1f1f1
+    >li:nth-child(2n):hover, > li.active:nth-child(2n)
+        :background-color white
+    >li
+        // We're setting least margin here to avoid usability issues.
+        // Negative margin creates a "depth" overlapping effect.
+        :margin-top -2px
+        :background-color white
+        :cursor default
+        :border-top 1px solid #efefef
+        +border-radius(10px)
+        //+box-shadow(0px 0px 4px rgba(0, 0, 0, 0.4))
+        > div
+            :padding 10px 10px 20px 10px
+            :min-height 150px
+        > h1
+            :border 0
+            :font-family= !font_serif
+            :font-size 1em
+            :font-weight normal
+            :padding 10px
+            :cursor pointer
+            :color black
+            :text-shadow 0 1px 1px rgba(255, 255, 255, 0.9)
+            +border-radius(10px)
+    >li:hover, > li.active
+        :border-top 0px
+        > h1
+            :font-family= !font_sans_serif
+            :letter-spacing -0.03em
+            :background= !color_awesome_magenta !image_button_overlay "repeat-x scroll 0 0"
+            :color white
+            :text-shadow 0 1px 1px rgba(0, 0, 0, 0.4)
+            :font-size 1.4em
+    >li.active
+        >h1
+            +border-bottom-left-radius(0px)
+            +border-bottom-right-radius(0px)
+
+=accordion-behavior()
+    >li
+        >div
+            :display none
+    //>li:hover, >li.active
+    >li.active
+        >div
+            :display block
+
+=accordion()
+    +accordion-behavior
+    +accordion-styles
+    +accordion-magic
+
+=image-link(!width, !height, !background)
+    :display block
+    :background= !background
+    :width= !width
+    :height= !height
+
+=opacity(!value)
+    :filter= "alpha(opacity=" !value * 100 ")"
+    :-moz-opacity= !value
+    :-html-opacity= !value
+    :opacity= !value
+
+=min-height(!value)
+    :min-height= !value
+    :height "auto !important"
+    :height= !value
+
