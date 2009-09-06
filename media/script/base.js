@@ -63,8 +63,7 @@
             event.stopPropagation();
             return false;
         }).tabs('nav > ul.panes > li', {
-            event: 'mouseover',
-            effect: 'fade'
+            event: 'mouseover'
         });
     });
 
