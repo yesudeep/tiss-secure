@@ -6,6 +6,9 @@
             body: jQuery('body')
         };
 
+        /**
+         * Cycles the background color
+         */
         function cycleBackgroundColor(){
             var colors = ["#0c50dc",
                 "#7cb306",
@@ -33,14 +36,10 @@
                 "#2f4385",
                 "#5c3c0f"
                 ];
-            var index = Math.floor(Math.random() * colors.length);
-            console.log(index);
-            var color = colors[index];
-            console.log("changing color to: " + color);
-            elements.body.animate({backgroundColor: color}, 2000);
-            console.log("changing color");
+            elements.body.animate({
+                backgroundColor: colors[Math.floor(Math.random() * colors.length)]
+            }, 2000);
         }
-
         setInterval(cycleBackgroundColor, 6000);
     });
 
