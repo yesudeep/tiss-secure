@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 
 {% block tag_header %}
+<header>
+    <div>
+        <ul>
+            <li><img src="{{ MEDIA_URL }}image/logo_shield.png" width="96px" height="120px" /></li>
+            <li><img src="{{ MEDIA_URL }}image/logo_text.png" width="473px" height="120px" /></li>
+        </ul>
+    </div>
+</header>
 <nav>
     <div>
         <ul class="panes">
@@ -115,9 +123,6 @@
         </ul>
 </div></div>
 </nav>
-<header>
-
-</header>
 {% endblock %}
 
 {% block tag_trunk %}

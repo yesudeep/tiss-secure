@@ -52,10 +52,10 @@
          * Set the nav element to slide out and back in.
          */
         elements.nav.hoverIntent(function(){
-            elements.nav.stop().animate({marginTop: "0px"}, 800, "easeInOutQuint");
+            elements.nav.stop().animate({top: "0px"}, 800, "easeInOutQuint");
         },
         function(){
-            elements.nav.stop().animate({marginTop: "-250px"}, 600, "easeInOutQuint");
+            elements.nav.stop().animate({top: "-250px"}, 600, "easeInOutQuint");
         });
 
         elements.nav_tabs.click(function(event){
