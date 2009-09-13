@@ -25,8 +25,7 @@ IMAGE_FILES = Split("""
     image/logo_small.png
     image/logo_small_stroked.png
     image/background/overlay_black.png
-    image/logo_shield.png
-    image/logo_text.png
+    image/background/separator.png
 """)
 
 CSS_FILES = Split("""

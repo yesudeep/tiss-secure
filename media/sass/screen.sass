@@ -79,17 +79,19 @@ nav
             :background-color= !color_nav_link_hover_bg
             :background-color= !color_nav_link_hover_bg_rgba
 
-header
-  +grid-container
+section
   :background= "transparent" !url_header_bg "no-repeat scroll 0 0"
+  +grid-container
   :min-height 400px
-  >div
-    :padding-top 60px
-    >ul
-      >li
-        +display-inline-block
-        :margin-right 10px
-        :height 120px
+  >header
+    >div
+      :padding-top 80px
+#separator
+  :background= transparent url("../image/background/separator.png") repeat-x scroll 0 0
+  :height 120px
+  :width 100%
+  :position absolute
+  :top 392px    
 
 
 #home
