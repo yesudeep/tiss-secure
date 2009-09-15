@@ -6,6 +6,11 @@ body
 
 a
   :text-decoration none
+  :color #222
+  
+a:hover
+  :color #efefef
+  :background-color #222
 
 
 //nav:hover
@@ -13,7 +18,17 @@ a
 h1
   :font-family= !font_stack_georgia
   :font-weight normal
+  :line-height 1.5
+  :font-size 2.2em
+  :color rgba(100, 0, 0, 0.8)
+  :text-shadow 2px 2px 2px #fff
+h2
+  :font-family= !font_stack_helvetica
+  :font-weight bold
   :line-height 1.4
+  :font-size 1.2em
+  :color rgba(139, 11, 0, 0.8)
+  :text-shadow 1px 1px 2px #fff
 p
   :font-weight normal
 
@@ -21,13 +36,13 @@ nav
   :overflow hidden
   :position fixed
   :width 100%
-  :top -250px
+  :top -200px
   //:margin-top -250px
   > div
     > ul.panes
       :background-color= !color_nav_link_bg
-      :max-height 250px
-      :height 250px
+      :max-height 200px
+      :height 200px
       :background-color rgba(0, 0, 0, 0.93)
       > li
         :display none
@@ -86,7 +101,100 @@ section
   :min-height 400px
   >header
     >div
-      :padding-top 80px
+      :padding 80px 0px 60px 0px
+  article
+    :width 80%
+    :height 475px
+    :margin 0px auto
+    :background-color rgba(255, 255, 255, 0.65)
+    +border-radius(10px)
+    :border 1px solid #ffffff
+
+
+.scroll_tabs
+  :margin-left 120px
+  >li
+    +display-inline-block
+    :padding 20px
+    >a
+      :color white
+      :font-weight bold
+      :font-family Lucida Grande, Helvetica Nue
+      +awesome-button(!color_awesome_gray_dark, 5px 10px, 25px)
+    a:hover
+      +awesome-button(!color_awesome_gray, 5px 10px, 25px)
+    a.active:hover
+      +awesome-button(!color_awesome_red, 5px 10px, 25px)
+    a.active
+      +awesome-button(!color_awesome_red_dark, 5px 10px, 25px)
+  
+.scroll_panes
+  :position relative
+  :clear both
+  :overflow hidden
+  .scroll_items
+    :width 20000em
+    :clear both
+    :margin 0
+    :padding 0 
+    div
+      :float left
+      :display block
+      :width 650px
+      :padding 0px 60px
+#our_recruiters
+  ul
+    li
+      +display-inline-block
+      :margin 0px 15px 0px 0px
+      :max-width 140px
+      :height 162px
+      :background transparent url("../image/img_shadow.png") scroll no-repeat bottom left
+      span
+        :display block
+        :width 120px
+        :height 140px
+        :border-left 10px solid white
+        :border-right 10px solid white
+      
+        :background white url("../image/recruiter_logos.jpg") scroll no-repeat 0 0
+      span#accenture
+        :background-position 0px 0px
+      span#asianpaints
+        :background-position -120px 0px
+      span#astrazeneca
+        :background-position -240px 0px
+      span#bennettcoleman
+        :background-position -360px 0px
+      span#bpcl
+        :background-position -480px 0px
+      span#cadbury
+        :background-position -600px 0px
+      span#citibank
+        :background-position -720px 0px
+      span#cocacola
+        :background-position -840px 0px
+#how_to_join
+  ul
+    li
+      :width 200px
+      +display-inline-block
+      :padding 8px
+      h1
+        :font-size 6.2em
+        :line-height 1.1
+        //:text-align center
+        //:color #5E2612
+      h2
+        //:text-align center
+        :font-size 2em
+        //:color #8B2500
+      p
+        :color #222
+        :font-size 0.9em
+        :line-height 1.4em
+        :padding-right 20px
+        //:font-family Lucida Grande Helvetica Nue
 #separator
   :background= transparent url("../image/background/separator.png") repeat-x scroll 0 0
   :height 120px

@@ -12,6 +12,9 @@
 !color_awesome_orange_dark = #d45500
 !color_awesome_yellow = #ffb515
 !color_awesome_yellow_dark = #fc9200
+!color_awesome_gray_dark = #6b6b6b
+!color_awesome_silver = #efefef
+!color_awesome_gray = #9e9e9e
 
 !font_stack_georgia = "Georgia", "Constantia", "Lucida Bright", "Lucidabright", "Lucida Serif", "Lucida", "DejaVu Serif," "Bitstream Vera Serif", "Liberation Serif", "serif"
 !font_stack_times = "Cambria", "Hoefler Text", "Utopia", "Liberation Serif", "Nimbus Roman No9 L Regular", "Times", "Times New Roman", "serif"
@@ -24,7 +27,7 @@
 
 !tab_border_radius = 10px
 
-!image_button_overlay = url("../image/background/button_overlay.png")
+//!image_button_overlay = url("../image/background/button_overlay.png")
 
 // Border radius mixins to ease repeating proprietary extensions.
 =border-radius(!radius)
@@ -59,12 +62,12 @@
     :zoom 1
 
 =awesome-stuff(!background_color=#222, !padding=8px 10px)
-    :background= !background_color !image_button_overlay
+    :background= !background_color 
     :text-shadow 0 1px 1px rgba(0, 0, 0, .4)
     :text-decoration none
     :padding= !padding
     :cursor pointer
-    :font-family= !font_sans_serif
+    //:font-family= !font_sans_serif
     :font-weight bold
     :line-height 1
     :color white
@@ -76,7 +79,7 @@
     :border 0
     :border-bottom 1px solid rgba(0, 0, 0, .4)
     +border-radius(!radius)
-    :font-size 0.9em
+    :font-size 1em
 
 =awesome-top-tab(!background_color=#222, !padding=8px 10px, !radius=10px)
     +awesome-stuff(!background_color, !padding)

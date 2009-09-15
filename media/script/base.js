@@ -55,7 +55,7 @@
             elements.nav.stop().animate({top: "0px"}, 800, "easeInOutQuint");
         },
         function(){
-            elements.nav.stop().animate({top: "-250px"}, 600, "easeInOutQuint");
+            elements.nav.stop().animate({top: "-200px"}, 600, "easeInOutQuint");
         });
 
         elements.nav_tabs.click(function(event){
@@ -64,6 +64,11 @@
             return false;
         }).tabs('nav > div > ul.panes > li', {
             event: 'mouseover'
+        });
+        jQuery(".scroll_panes").scrollable({size: 1}).navigator({
+            navi: ".scroll_tabs",
+            navItem: 'a',
+            activeClass: 'active'
         });
     });
 
