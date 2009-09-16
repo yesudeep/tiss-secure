@@ -7,6 +7,7 @@
             nav: jQuery('nav'),
             nav_tabs: jQuery('nav > div.handle > div > ul'),
             nav_panes: jQuery('nav > div > ul.panes')
+            
         },
         colors = [
                 "#362d1d",
@@ -65,11 +66,14 @@
         }).tabs('nav > div > ul.panes > li', {
             event: 'mouseover'
         });
-        jQuery(".scroll_panes").scrollable({size: 1}).navigator({
+        jQuery(".scroll_tabs").tabs(".scroll_panes > div.scroll_items > div", {
+          effect: 'fade'
+        });
+        /*jQuery(".scroll_panes").scrollable({size: 1}).navigator({
             navi: ".scroll_tabs",
             navItem: 'a',
             activeClass: 'active'
-        });
+        });*/
     });
 
 })(jQuery);
