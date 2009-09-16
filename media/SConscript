@@ -28,7 +28,8 @@ IMAGE_FILES = Split("""
     image/background/overlay_black.png
     image/background/separator.png
     image/img_shadow.png
-    image/recruiters1.png
+    image/background/footer.png
+    
     
    
 """)
