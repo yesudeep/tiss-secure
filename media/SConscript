@@ -29,9 +29,7 @@ IMAGE_FILES = Split("""
     image/background/separator.png
     image/img_shadow.png
     image/background/footer.png
-    
-    
-   
+    image/contact_us.png
 """)
 
 CSS_FILES = Split("""

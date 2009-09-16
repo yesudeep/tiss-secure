@@ -36,6 +36,7 @@ nav
   :position fixed
   :width 100%
   :top -200px
+  :z-index 20000
   //:margin-top -250px
   > div
     > ul.panes
@@ -228,8 +229,10 @@ footer
     +grid-container
     
 #menu
-  :padding 15px
+  //:padding 15px
   :overflow auto
+  :width 720px
+  :float left
   li
     :float left
     //+display-inline-block
@@ -260,3 +263,14 @@ footer
     +border-radius(25px)
     :padding 4px 10px
     :color #555
+#contact_us
+  :width 128px
+  :height 128px
+  :float right
+  a
+    :background= "transparent" !url_contact_us "no-repeat scroll 0 0" 
+    :display block
+    :width 128px
+    :height 128px
+    :margin-right 65px
+    :float right
