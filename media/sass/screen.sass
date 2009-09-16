@@ -9,10 +9,9 @@ a
   :color #222
   
 a:hover
-  :color #efefef
-  :background-color #222
-
-
+  :color #000
+  //:font-weight bold
+  
 //nav:hover
   :margin-top 0px
 h1
@@ -103,13 +102,23 @@ section
     >div
       :padding 80px 0px 60px 0px
   article
-    :width 80%
-    :height 475px
-    :margin 0px auto
+    :margin 0px auto 20px auto
     :background-color rgba(255, 255, 255, 0.65)
     +border-radius(10px)
     :border 1px solid #ffffff
-
+    :width 80%
+  article#trunk
+    :height 475px
+    
+#news_ticker
+  p
+    :padding 5px 15px
+    :font-size 0.9em   
+    a#news_headline
+      :font-weight bold
+      :margin-right 10px 
+    a#news_item
+      :margin-left 10px 
 
 .scroll_tabs
   :margin-left 120px
@@ -150,7 +159,7 @@ section
       :max-width 140px
       :height 162px
       :background transparent url("../image/img_shadow.png") scroll no-repeat bottom left
-      span
+      a
         :display block
         :width 120px
         :height 140px
@@ -158,21 +167,21 @@ section
         :border-right 10px solid white
       
         :background white url("../image/recruiter_logos.jpg") scroll no-repeat 0 0
-      span#accenture
+      #accenture
         :background-position 0px 0px
-      span#asianpaints
+      #asianpaints
         :background-position -120px 0px
-      span#astrazeneca
+      #astrazeneca
         :background-position -240px 0px
-      span#bennettcoleman
+      #bennettcoleman
         :background-position -360px 0px
-      span#bpcl
+      #bpcl
         :background-position -480px 0px
-      span#cadbury
+      #cadbury
         :background-position -600px 0px
-      span#citibank
+      #citibank
         :background-position -720px 0px
-      span#cocacola
+      #cocacola
         :background-position -840px 0px
 #how_to_join
   ul
