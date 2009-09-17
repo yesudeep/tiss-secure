@@ -67,7 +67,10 @@
             event: 'mouseover'
         });
         jQuery(".flow_tabs").tabs(".flow_panes > div.flow_items > div", {
-          effect: 'fade'
+          onBeforeClick: function() {
+            this.getCurrentPane().addClass("current");
+          },
+          effect: 'fade',
         });
         
     });
