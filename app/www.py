@@ -17,9 +17,15 @@ class RecruitersPage(webapp.RequestHandler):
         response = render_template('recruiters.html')
         self.response.out.write(response)
         
+class ContactUsPage(webapp.RequestHandler):
+    def get(self):
+        response = render_template('contact_us.html')
+        self.response.out.write(response)
+        
 urls = (
     ('/', IndexHandler),
-    ('/placements/recruiters/?', RecruitersPage)
+    ('/placements/recruiters/?', RecruitersPage),
+    ('/contactus/?', ContactUsPage)
 )
 
 application = webapp.WSGIApplication(urls, debug=config.DEBUG)
