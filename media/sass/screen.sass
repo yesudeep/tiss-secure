@@ -6,11 +6,12 @@ body
 
 a
   :text-decoration none
-  :color #222
+  :color #5a0000
   
 a:hover
-  :color #000
+  :color #880000
   //:font-weight bold
+  :text-decoration underline
   
 //nav:hover
   :margin-top 0px
@@ -149,9 +150,9 @@ section
       +awesome-button(!color_awesome_gray_dark, 5px 10px, 25px)
     a:hover
       +awesome-button(!color_awesome_gray, 5px 10px, 25px)
-    a.active:hover
+    a.current:hover
       +awesome-button(!color_awesome_red, 5px 10px, 25px)
-    a.active
+    a.current
       +awesome-button(!color_awesome_red_dark, 5px 10px, 25px)
   
 .flow_panes
@@ -292,6 +293,7 @@ section
       :width 200px
       +display-inline-block
       :padding 8px
+      :vertical-align top
       h1
         :font-size 6.2em
         :line-height 1.1
