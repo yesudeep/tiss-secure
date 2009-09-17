@@ -77,3 +77,13 @@
   </article>
 </section>
 {% endblock %}
+
+{% block tag_scripts %}
+<script type="text/javascript">
+    window.scripts.push(
+            "{{ MEDIA_URL }}script/lib/page/index{{ MINIFIED }}.js",
+            "{{ MEDIA_URL }}script/recruiters.js"
+            //"{{ MEDIA_URL }}script/index{{ MINIFIED }}.js"
+            );
+</script>
+{% endblock %}

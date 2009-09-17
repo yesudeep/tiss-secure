@@ -69,10 +69,7 @@
         jQuery(".flow_tabs").tabs(".flow_panes > div.flow_items > div", {
           effect: 'fade'
         });
-        jQuery("#chained").scrollable({
-            size: 4
         
-        });
     });
 
 })(jQuery);
