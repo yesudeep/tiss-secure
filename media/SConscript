@@ -30,10 +30,16 @@ IMAGE_FILES = Split("""
     image/img_shadow.png
     image/background/footer.png
     image/contact_us.png
+    
+    image/facebox/loading.gif
+    image/facebox/fbx-border-sprite.png
+    image/facebox/b.png
+    image/facebox/closelabel.gif
 """)
 
 CSS_FILES = Split("""
     css/screen.css
+    css/facebox/facebox.css
 """)
 
 # Do not include IMAGE files in here.
@@ -89,6 +95,55 @@ stitched_images = [
                 image/edited_logos/cadbury.jpg
                 image/edited_logos/citibank.jpg
                 image/edited_logos/cocacola.jpg
+                
+                image/edited_logos/colgatepalmolive.jpg
+                image/edited_logos/countrywidefinances.jpg
+                image/edited_logos/deutschbank.jpg
+                image/edited_logos/drreddy.jpg
+                image/edited_logos/ernstyoung.jpg
+                image/edited_logos/fidelity.jpg
+                image/edited_logos/firstsource.jpg
+                image/edited_logos/geshipping.jpg
+                
+                image/edited_logos/google.jpg
+                image/edited_logos/hindustanunilever.jpg
+                image/edited_logos/honeywell.jpg
+                image/edited_logos/hpcl.jpg
+                image/edited_logos/hsbc.jpg
+                image/edited_logos/ibm.jpg
+                image/edited_logos/iciciprudentials.jpg
+                image/edited_logos/intel.jpg
+                
+                image/edited_logos/johnsonandjohnson.jpg
+                image/edited_logos/jpmorganchase.jpg
+                image/edited_logos/kpmg.jpg
+                image/edited_logos/mahindra.jpg
+                image/edited_logos/mercer.jpg
+                image/edited_logos/marico.jpg
+                image/edited_logos/microsoft.jpg
+                image/edited_logos/motorola.jpg
+
+                image/edited_logos/nestle.jpg
+                image/edited_logos/nokia.jpg
+                image/edited_logos/novartis.jpg
+                image/edited_logos/oracle.jpg
+                image/edited_logos/patni.jpg
+                image/edited_logos/pepsi.jpg
+                image/edited_logos/pfizer.jpg
+                image/edited_logos/procterandgamble.jpg
+                
+                image/edited_logos/pwc.jpg
+                image/edited_logos/ranbaxy.jpg
+                image/edited_logos/rpg.jpg
+                image/edited_logos/sap.jpg
+                image/edited_logos/siemensindia.jpg
+                image/edited_logos/standardchartered.jpg
+                image/edited_logos/sterlite.jpg
+                image/edited_logos/taj.jpg
+                
+                image/edited_logos/tata.jpg
+                image/edited_logos/wipro.jpg
+                image/edited_logos/yahoo.jpg
             """),
             orientation='horizontal'
             ),
@@ -128,6 +183,7 @@ LIB_INDEX_JS_FILES =  Split("""
     script/lib/chickoojs/src/jquery/tools/tools.tabs-1.0.1.js
     script/lib/chickoojs/src/jquery/easing/jquery.easing.1.3.js
     script/lib/chickoojs/src/jquery/hoverIntent/jquery.hoverIntent.js
+    script/lib/chickoojs/src/jquery/tools/scrollable/tools.scrollable-1.1.0.js
     script/base.js
 """)
 LIB_INDEX_JS_FILES = [SRC_DIR + f for f in LIB_INDEX_JS_FILES]

@@ -101,7 +101,9 @@ section
   :min-height 400px
   >header
     >div
-      :padding 80px 0px 60px 0px
+      :padding 80px 0px 40px 0px
+      >h1
+        
   article
     :margin 0px auto 20px auto
     :background-color rgba(255, 255, 255, 0.65)
@@ -121,7 +123,7 @@ section
     a#news_item
       :margin-left 10px 
 
-.scroll_tabs
+.flow_tabs
   :margin-left 120px
   >li
     +display-inline-block
@@ -138,11 +140,11 @@ section
     a.active
       +awesome-button(!color_awesome_red_dark, 5px 10px, 25px)
   
-.scroll_panes
+.flow_panes
   :position relative
   :clear both
   :overflow hidden
-  .scroll_items
+  .flow_items
     :width 20000em
     :clear both
     :margin 0
@@ -152,7 +154,7 @@ section
       :display block
       :width 650px
       :padding 0px 60px
-#our_recruiters
+.our_recruiters
   ul
     li
       +display-inline-block
@@ -162,28 +164,114 @@ section
       :background transparent url("../image/img_shadow.png") scroll no-repeat bottom left
       a
         :display block
-        :width 120px
+        :width 140px
         :height 140px
-        :border-left 10px solid white
-        :border-right 10px solid white
+        :border-left 0px solid white
+        :border-right 0px solid white
       
         :background white url("../image/recruiter_logos.jpg") scroll no-repeat 0 0
       #accenture
         :background-position 0px 0px
       #asianpaints
-        :background-position -120px 0px
+        :background-position -140px 0px
       #astrazeneca
-        :background-position -240px 0px
+        :background-position -280px 0px
       #bennettcoleman
-        :background-position -360px 0px
+        :background-position -420px 0px
       #bpcl
-        :background-position -480px 0px
+        :background-position -560px 0px
       #cadbury
-        :background-position -600px 0px
+        :background-position -700px 0px
       #citibank
-        :background-position -720px 0px
-      #cocacola
         :background-position -840px 0px
+      #cocacola
+        :background-position -980px 0px        
+      #colgatepalmolive
+        :background-position -1120px 0px
+      #countrywidefinances
+        :background-position -1260px 0px
+      #deutschbank
+        :background-position -1400px 0px
+      #drreddy
+        :background-position -1540px 0px
+      #ernstyoung
+        :background-position -1680px 0px
+      #fidelity
+        :background-position -1820px 0px
+      #firstsource
+        :background-position -1960px 0px
+      #geshipping
+        :background-position -2100px 0px
+      #google
+        :background-position -2240px 0px
+      #hindustanunilever
+        :background-position -2380px 0px
+      #honeywell
+        :background-position -2520px 0px
+      #hpcl
+        :background-position -2660px 0px
+      #hsbc
+        :background-position -2800px 0px
+      #ibm
+        :background-position -2940px 0px
+      #iciciprudentials
+        :background-position -3080px 0px        
+      #intel
+        :background-position -3220px 0px
+      #johnsonandjohnson
+        :background-position -3360px 0px
+      #jpmorganchase
+        :background-position -3500px 0px
+      #kpmg
+        :background-position -3640px 0px
+      #mahindra
+        :background-position -3780px 0px
+      #marico
+        :background-position -3920px 0px
+      #mercer
+        :background-position -4060px 0px
+      #microsoft
+        :background-position -4200px 0px
+      #motorola
+        :background-position -4340px 0px
+      #nestle
+        :background-position -4480px 0px
+      #nokia
+        :background-position -4620px 0px
+      #novartis
+        :background-position -4760px 0px
+      #oracle
+        :background-position -4900px 0px
+      #patni
+        :background-position -5040px 0px
+      #pepsi
+        :background-position -5180px 0px
+      #pfizer
+        :background-position -5320px 0px
+      #procterandgamble
+        :background-position -5460px 0px        
+      #pwc
+        :background-position -5600px 0px
+      #ranbaxy
+        :background-position -5740px 0px
+      #rpg
+        :background-position -5880px 0px
+      #sap
+        :background-position -6020px 0px
+      #siemensindia
+        :background-position -6160px 0px
+      #standardchartered
+        :background-position -6300px 0px
+      #sterlite
+        :background-position -6440px 0px
+      #taj
+        :background-position -6580px 0px
+      #tata
+        :background-position -6720px 0px
+      #wipro
+        :background-position -6860px 0px
+      #yahoo
+        :background-position -7000px 0px
 #how_to_join
   ul
     li
@@ -246,6 +334,7 @@ footer
     ul
       li
         :font-size 0.8em
+        :margin-top 5px
         a
           :color #a3a3a3
         a:hover
@@ -263,14 +352,42 @@ footer
     +border-radius(25px)
     :padding 4px 10px
     :color #555
+
 #contact_us
+  :background= "transparent" !url_contact_us "no-repeat scroll 0 0" 
+  :display block
   :width 128px
   :height 128px
+  :margin-right 105px
   :float right
-  a
-    :background= "transparent" !url_contact_us "no-repeat scroll 0 0" 
-    :display block
-    :width 128px
-    :height 128px
-    :margin-right 65px
-    :float right
+    
+    
+// Recruiters Page Scroll
+.browse
+  :float left
+  +awesome-button(!color_awesome_white, 5px 10px, 25px)
+  :font-size 28px
+  :height 32px
+  :color #a5a5a5
+  :margin-top -32px
+  
+.left
+  :position relative
+  :top 50%
+  :left -20px
+
+.right 
+  :position relative
+  :top 50%
+  :left 705px
+  
+.scrollable
+  :position relative
+  :overflow hidden
+  :width 620px
+  :margin 80px
+  :height 325px
+  .scrollable_items
+    :position absolute
+    :width 4050px    
+    

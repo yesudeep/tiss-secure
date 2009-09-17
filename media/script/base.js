@@ -66,14 +66,13 @@
         }).tabs('nav > div > ul.panes > li', {
             event: 'mouseover'
         });
-        jQuery(".scroll_tabs").tabs(".scroll_panes > div.scroll_items > div", {
+        jQuery(".flow_tabs").tabs(".flow_panes > div.flow_items > div", {
           effect: 'fade'
         });
-        /*jQuery(".scroll_panes").scrollable({size: 1}).navigator({
-            navi: ".scroll_tabs",
-            navItem: 'a',
-            activeClass: 'active'
-        });*/
+        jQuery("#chained").scrollable({
+            size: 4
+        
+        });
     });
 
 })(jQuery);

@@ -12,9 +12,14 @@ class IndexHandler(webapp.RequestHandler):
         response = render_template('index.html')
         self.response.out.write(response)
 
-
+class RecruitersPage(webapp.RequestHandler):
+    def get(self):
+        response = render_template('recruiters.html')
+        self.response.out.write(response)
+        
 urls = (
     ('/', IndexHandler),
+    ('/placements/recruiters/?', RecruitersPage)
 )
 
 application = webapp.WSGIApplication(urls, debug=config.DEBUG)
