@@ -9,18 +9,18 @@
     </div>
   </header>
   <article id="trunk">
-    <ul class="scroll_tabs">
+    <ul class="flow_tabs">
       <li><a href="#campus_tour">Campus Tour</a></li>
       <li><a href="#our_recruiters">Our Recruiters</a></li>
       <li><a href="#how_to_join">How to Join?</a></li>
     </ul>
-    <div class="scroll_panes">
-      <div class="scroll_items">
+    <div class="flow_panes">
+      <div class="flow_items">
         <div id="campus_tour">
           <h1>Green Campus. Clean Campus.</h1>
           <object width="650" height="350"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=6235286&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=6235286&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="650" height="350"></embed></object>
         </div>
-        <div id="our_recruiters">
+        <div class="our_recruiters">
           <h1>Some of our Recruiters</h1>
           <ul>
             <li><a href="http://www.accenture.com/" target="_blank" id="accenture"></a></li>
@@ -32,7 +32,7 @@
             <li><a href="http://www.citibank.com/us/home.htm" target="_blank" id="citibank"></a></li>
             <li><a href="http://www.coca-cola.com/index.jsp" target="_blank" id="cocacola"></a></li>
           </ul>
-          <a href="#">more..</a>
+          <a href="/placements/recruiters">more..</a>
         </div>
         <div id="how_to_join">
           <h1>Be a part of TISS in just 3 easy steps</h1>
@@ -70,12 +70,4 @@
 <!--div id="separator"></div-->
 {% endblock %}
 
-{% block tag_scripts %}
-<script type="text/javascript">
-    window.scripts.push(
-            "{{ MEDIA_URL }}script/lib/page/index{{ MINIFIED }}.js"
-            //"{{ MEDIA_URL }}script/index{{ MINIFIED }}.js"
-            );
-</script>
-{% endblock %}
 
