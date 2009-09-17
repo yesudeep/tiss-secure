@@ -31,15 +31,10 @@ IMAGE_FILES = Split("""
     image/background/footer.png
     image/contact_us.png
     
-    image/facebox/loading.gif
-    image/facebox/fbx-border-sprite.png
-    image/facebox/b.png
-    image/facebox/closelabel.gif
 """)
 
 CSS_FILES = Split("""
     css/screen.css
-    css/facebox/facebox.css
 """)
 
 # Do not include IMAGE files in here.
@@ -118,8 +113,8 @@ stitched_images = [
                 image/edited_logos/jpmorganchase.jpg
                 image/edited_logos/kpmg.jpg
                 image/edited_logos/mahindra.jpg
-                image/edited_logos/mercer.jpg
                 image/edited_logos/marico.jpg
+                image/edited_logos/mercer.jpg
                 image/edited_logos/microsoft.jpg
                 image/edited_logos/motorola.jpg
 
@@ -185,6 +180,7 @@ LIB_INDEX_JS_FILES =  Split("""
     script/lib/chickoojs/src/jquery/hoverIntent/jquery.hoverIntent.js
     script/lib/chickoojs/src/jquery/tools/scrollable/tools.scrollable-1.1.0.js
     script/base.js
+    script/recruiters.js
 """)
 LIB_INDEX_JS_FILES = [SRC_DIR + f for f in LIB_INDEX_JS_FILES]
 lib_index_js = env.Concatenate([DEST_DIR + 'script/lib/page/index.js'], LIB_INDEX_JS_FILES)
