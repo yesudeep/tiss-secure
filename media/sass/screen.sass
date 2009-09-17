@@ -18,7 +18,7 @@ h1
   :font-family= !font_stack_georgia
   :font-weight normal
   :line-height 1.5
-  :font-size 2.2em
+  :font-size 2.4em
   :color rgba(100, 0, 0, 0.8)
   :text-shadow 2px 2px 2px #fff
 h2
@@ -103,6 +103,20 @@ section
     >div
       :padding 80px 0px 40px 0px
       >h1
+        :color #f8e430
+        :text-shadow none
+        :font-weight bold
+        :font-family= !font_stack_verdana
+        :letter-spacing -0.05em
+        :line-height 1.4em
+        >span
+          :color white
+          :font-size 1.8em
+          :letter-spacing -0.08em
+          //:text-shadow none
+          :display block
+          :font-family= !font_stack_verdana
+          :font-weight normal
         
   article
     :margin 0px auto 20px auto
@@ -294,12 +308,11 @@ section
         :padding-right 20px
         //:font-family Lucida Grande Helvetica Nue
 #separator
-  :background= transparent url("../image/background/separator.png") repeat-x scroll 0 0
+  :background= "transparent" url("../image/background/separator.png") "repeat-x scroll 0 0"
   :height 120px
   :width 100%
   :position absolute
   :top 392px    
-
 
 #home
   :background= "transparent" !url_logo_small "no-repeat scroll 0 0"
@@ -362,7 +375,7 @@ footer
   :float right
     
     
-// Recruiters Page Scroll
+// Recruiters Page Scroll //
 .browse
   :float left
   +awesome-button(!color_awesome_white, 5px 10px, 25px)
@@ -389,5 +402,18 @@ footer
   :height 325px
   .scrollable_items
     :position absolute
-    :width 4050px    
-    
+    :width 4050px
+
+// Contact us Page //        
+#contactus_form
+  :width 200px
+  :padding 20px
+  :margin 10px
+
+#address
+  :width 300px
+  :margin 5px
+  p
+    :margin 1em auto
+  a 
+    :text-decoration underline
