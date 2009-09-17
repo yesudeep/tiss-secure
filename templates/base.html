@@ -177,7 +177,7 @@
           <li>
             <h1>Placements</h1>
             <ul>
-              <li><a href="#">Recruiters</a></li>
+              <li><a href="/placements/recruiters">Recruiters</a></li>
               <li><a href="#">Reports</a></li>
               <li><a href="#">Student Profiles</a></li>
               <li><a href="#">Differential Learning</a></li>
@@ -206,4 +206,13 @@
     </footer>
     {% endblock %}
 {% endblock %}
+{% block tag_scripts %}
+<script type="text/javascript">
+    window.scripts.push(
+            "{{ MEDIA_URL }}script/lib/page/index{{ MINIFIED }}.js"
+            //"{{ MEDIA_URL }}script/index{{ MINIFIED }}.js"
+            );
+</script>
+{% endblock %}
+
 
