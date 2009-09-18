@@ -1,5 +1,29 @@
 @import base.sass
 
+=floated-list()
+  >li
+    +display-inline-block
+    :margin 0px 15px 0px 0px
+    :max-width 140px
+    :height 162px
+    :background transparent url("../image/img_shadow.png") scroll no-repeat bottom left
+    >a
+      :display block
+      :width 140px
+      :height 140px
+=tabs()
+  > li > a
+    +awesome-button()
+=panes()
+  > li
+    :display none
+
+.panes
+  +panes
+
+.tabs
+  +tabs
+
 body
   :background-color= !color_bg_purple
   :font-family= !font_stack_verdana
@@ -174,21 +198,12 @@ section
       :display block
       :width 650px
       :padding 0px 60px
+      
 .our_recruiters
   ul
+    +floated-list()
     li
-      +display-inline-block
-      :margin 0px 15px 0px 0px
-      :max-width 140px
-      :height 162px
-      :background transparent url("../image/img_shadow.png") scroll no-repeat bottom left
       a
-        :display block
-        :width 140px
-        :height 140px
-        :border-left 0px solid white
-        :border-right 0px solid white
-
         :background white url("../image/recruiter_logos.jpg") scroll no-repeat 0 0
       #accenture
         :background-position 0px 0px
