@@ -13,6 +13,7 @@ DEST_DIR = '../' + env['MEDIA_DEST_DIR'] + '/'
 
 SCRIPT_FILES = Split("""
     script/base.js
+    script/recruiters.js
     script/lib/chickoojs/src/jquery/color/jquery.color.js
     script/lib/chickoojs/src/jquery/tools/1.1.1/tools.tabs-1.0.3.js
     script/lib/chickoojs/src/jquery/tools/1.1.1/tools.scrollable-1.1.1.js
@@ -177,7 +178,7 @@ for f in minifiables(MINIFIABLE_FILES, NON_MINIFIABLE_FILES):
 #
 #script/lib/cufon/js/cufon.js
 #script/angelina_400.font.js
-LIB_INDEX_JS_FILES =  Split("""
+COMMON_JS_FILES =  Split("""
     script/lib/chickoojs/src/jquery/color/jquery.color.js
     script/lib/chickoojs/src/jquery/easing/jquery.easing.1.3.js
     script/lib/chickoojs/src/jquery/hoverIntent/jquery.hoverIntent.js
@@ -185,13 +186,12 @@ LIB_INDEX_JS_FILES =  Split("""
     script/lib/chickoojs/src/jquery/tools/1.1.1/tools.scrollable-1.1.1.js
     script/lib/chickoojs/src/jquery/tools/1.1.1/tools.scrollable.autoscroll-1.0.1.js
     script/lib/chickoojs/src/jquery/tools/1.1.1/tools.scrollable.circular-0.5.1.js
-    script/recruiters.js
     script/base.js
 """)
-LIB_INDEX_JS_FILES = [SRC_DIR + f for f in LIB_INDEX_JS_FILES]
-lib_index_js = env.Concatenate([DEST_DIR + 'script/lib/page/index.js'], LIB_INDEX_JS_FILES)
-env.YuiCompressorMinify(lib_index_js)
-env.JsminMinify(lib_index_js)
+COMMON_JS_FILES = [SRC_DIR + f for f in COMMON_JS_FILES]
+lib_common_js = env.Concatenate([DEST_DIR + 'script/common.js'], COMMON_JS_FILES)
+env.YuiCompressorMinify(lib_common_js)
+#env.JsminMinify(lib_common_js)
 
 # Include licenses.
 #c3 = env.Concatenate([DEST_DIR + 'script/lib/all-min.js'], [

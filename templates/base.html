@@ -12,7 +12,7 @@
     <!--[if IE 7]>
 	    <link rel="stylesheet" href="{{ MEDIA_URL }}css/ie7.css" type="text/css" media="screen" charset="utf-8" />
     <![endif]-->
-	<!--[if IE 8]>
+	  <!--[if IE 8]>
 	    <link rel="stylesheet" href="{{ MEDIA_URL }}css/ie8.css" type="text/css" media="screen" charset="utf-8" />
     <![endif]-->
     <!--[if lt IE 7]>
@@ -75,7 +75,7 @@
                 </ul>
             </li>
             <li id="pane_placements">
-                <ul> 
+                <ul>
                     <li>
                         <a href="/placements/recruiters"><h1>Recruiters</h1></a>
                         <p>Some of the esteemed companies that believe in us.</p>
@@ -113,7 +113,7 @@
                         <p>Industrial Relation</p>
                     </li>
                     <li>
-                        <h1>TRNDEV</h1> 
+                        <h1>TRNDEV</h1>
                         <p>Training & Development</p>
                     </li>
                     <li>
@@ -217,13 +217,11 @@
     </footer>
     {% endblock %}
 {% endblock %}
-{% block tag_scripts %}
+{% block tag_scripts_base %}
 <script type="text/javascript">
-    window.scripts.push(
-            "{{ MEDIA_URL }}script/lib/page/index{{ MINIFIED }}.js"
-            //"{{ MEDIA_URL }}script/index{{ MINIFIED }}.js"
-            );
+  window.scripts.push(
+    "{{ MEDIA_URL }}script/common{{ MINIFIED }}.js"
+  );
 </script>
 {% endblock %}
-
 

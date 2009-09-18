@@ -5,6 +5,7 @@ import configuration as config
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 
+from models import RECRUITERS_ID_URLS
 from utils import render_template, dec
 
 class IndexHandler(webapp.RequestHandler):
@@ -14,9 +15,9 @@ class IndexHandler(webapp.RequestHandler):
 
 class RecruitersPage(webapp.RequestHandler):
     def get(self):
-        response = render_template('recruiters.html')
+        response = render_template('recruiters.html', recruiters_list=RECRUITERS_ID_URLS)
         self.response.out.write(response)
-        
+
 class ContactUsPage(webapp.RequestHandler):
     def get(self):
         response = render_template('contact_us.html')
@@ -27,14 +28,13 @@ class AlumniPage(webapp.RequestHandler):
         response = render_template('achievements.html')
         self.response.out.write(response)
 
-
 urls = (
     ('/', IndexHandler),
     ('/placements/recruiters/?', RecruitersPage),
     ('/contactus/?', ContactUsPage),
-    
+
     ('/alumni/achievements/?', AlumniPage)
-    
+
 )
 
 application = webapp.WSGIApplication(urls, debug=config.DEBUG)
