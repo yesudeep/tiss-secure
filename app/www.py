@@ -38,7 +38,7 @@ class TrndevPage(webapp.RequestHandler):
     def get(self):
         response = render_template('trndev.html')
         self.response.out.write(response)
-        
+
 class CombenPage(webapp.RequestHandler):
     def get(self):
         response = render_template('comben.html')
@@ -48,30 +48,22 @@ class HipmsPage(webapp.RequestHandler):
     def get(self):
         response = render_template('hipms.html')
         self.response.out.write(response)
-        
+
 class OddevPage(webapp.RequestHandler):
     def get(self):
         response = render_template('oddev.html')
         self.response.out.write(response)
-=======
->>>>>>> 7aca7ca30465f0dba9c0ff2d650b4ec95ebf5de4:app/www.py
+
 urls = (
     ('/', IndexHandler),
     ('/placements/recruiters/?', RecruitersPage),
     ('/contactus/?', ContactUsPage),
-<<<<<<< HEAD:app/www.py
-    
     ('/alumni/achievements/?', AlumniPage),
     ('/forum/indrel/?', IndrelPage),
     ('/forum/trndev/?', TrndevPage),
     ('/forum/comben/?', CombenPage),
     ('/forum/hipms/?', HipmsPage),
     ('/forum/oddev/?', OddevPage)
-=======
-
-    ('/alumni/achievements/?', AlumniPage)
-
->>>>>>> 7aca7ca30465f0dba9c0ff2d650b4ec95ebf5de4:app/www.py
 )
 
 application = webapp.WSGIApplication(urls, debug=config.DEBUG)
