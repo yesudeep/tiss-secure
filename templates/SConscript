@@ -29,6 +29,15 @@ HTML_FILES = Split("""
     comben.html
     hipms.html
     oddev.html
+    admin/base.html
+    admin/index.html
+    admin/generic_list.html
+    admin/new_news.html
+    admin/edit_news.html
+    admin/edit.html
+    admin/new.html
+    admin/new_job.html
+    admin/edit_job.html
 """)
 
 TEMPLATE_FILES = HTML_FILES + Split("""

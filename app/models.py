@@ -1,12 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+
+import configuration as config
 from google.appengine.ext import db
 from google.appengine.api import memcache, users
+from util.db.models import RegularModel, Phone, PostalAddress, EmailAddress, ADDRESS_TYPES, EMAIL_TYPES, PHONE_TYPES
+import logging
 
-from util.db.models import RegularModel
+logging.basicConfig(level=logging.INFO)
 
 CACHE_TIMEOUT = 60 # seconds
+
+GENDER_CHOICES = (
+    'male',
+    'female'
+)
 
 RECRUITERS = {
     "asian-paints": {"name": "Asian Paints", "url": "http://asianpaints.com/"},
@@ -71,7 +80,11 @@ JOB_TYPE_DISPLAY_MAP = {
 JOB_TYPE_CHOICES = JOB_TYPE_DISPLAY_MAP.keys()
 JOB_TYPE_CHOICES.sort()
 JOB_TYPE_DISPLAY_LIST = [(k, v) for (k, v) in JOB_TYPE_DISPLAY_MAP.iteritems()]
+JOB_TYPE_DISPLAY_LIST.sort()
 
+logging.info(JOB_TYPE_DISPLAY_LIST)
+
+# Specific
 class Job(RegularModel):
     """
     Basic job model.
@@ -87,7 +100,7 @@ class Job(RegularModel):
     contact_phone = db.PhoneNumberProperty()
     industry = db.StringProperty()
 
-class NewsArticle(RegularModel):
+class News(RegularModel):
     """
     News articles that will be displayed in the news section.
     """
@@ -98,14 +111,45 @@ class NewsArticle(RegularModel):
 
     @classmethod
     def get_latest(cls, count=10):
-        cache_key = 'NewsArticle.get_latest(' + str(count) + ')'
+        cache_key = 'News.get_latest(' + str(count) + ')'
         latest_news = memcache.get(cache_key)
         if not latest_news:
-            latest_news = db.Query(NewsArticle) \
+            latest_news = db.Query(News) \
                 .order('-when_published') \
                 .filter('is_active =', True) \
                 .filter('is_deleted = ', False) \
                 .fetch(count)
             memcache.set(cache_key, latest_news, CACHE_TIMEOUT)
         return latest_news
+
+class Person(RegularModel):
+    user = db.UserProperty()
+    first_name = db.StringProperty()
+    last_name = db.StringProperty()
+    gender = db.StringProperty(choices=GENDER_CHOICES)
+    birthdate = db.DateTimeProperty()
+
+class PersonAddress(PostalAddress):
+    person = db.ReferenceProperty(Person, collection_name='addresses')
+
+class PersonPhone(Phone):
+    person = db.ReferenceProperty(Person, collection_name='phones')
+
+class PersonEmailAddress(EmailAddress):
+    person = db.ReferenceProperty(Person, collection_name='email_addresses')
+
+class WorkExperience(RegularModel):
+    company_name = db.StringProperty()
+    start_year = db.IntegerProperty()
+    end_year = db.IntegerProperty()
+    designation = db.StringProperty()
+    description = db.TextProperty()
+    person = db.ReferenceProperty(Person, collection_name='work_experiences')
+
+class Qualification(RegularModel):
+    school = db.StringProperty()
+    degree = db.StringProperty()
+    graduation_year = db.IntegerProperty()
+    decription = db.StringProperty()
+    person = db.ReferenceProperty(Person, collection_name='qualifications')
 
