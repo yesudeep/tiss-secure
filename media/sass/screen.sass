@@ -33,7 +33,7 @@ p
 
 iframe
   :margin 10px
-  
+
 nav
   :overflow hidden
   :position fixed
@@ -143,8 +143,7 @@ section
     a#news_item
       :margin-left 10px
 
-.flow_tabs
-  //:margin-left 150px
+#introduction_tabs
   >li
     +display-inline-block
     :padding 20px
@@ -160,21 +159,27 @@ section
     a.current
       +awesome-button(!color_awesome_red_dark, 5px 10px, 25px)
 
-.flow_panes
-  :position relative
-  :clear both
-  :overflow hidden
-  .flow_items
-    :width 20000em
-    :clear both
-    :margin 0
-    :padding 0
-    div
-      :float left
-      :display block
-      :width 650px
-      :padding 0px 60px
-.our_recruiters
+#introduction_panes
+  > li
+    :display none
+    :margin-left 20px
+
+//.flow_panes
+//  :position relative
+//  :clear both
+//  :overflow hidden
+//  .flow_items
+//    :width 20000px
+//    :clear both
+//    :margin 0
+//    :padding 0
+//    div
+//      :float left
+//      :display block
+//      :width 650px
+//      :padding 0px 60px
+
+#our_recruiters
   ul
     li
       +display-inline-block
