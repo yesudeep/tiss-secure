@@ -2,6 +2,11 @@
 # -*- coding: utf-8 -*-
 
 from google.appengine.ext import db
+from google.appengine.api import memcache, users
+
+from util.db.models import RegularModel
+
+CACHE_TIMEOUT = 60 # seconds
 
 RECRUITERS = {
     "asian-paints": {"name": "Asian Paints", "url": "http://asianpaints.com/"},
@@ -56,4 +61,51 @@ RECRUITERS = {
     "yahoo": {"name": "Yahoo! Inc.", "url": "http://www.yahoo.com/"},
 }
 RECRUITERS_ID_URLS = [(identifier, val["url"]) for identifier, val in RECRUITERS.iteritems()]
+
+
+JOB_TYPE_DISPLAY_MAP = {
+    'part_time': 'Part-Time',
+    'permanent': 'Permanent',
+    'contract': 'Contract',
+}
+JOB_TYPE_CHOICES = JOB_TYPE_DISPLAY_MAP.keys()
+JOB_TYPE_CHOICES.sort()
+JOB_TYPE_DISPLAY_LIST = [(k, v) for (k, v) in JOB_TYPE_DISPLAY_MAP.iteritems()]
+
+class Job(RegularModel):
+    """
+    Basic job model.
+    """
+    title = db.StringProperty()
+    location = db.StringProperty()
+    description = db.TextProperty()
+    salary = db.StringProperty()
+    job_type = db.StringProperty(choices=JOB_TYPE_CHOICES)
+    contact_name = db.StringProperty()
+    contact_email = db.EmailProperty()
+    company_name = db.StringProperty()
+    contact_phone = db.PhoneNumberProperty()
+    industry = db.StringProperty()
+
+class NewsArticle(RegularModel):
+    """
+    News articles that will be displayed in the news section.
+    """
+    title = db.StringProperty()
+    content = db.TextProperty()
+    content_html = db.TextProperty()
+    when_published = db.DateTimeProperty()
+
+    @classmethod
+    def get_latest(cls, count=10):
+        cache_key = 'NewsArticle.get_latest(' + str(count) + ')'
+        latest_news = memcache.get(cache_key)
+        if not latest_news:
+            latest_news = db.Query(NewsArticle) \
+                .order('-when_published') \
+                .filter('is_active =', True) \
+                .filter('is_deleted = ', False) \
+                .fetch(count)
+            memcache.set(cache_key, latest_news, CACHE_TIMEOUT)
+        return latest_news
 
