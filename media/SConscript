@@ -25,6 +25,7 @@ IMAGE_FILES = Split("""
     image/background/rays.png
     image/logo_small.png
     image/logo_small_stroked.png
+    image/logo_shield_small.png
     image/background/overlay_black.png
     image/background/separator.png
     image/img_shadow.png
@@ -179,8 +180,8 @@ LIB_INDEX_JS_FILES =  Split("""
     script/lib/chickoojs/src/jquery/easing/jquery.easing.1.3.js
     script/lib/chickoojs/src/jquery/hoverIntent/jquery.hoverIntent.js
     script/lib/chickoojs/src/jquery/tools/scrollable/tools.scrollable-1.1.0.js
-    script/base.js
     script/recruiters.js
+    script/base.js
 """)
 LIB_INDEX_JS_FILES = [SRC_DIR + f for f in LIB_INDEX_JS_FILES]
 lib_index_js = env.Concatenate([DEST_DIR + 'script/lib/page/index.js'], LIB_INDEX_JS_FILES)

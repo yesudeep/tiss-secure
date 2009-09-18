@@ -11,14 +11,13 @@ a
 a:hover
   :color #880000
   //:font-weight bold
-  :text-decoration underline
   
 //nav:hover
   :margin-top 0px
 h1
   :font-family= !font_stack_georgia
   :font-weight normal
-  :line-height 1.5
+  :line-height 1.4
   :font-size 2.4em
   :color rgba(100, 0, 0, 0.8)
   :text-shadow 2px 2px 2px #fff
@@ -51,15 +50,16 @@ nav
         > ul
           +grid-container
           > li
-            +grid(3, 16)
+            +grid(2, 16)
             :background-color rgba(255, 255, 255, 0.1)
             :padding 10px
             +border-bottom-left-radius(10px)
             +border-bottom-right-radius(10px)
             h1
-              :font-size 1.6em
+              :font-size 1.2em
               :text-shadow 0px 1px 1px #000
               :color #fde310
+              :font-family= !font_stack_helvetica
             p
               :font-size 0.8em
               :margin-bottom 0.6em
@@ -297,12 +297,8 @@ section
       h1
         :font-size 6.2em
         :line-height 1.1
-        //:text-align center
-        //:color #5E2612
       h2
-        //:text-align center
         :font-size 2em
-        //:color #8B2500
       p
         :color #222
         :font-size 0.9em
@@ -315,6 +311,14 @@ section
   :width 100%
   :position absolute
   :top 392px    
+
+#logo
+  :background= "transparent" !url_logo_shield_small "no-repeat scroll 0 0"
+  :display block
+  :width 50px
+  :height 63px
+  :float left
+    
 
 #home
   :background= "transparent" !url_logo_small "no-repeat scroll 0 0"
