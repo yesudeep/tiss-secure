@@ -44,7 +44,7 @@
             var c = colors;
             elements.body.animate({
                 backgroundColor: c[Math.floor(Math.random() * c.length)]
-            }, 400);
+            }, 1000);
         }
         setInterval(cycleBackgroundColor, 10000);
 
