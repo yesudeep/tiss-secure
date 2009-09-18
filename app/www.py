@@ -28,7 +28,6 @@ class AlumniPage(webapp.RequestHandler):
         response = render_template('achievements.html')
         self.response.out.write(response)
 
-<<<<<<< HEAD:app/www.py
 class IndrelPage(webapp.RequestHandler):
     def get(self):
         response = render_template('indrel.html')
