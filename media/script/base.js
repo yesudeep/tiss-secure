@@ -44,7 +44,7 @@
             var c = colors;
             elements.body.animate({
                 backgroundColor: c[Math.floor(Math.random() * c.length)]
-            }, 400);
+            }, 1000);
         }
         setInterval(cycleBackgroundColor, 10000);
 
@@ -67,11 +67,11 @@
             event: 'mouseover'
         });
 
-        jQuery(".flow_tabs").tabs(".flow_panes > div.flow_items > div", {
-          onBeforeClick: function() {
+        jQuery("#introduction_tabs").tabs("#introduction_panes > li", {
+          /*onBeforeClick: function() {
             this.getCurrentPane().addClass("current");
-          },
-          effect: 'fade',
+          },*/
+          effect: 'fade'
         });
     });
 

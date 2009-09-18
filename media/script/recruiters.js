@@ -1,6 +1,6 @@
 (function($){
     jQuery(function(){
-        jQuery("#chained").scrollable({
+        jQuery("#our_recruiters").scrollable({
           size: 4,
           speed: 800,
           easing: 'easeInOutQuint'
