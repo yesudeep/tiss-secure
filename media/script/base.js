@@ -57,12 +57,13 @@
         function(){
             elements.nav.stop().animate({top: "-200px"}, 600, "easeInOutQuint");
         });
-        elements.nav_tabs.click(function(event){
+        jQuery('a', elements.nav_tabs).click(function(event){
             event.preventDefault();
             event.stopPropagation();
             elements.nav.stop().animate({top: "0px"}, 800, "easeInOutQuint");
             return false;
-        }).tabs('nav > div > ul.panes > li', {
+        })
+        elements.nav_tabs.tabs('nav > div > ul.panes > li', {
             event: 'mouseover'
         });
 
