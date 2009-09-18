@@ -60,7 +60,7 @@
         jQuery('a', elements.nav_tabs).click(function(event){
             event.preventDefault();
             event.stopPropagation();
-            elements.nav.stop().animate({top: "0px"}, 800, "easeInOutQuint");
+            elements.nav.stop().animate({top: "0px"}, 400, "easeInOutQuint");
             return false;
         })
         elements.nav_tabs.tabs('nav > div > ul.panes > li', {
