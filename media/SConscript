@@ -14,8 +14,11 @@ DEST_DIR = '../' + env['MEDIA_DEST_DIR'] + '/'
 SCRIPT_FILES = Split("""
     script/base.js
     script/lib/chickoojs/src/jquery/color/jquery.color.js
-    script/lib/chickoojs/src/jquery/tools/tools.tabs-1.0.1.js
-    script/lib/chickoojs/src/jquery/tools/tools.scrollable-1.0.5.js
+    script/lib/chickoojs/src/jquery/tools/1.1.1/tools.tabs-1.0.3.js
+    script/lib/chickoojs/src/jquery/tools/1.1.1/tools.scrollable-1.1.1.js
+    script/lib/chickoojs/src/jquery/tools/1.1.1/tools.scrollable.autoscroll-1.0.1.js
+    script/lib/chickoojs/src/jquery/tools/1.1.1/tools.scrollable.circular-0.5.1.js
+    script/lib/chickoojs/src/jquery/tools/1.1.1/tools.scrollable.navigator-1.0.1.js
     script/lib/chickoojs/src/jquery/easing/jquery.easing.1.3.js
     script/lib/chickoojs/src/jquery/hoverIntent/jquery.hoverIntent.js
 """)
@@ -31,7 +34,7 @@ IMAGE_FILES = Split("""
     image/img_shadow.png
     image/background/footer.png
     image/contact_us.png
-    
+
 """)
 
 CSS_FILES = Split("""
@@ -91,7 +94,7 @@ stitched_images = [
                 image/edited_logos/cadbury.jpg
                 image/edited_logos/citibank.jpg
                 image/edited_logos/cocacola.jpg
-                
+
                 image/edited_logos/colgatepalmolive.jpg
                 image/edited_logos/countrywidefinances.jpg
                 image/edited_logos/deutschbank.jpg
@@ -100,7 +103,7 @@ stitched_images = [
                 image/edited_logos/fidelity.jpg
                 image/edited_logos/firstsource.jpg
                 image/edited_logos/geshipping.jpg
-                
+
                 image/edited_logos/google.jpg
                 image/edited_logos/hindustanunilever.jpg
                 image/edited_logos/honeywell.jpg
@@ -109,7 +112,7 @@ stitched_images = [
                 image/edited_logos/ibm.jpg
                 image/edited_logos/iciciprudentials.jpg
                 image/edited_logos/intel.jpg
-                
+
                 image/edited_logos/johnsonandjohnson.jpg
                 image/edited_logos/jpmorganchase.jpg
                 image/edited_logos/kpmg.jpg
@@ -127,7 +130,7 @@ stitched_images = [
                 image/edited_logos/pepsi.jpg
                 image/edited_logos/pfizer.jpg
                 image/edited_logos/procterandgamble.jpg
-                
+
                 image/edited_logos/pwc.jpg
                 image/edited_logos/ranbaxy.jpg
                 image/edited_logos/rpg.jpg
@@ -136,7 +139,7 @@ stitched_images = [
                 image/edited_logos/standardchartered.jpg
                 image/edited_logos/sterlite.jpg
                 image/edited_logos/taj.jpg
-                
+
                 image/edited_logos/tata.jpg
                 image/edited_logos/wipro.jpg
                 image/edited_logos/yahoo.jpg
@@ -176,10 +179,12 @@ for f in minifiables(MINIFIABLE_FILES, NON_MINIFIABLE_FILES):
 #script/angelina_400.font.js
 LIB_INDEX_JS_FILES =  Split("""
     script/lib/chickoojs/src/jquery/color/jquery.color.js
-    script/lib/chickoojs/src/jquery/tools/tools.tabs-1.0.1.js
     script/lib/chickoojs/src/jquery/easing/jquery.easing.1.3.js
     script/lib/chickoojs/src/jquery/hoverIntent/jquery.hoverIntent.js
-    script/lib/chickoojs/src/jquery/tools/scrollable/tools.scrollable-1.1.0.js
+    script/lib/chickoojs/src/jquery/tools/1.1.1/tools.tabs-1.0.3.js
+    script/lib/chickoojs/src/jquery/tools/1.1.1/tools.scrollable-1.1.1.js
+    script/lib/chickoojs/src/jquery/tools/1.1.1/tools.scrollable.autoscroll-1.0.1.js
+    script/lib/chickoojs/src/jquery/tools/1.1.1/tools.scrollable.circular-0.5.1.js
     script/recruiters.js
     script/base.js
 """)
