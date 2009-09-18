@@ -21,11 +21,20 @@ class ContactUsPage(webapp.RequestHandler):
     def get(self):
         response = render_template('contact_us.html')
         self.response.out.write(response)
-        
+
+class AlumniPage(webapp.RequestHandler):
+    def get(self):
+        response = render_template('achievements.html')
+        self.response.out.write(response)
+
+
 urls = (
     ('/', IndexHandler),
     ('/placements/recruiters/?', RecruitersPage),
-    ('/contactus/?', ContactUsPage)
+    ('/contactus/?', ContactUsPage),
+    
+    ('/alumni/achievements/?', AlumniPage)
+    
 )
 
 application = webapp.WSGIApplication(urls, debug=config.DEBUG)

@@ -7,7 +7,6 @@
             nav: jQuery('nav'),
             nav_tabs: jQuery('nav > div.handle > div > ul'),
             nav_panes: jQuery('nav > div > ul.panes')
-            
         },
         colors = [
                 "#362d1d",
@@ -72,7 +71,6 @@
           },
           effect: 'fade',
         });
-        
     });
 
 })(jQuery);
