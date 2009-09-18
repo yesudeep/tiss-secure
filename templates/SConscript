@@ -20,6 +20,9 @@ HTML_FILES = Split("""
     recruiters.html
     contact_us.html
     achievements.html
+    event.html
+    gallery.html
+    job_board.html
     forum.html
     indrel.html
     trndev.html

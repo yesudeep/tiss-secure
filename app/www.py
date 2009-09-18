@@ -23,12 +23,26 @@ class ContactUsPage(webapp.RequestHandler):
         response = render_template('contact_us.html')
         self.response.out.write(response)
 
-class AlumniPage(webapp.RequestHandler):
+class AchievementPage(webapp.RequestHandler):
     def get(self):
         response = render_template('achievements.html')
         self.response.out.write(response)
+        
+class EventPage(webapp.RequestHandler):
+    def get(self):
+        response = render_template('event.html')
+        self.response.out.write(response)
 
-<<<<<<< HEAD:app/www.py
+class GalleryPage(webapp.RequestHandler):
+    def get(self):
+        response = render_template('gallery.html')
+        self.response.out.write(response)
+
+class JobBoardPage(webapp.RequestHandler):
+    def get(self):
+        response = render_template('job_board.html')
+        self.response.out.write(response)
+        
 class IndrelPage(webapp.RequestHandler):
     def get(self):
         response = render_template('indrel.html')
@@ -58,7 +72,10 @@ urls = (
     ('/', IndexHandler),
     ('/placements/recruiters/?', RecruitersPage),
     ('/contactus/?', ContactUsPage),
-    ('/alumni/achievements/?', AlumniPage),
+    ('/alumni/achievements/?', AchievementPage),
+    ('/alumni/events/?', EventPage),
+    ('/alumni/gallery/?', GalleryPage),
+    ('/alumni/job_board/?', JobBoardPage),
     ('/forum/indrel/?', IndrelPage),
     ('/forum/trndev/?', TrndevPage),
     ('/forum/comben/?', CombenPage),
