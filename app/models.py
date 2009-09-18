@@ -105,6 +105,7 @@ class News(RegularModel):
     News articles that will be displayed in the news section.
     """
     title = db.StringProperty()
+    slug_title = db.StringProperty()
     content = db.TextProperty()
     content_html = db.TextProperty()
     when_published = db.DateTimeProperty()

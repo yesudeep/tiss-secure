@@ -9,6 +9,12 @@
     <span class="suffix"></span>
   </label>
 
+  <label for="slug_title">
+    <span class="prefix">slug title</span>
+    <input type="text" name="slug_title" readonly="readonly" value="" />
+    <span class="suffix">Example URL component: /news/{{ today|datetimeformat("%Y/%m/%d") }}/<span class="url_slug"></span></span>
+  </label>
+
   <label for="content">
     <span class="prefix">content</span>
     <textarea name="content" cols="70" rows="20"></textarea>

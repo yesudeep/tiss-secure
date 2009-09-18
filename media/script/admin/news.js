@@ -18,5 +18,16 @@ jQuery(function(){
         }
         jQuery('#data-list').html(html.join(''));
     });
+
+    jQuery('input[name="title"]').live('keyup', function(event){
+        var elem = jQuery(this),
+            form = elem.parents('form'),
+            buddyInput = jQuery('input[name="slug_title"]', form),
+            buddyUrlSlug = jQuery('.url_slug', form),
+            slug = slugify(elem.val());
+        buddyInput.val(slug);
+        buddyUrlSlug.html(slug);
+    });
+
 });
 

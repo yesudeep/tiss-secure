@@ -10,6 +10,7 @@ from utils import render_template, dec
 import logging
 from models import News, Job, JOB_TYPE_DISPLAY_LIST
 from django.utils import simplejson as json
+from datetime import datetime
 
 MAX_FETCH_LIMIT = 400
 
@@ -78,6 +79,13 @@ class PersonListHandler(webapp.RequestHandler):
             news_list.append(item.to_json_dict('title', 'is_starred', 'is_active', 'is_deleted', 'when_created'))
         self.response.out.write(json.dumps(news_list))
 
+class NewsApproveHandler(webapp.RequestHandler):
+    def get(self, key):
+        o = db.get(db.Key(key))
+        o.is_active = True
+        o.when_published = datetime.utcnow()
+        o.put()
+        self.response.out.write(o.is_active)
 
 class NewsEditHandler(webapp.RequestHandler):
     def get(self, key):
@@ -88,25 +96,27 @@ class NewsEditHandler(webapp.RequestHandler):
     def post(self, key):
         news = db.get(db.Key(key))
 
-        title = self.request.get('title')
         content = self.request.get('content')
 
-        news.title = title
-        news.content = content
+        news.title = self.request.get('title')
+        news.slug_title = self.request.get('slug_title')
+        news.content = self.request.get('content')
+        news.when_published = datetime.utcnow()
         news.put()
         self.response.out.write(news.to_json('title', 'is_deleted', 'is_active', 'is_starred'))
 
 class NewsNewHandler(webapp.RequestHandler):
     def get(self):
-        response = render_template('admin/new_news.html')
+        today = datetime.utcnow()
+        response = render_template('admin/new_news.html', today=today)
         self.response.out.write(response)
 
     def post(self):
-        title = self.request.get('title')
-        content = self.request.get('content')
         news = News()
-        news.title = title
-        news.content = content
+        news.title = self.request.get('title')
+        news.slug_title = self.request.get('slug_title')
+        news.content = self.request.get('content')
+        news.when_published = datetime.utcnow()
         news.put()
         self.response.out.write(news.to_json('title', 'is_deleted', 'is_active', 'is_starred'))
 
@@ -206,7 +216,7 @@ urls = [
 
     (r'/api/news/(.*)/delete/?', DeleteHandler),
     (r'/api/news/(.*)/undelete/?', UndeleteHandler),
-    (r'/api/news/(.*)/approve/?', ApproveHandler),
+    (r'/api/news/(.*)/approve/?', NewsApproveHandler),
     (r'/api/news/(.*)/unapprove/?', UnapproveHandler),
     (r'/api/news/(.*)/toggle_star/?', ToggleStarHandler),
     (r'/api/news/list/?', NewsListHandler),
