@@ -35,6 +35,20 @@ IMAGE_FILES = Split("""
     image/img_shadow.png
     image/background/footer.png
     image/contact_us.png
+    image/altiba/altiba-1.jpg
+    image/altiba/altiba-2.jpg
+    image/altiba/altiba-3.jpg
+    image/altiba/altiba-4.jpg
+    image/altiba/altiba-5.jpg
+    image/altiba/altiba-6.jpg
+    image/altiba/altiba-7.jpg
+    image/altiba/thumbnail/altiba-1.jpg
+    image/altiba/thumbnail/altiba-2.jpg
+    image/altiba/thumbnail/altiba-3.jpg
+    image/altiba/thumbnail/altiba-4.jpg
+    image/altiba/thumbnail/altiba-5.jpg
+    image/altiba/thumbnail/altiba-6.jpg
+    image/altiba/thumbnail/altiba-7.jpg
 
 """)
 
@@ -80,7 +94,7 @@ stitched_images = [
             target='image/logo_with_shield.png',
             sources=Split("""
                 image/logo_shield.png
-                image/logo_text.png
+                image/logo_hrm_text.png
             """),
             orientation='horizontal'
             ),
