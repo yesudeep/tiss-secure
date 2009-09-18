@@ -46,7 +46,7 @@
                 backgroundColor: c[Math.floor(Math.random() * c.length)]
             }, 2000);
         }
-        setInterval(cycleBackgroundColor, 3000);
+        setInterval(cycleBackgroundColor, 15000);
 
         /**
          * Set the nav element to slide out and back in.

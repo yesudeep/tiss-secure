@@ -5,6 +5,7 @@ import configuration as config
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 
+from models import RECRUITERS_ID_URLS
 from utils import render_template, dec
 
 class IndexHandler(webapp.RequestHandler):
@@ -14,9 +15,9 @@ class IndexHandler(webapp.RequestHandler):
 
 class RecruitersPage(webapp.RequestHandler):
     def get(self):
-        response = render_template('recruiters.html')
+        response = render_template('recruiters.html', recruiters_list=RECRUITERS_ID_URLS)
         self.response.out.write(response)
-        
+
 class ContactUsPage(webapp.RequestHandler):
     def get(self):
         response = render_template('contact_us.html')
@@ -27,6 +28,7 @@ class AlumniPage(webapp.RequestHandler):
         response = render_template('achievements.html')
         self.response.out.write(response)
 
+<<<<<<< HEAD:app/www.py
 class IndrelPage(webapp.RequestHandler):
     def get(self):
         response = render_template('indrel.html')
@@ -51,10 +53,13 @@ class OddevPage(webapp.RequestHandler):
     def get(self):
         response = render_template('oddev.html')
         self.response.out.write(response)
+=======
+>>>>>>> 7aca7ca30465f0dba9c0ff2d650b4ec95ebf5de4:app/www.py
 urls = (
     ('/', IndexHandler),
     ('/placements/recruiters/?', RecruitersPage),
     ('/contactus/?', ContactUsPage),
+<<<<<<< HEAD:app/www.py
     
     ('/alumni/achievements/?', AlumniPage),
     ('/forum/indrel/?', IndrelPage),
@@ -62,6 +67,11 @@ urls = (
     ('/forum/comben/?', CombenPage),
     ('/forum/hipms/?', HipmsPage),
     ('/forum/oddev/?', OddevPage)
+=======
+
+    ('/alumni/achievements/?', AlumniPage)
+
+>>>>>>> 7aca7ca30465f0dba9c0ff2d650b4ec95ebf5de4:app/www.py
 )
 
 application = webapp.WSGIApplication(urls, debug=config.DEBUG)

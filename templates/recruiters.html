@@ -10,68 +10,11 @@
   <article id="trunk">
     <a class="prevPage browse left"><</a>
     <a class="nextPage browse right">></a>
-    <div  class="scrollable our_recruiters" id="chained">      
+    <div  class="scrollable our_recruiters" id="chained">
       <ul class="scrollable_items">
-        <li><a href="http://www.accenture.com/" target="_blank" id="accenture"></a></li>
-        <li><a href="http://asianpaints.com/" target="_blank" id="asianpaints"></a></li>
-        <li><a href="http://astrazeneca.com/" target="_blank" id="astrazeneca"></a></li>
-        <li><a href="http://en.wikipedia.org/wiki/The_Times_Group" target="_blank" id="bennettcoleman"></a></li>
-        <li><a href="http://www.bharatpetroleum.com/" target="_blank" id="bpcl"></a></li>
-        
-        <li><a href="http://www.cadburyindia.com/home/index.asp" target="_blank" id="cadbury"></a></li>
-        <li><a href="http://www.citibank.com/us/home.htm" target="_blank" id="citibank"></a></li>
-        <li><a href="http://www.coca-cola.com/index.jsp" target="_blank" id="cocacola"></a></li>
-        <li><a href="http://www.colgate.co.in/app/Colgate/IN/HomePage.cvsp" target="_blank" id="colgatepalmolive"></a></li>
-        <li><a href="http://my.countrywide.com/" target="_blank" id="countrywidefinances"></a></li>
-        <li><a href="http://www.db.com" target="_blank" id="deutschbank"></a></li>
-        
-        <li><a href="http://www.drreddys.com/" target="_blank" id="drreddy"></a></li>
-        <li><a href="http://www.ey.com" target="_blank" id="ernstyoung"></a></li>
-        <li><a href="http://www.fidelity.co.in/" target="_blank" id="fidelity"></a></li>
-        <li><a href="http://www.greatship.com/" target="_blank" id="geshipping"></a></li>
-        <li><a href="http://www.google.com" target="_blank" id="google"></a></li>
-        
-        <li><a href="http://www.www.hul.co.in/" target="_blank" id="hindustanunilever"></a></li>
-        <li><a href="http://www.honeywell.com/" target="_blank" id="honeywell"></a></li>
-        <li><a href="http://www.hindustanpetroleum.com/" target="_blank" id="hpcl"></a></li>
-        <li><a href="http://www.hsbc.co.in/" target="_blank" id="hsbc"></a></li>
-        <li><a href="http://www.ibm.com/" target="_blank" id="ibm"></a></li>
-        
-        <li><a href="http://www.iciciprulife.com/" target="_blank" id="iciciprudentials"></a></li>
-        <li><a href="http://www.intel.com/" target="_blank" id="intel"></a></li>
-        <li><a href="http://www.jnj.com/" target="_blank" id="johnsonandjohnson"></a></li>
-        <li><a href="http://www.jpmorganmf.com/" target="_blank" id="jpmorganchase"></a></li>
-        <li><a href="http://www.in.kpmg.com/" target="_blank" id="kpmg"></a></li>
-        
-        <li><a href="http://www.mahindra.com/" target="_blank" id="mahindra"></a></li>
-        <li><a href="http://www.marico.com/" target="_blank" id="marico"></a></li>
-        <li><a href="http://www.mercer.com/" target="_blank" id="mercer"></a></li>
-        <li><a href="http://www.microsoft.com/" target="_blank" id="microsoft"></a></li>
-        <li><a href="http://www.motorola.com/in" target="_blank" id="motorola"></a></li>
-        <li><a href="http://www.nestle.com/" target="_blank" id="nestle"></a></li>
-        
-        <li><a href="http://www.nokia.com" target="_blank" id="nokia"></a></li>
-        <li><a href="http://www.novartis.com/" target="_blank" id="novartis"></a></li>
-        <li><a href="http://www.oracle.com/" target="_blank" id="oracle"></a></li>
-        <li><a href="http://www.patni.com/" target="_blank" id="patni"></a></li>
-        <li><a href="http://www.pepsi.com/" target="_blank" id="pepsi"></a></li>
-        
-        <li><a href="http://www.pfizer.com/" target="_blank" id="pfizer"></a></li>
-        <li><a href="http://www.pg.com/" target="_blank" id="procterandgamble"></a></li>
-        <li><a href="http://www.pwc.com/" target="_blank" id="pwc"></a></li>
-        <li><a href="http://www.ranbaxy.com/" target="_blank" id="ranbaxy"></a></li>
-        <li><a href="http://www.rpggroup.com/" target="_blank" id="rpg"></a></li>
-        
-        <li><a href="http://www.sap.com/" target="_blank" id="sap"></a></li>
-        <li><a href="http://w1.siemens.com/" target="_blank" id="siemensindia"></a></li>
-        <li><a href="http://www.standardchartered.com/" target="_blank" id="standardchartered"></a></li>
-        <li><a href="http://www.sterlite-industries.com/" target="_blank" id="sterlite"></a></li>
-        <li><a href="http://www.tajhotels.com/" target="_blank" id="taj"></a></li>
-        
-        <li><a href="http://www.tata.com/" target="_blank" id="tata"></a></li>
-        <li><a href="http://www.wipro.com/" target="_blank" id="wipro"></a></li>
-        <li><a href="http://www.yahoo.com/" target="_blank" id="yahoo"></a></li>
-        
+        {% for recruiter in recruiters_list %}
+          <li><a href="{{ recruiter.1 }}" target="_blank" id="{{ recruiter.0 }}"></a></li>
+        {% endfor %}
       </ul>
     </div>
   </article>
@@ -80,10 +23,9 @@
 
 {% block tag_scripts %}
 <script type="text/javascript">
-    window.scripts.push(
-            "{{ MEDIA_URL }}script/lib/page/index{{ MINIFIED }}.js",
-            "{{ MEDIA_URL }}script/recruiters.js"
-            //"{{ MEDIA_URL }}script/index{{ MINIFIED }}.js"
-            );
+  window.scripts.push(
+    "{{ MEDIA_URL }}script/recruiters{{ MINIFIED }}.js"
+  );
 </script>
 {% endblock %}
+
