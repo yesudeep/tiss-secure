@@ -20,6 +20,12 @@ HTML_FILES = Split("""
     recruiters.html
     contact_us.html
     achievements.html
+    forum.html
+    indrel.html
+    trndev.html
+    comben.html
+    hipms.html
+    oddev.html
 """)
 
 TEMPLATE_FILES = HTML_FILES + Split("""

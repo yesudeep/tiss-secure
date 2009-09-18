@@ -27,14 +27,41 @@ class AlumniPage(webapp.RequestHandler):
         response = render_template('achievements.html')
         self.response.out.write(response)
 
+class IndrelPage(webapp.RequestHandler):
+    def get(self):
+        response = render_template('indrel.html')
+        self.response.out.write(response)
 
+class TrndevPage(webapp.RequestHandler):
+    def get(self):
+        response = render_template('trndev.html')
+        self.response.out.write(response)
+        
+class CombenPage(webapp.RequestHandler):
+    def get(self):
+        response = render_template('comben.html')
+        self.response.out.write(response)
+
+class HipmsPage(webapp.RequestHandler):
+    def get(self):
+        response = render_template('hipms.html')
+        self.response.out.write(response)
+        
+class OddevPage(webapp.RequestHandler):
+    def get(self):
+        response = render_template('oddev.html')
+        self.response.out.write(response)
 urls = (
     ('/', IndexHandler),
     ('/placements/recruiters/?', RecruitersPage),
     ('/contactus/?', ContactUsPage),
     
-    ('/alumni/achievements/?', AlumniPage)
-    
+    ('/alumni/achievements/?', AlumniPage),
+    ('/forum/indrel/?', IndrelPage),
+    ('/forum/trndev/?', TrndevPage),
+    ('/forum/comben/?', CombenPage),
+    ('/forum/hipms/?', HipmsPage),
+    ('/forum/oddev/?', OddevPage)
 )
 
 application = webapp.WSGIApplication(urls, debug=config.DEBUG)
