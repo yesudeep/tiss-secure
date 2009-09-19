@@ -41,7 +41,7 @@ class GalleryPage(webapp.RequestHandler):
 
 class JobsNewPage(webapp.RequestHandler):
     def get(self):
-        response = render_template('job_board.html', job_type_display_list=JOB_TYPE_DISPLAY_LIST)
+        response = render_template('post_job.html', job_type_display_list=JOB_TYPE_DISPLAY_LIST)
         self.response.out.write(response)
 
     def post(self):
@@ -57,6 +57,7 @@ class JobsNewPage(webapp.RequestHandler):
         job.contact_name = self.request.get('contact_name')
         job.contact_email = self.request.get('contact_email')
         job.put()
+
         self.response.out.write(job.to_json('title', 'is_deleted', 'is_active', 'is_starred', 'when_created'))
 
 class JobsPage(webapp.RequestHandler):
