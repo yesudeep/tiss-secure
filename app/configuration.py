@@ -62,8 +62,11 @@ else:
     SECURE_URL = 'https://%s.appspot.com/' % APPLICATION_ID
     MINIFIED = '-min'
 
-
 MEDIA_URL = '%ss/' % PRIMARY_URL
+
+GOOGLE_TALK_STYLESHEET = {
+  'css': "%(media_url)ss/css/google_talk%(minified)s.css" % dict(media_url=ABSOLUTE_ROOT_URL, minified=MINIFIED)
+}
 
 TEMPLATE_BUILTINS = {
     'LOCAL': LOCAL,
@@ -75,6 +78,7 @@ TEMPLATE_BUILTINS = {
     'SECURE_URL': sanitize_url(SECURE_URL),
     'TEMPLATE_DEBUG': DEBUG,
     'MINIFIED': MINIFIED,
+    'GOOGLE_TALK_STYLESHEET': GOOGLE_TALK_STYLESHEET,
 }
 
 TEMPLATE_DIRS = [

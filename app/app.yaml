@@ -16,6 +16,11 @@ handlers:
   upload: public/robots.txt
   secure: never
 
+- url: /crossdomain.xml
+  static_files: public/crossdomain.xml
+  upload: public/crossdomain.xml
+  secure: never
+
 - url: /s
   static_dir: public
   secure: never

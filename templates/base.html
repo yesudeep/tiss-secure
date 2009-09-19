@@ -222,7 +222,13 @@
       </div>
     </footer>
     {% endblock %}
+    {% block tag_google_talk %}
+    <iframe id="google_talk" src="http://talkgadget.google.com/talkgadget/client?{{ GOOGLE_TALK_STYLESHEET|urlencode }}" 
+scrolling="no" frameborder="0"></iframe>
+    {% endblock %}
 {% endblock %}
+
+
 {% block tag_scripts_base %}
 <script type="text/javascript">
   window.scripts.push(

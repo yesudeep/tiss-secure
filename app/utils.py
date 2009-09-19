@@ -6,6 +6,7 @@ from functools import partial
 from google.appengine.ext import webapp
 from google.appengine.api import users
 from google.appengine.api.labs import taskqueue
+import urllib
 
 jinja_env = Environment(loader=FileSystemLoader(['templates']))
 
@@ -13,10 +14,9 @@ jinja_env = Environment(loader=FileSystemLoader(['templates']))
 def datetimeformat(value, format='%H:%M / %d-%m-%Y'):
     return value.strftime(format)
 
-
 jinja_env = Environment(loader=FileSystemLoader(['templates']))
 jinja_env.filters['datetimeformat'] = datetimeformat
-
+jinja_env.filters['urlencode'] = urllib.urlencode
 
 dec = partial(int, base=10)
 
