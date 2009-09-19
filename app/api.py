@@ -8,7 +8,7 @@ from google.appengine.api import memcache, users
 from google.appengine.ext.webapp.util import run_wsgi_app
 from utils import render_template, dec
 import logging
-from models import News, Job, JOB_TYPE_DISPLAY_LIST
+from models import Person, News, Job, JOB_TYPE_DISPLAY_LIST
 from django.utils import simplejson as json
 from datetime import datetime
 
@@ -58,26 +58,24 @@ class ToggleStarHandler(webapp.RequestHandler):
 class PersonEditHandler(webapp.RequestHandler):
     def get(self, key):
         person = db.get(db.Key(key))
-        response = render_template('admin/edit_person.html', person=person)
+        person_email = person.user.email()
+        response = render_template('admin/edit_person.html', person=person, person_email=person_email)
         self.response.out.write(response)
 
     def post(self, key):
         person = db.get(db.Key(key))
-
         person.first_name = self.request.get('first_name')
         person.last_name = self.request.get('last_name')
-        person.graduation_year = self.request.get('graduation_year')
-        person.phone_number = self.request.get('phone_number')
         person.put()
-        self.response.out.write(news.to_json('title', 'is_deleted', 'is_active', 'is_starred'))
+        self.response.out.write(person.to_json('first_name', 'last_name', 'is_deleted', 'is_active', 'is_starred', 'when_created'))
 
 class PersonListHandler(webapp.RequestHandler):
     def get(self):
-        news = News.all().order('title').fetch(MAX_FETCH_LIMIT)
-        news_list = []
-        for item in news:
-            news_list.append(item.to_json_dict('title', 'is_starred', 'is_active', 'is_deleted', 'when_created'))
-        self.response.out.write(json.dumps(news_list))
+        people = Person.all().order('first_name').order('last_name').fetch(MAX_FETCH_LIMIT)
+        people_list = []
+        for person in people:
+            people_list.append(person.to_json_dict('first_name', 'last_name', 'is_starred', 'is_active', 'is_deleted', 'when_created'))
+        self.response.out.write(json.dumps(people_list))
 
 class NewsApproveHandler(webapp.RequestHandler):
     def get(self, key):
@@ -235,7 +233,10 @@ urls = [
 application = webapp.WSGIApplication(urls, debug=config.DEBUG)
 
 def main():
+    from gaefy.db.datastore_cache import DatastoreCachingShim
+    DatastoreCachingShim.Install()
     run_wsgi_app(application)
+    DatastoreCachingShim.Uninstall()
 
 if __name__ == '__main__':
     main()

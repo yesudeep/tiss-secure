@@ -84,6 +84,7 @@ class JobsNewPage(webapp.RequestHandler):
         job.company = self.request.get('company')
         job.contact_name = self.request.get('contact_name')
         job.contact_email = self.request.get('contact_email')
+        job.is_active = True
         job.put()
         #self.response.out.write(job.to_json('title', 'is_deleted', 'is_active', 'is_starred', 'when_created'))
         self.redirect('/alumni/jobs/')
@@ -151,6 +152,7 @@ class AccountHandler(webapp.RequestHandler):
         if person:
             self.redirect(continue_uri)
         else:
+            logout_url = users.create_logout_url('/')
             response = render_template('signup.html', logout_url=logout_url, continue_uri=continue_uri)
             self.response.out.write(response)
 
@@ -184,7 +186,10 @@ application = webapp.WSGIApplication(urls, debug=config.DEBUG)
 
 
 def main():
+    from gaefy.db.datastore_cache import DatastoreCachingShim
+    DatastoreCachingShim.Install()
     run_wsgi_app(application)
+    DatastoreCachingShim.Uninstall()
 
 if __name__ == '__main__':
     main()

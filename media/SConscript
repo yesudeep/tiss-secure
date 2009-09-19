@@ -88,6 +88,7 @@ IMAGE_FILES = Split("""
     image/icon/star.png
     image/background/textfield_normal.png
     image/background/textfield_readonly.png
+    image/background/grunge_paper.jpg
 """)
 
 CSS_FILES = Split("""
@@ -231,8 +232,8 @@ for f in minifiables(MINIFIABLE_FILES, NON_MINIFIABLE_FILES):
 #
 #script/lib/cufon/js/cufon.js
 #script/angelina_400.font.js
+    #script/lib/chickoojs/src/jquery/color/jquery.color.js
 COMMON_JS_FILES =  Split("""
-    script/lib/chickoojs/src/jquery/color/jquery.color.js
     script/lib/chickoojs/src/jquery/easing/jquery.easing.1.3.js
     script/lib/chickoojs/src/jquery/hoverIntent/jquery.hoverIntent.js
     script/lib/chickoojs/src/jquery/tools/1.1.1/tools.tabs-1.0.3.js

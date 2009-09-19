@@ -34,7 +34,10 @@ urls = [
 application = webapp.WSGIApplication(urls, debug=config.DEBUG)
 
 def main():
-	run_wsgi_app(application)
+    from gaefy.db.datastore_cache import DatastoreCachingShim
+    DatastoreCachingShim.Install()
+    run_wsgi_app(application)
+    DatastoreCachingShim.Uninstall()
 
 if __name__ == '__main__':
 	main()
