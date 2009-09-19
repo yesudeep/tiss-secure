@@ -73,27 +73,27 @@ class JobsPage(webapp.RequestHandler):
 
 class IndrelPage(webapp.RequestHandler):
     def get(self):
-        response = render_template('indrel.html')
+        response = render_template('forum/indrel.html')
         self.response.out.write(response)
 
 class TrndevPage(webapp.RequestHandler):
     def get(self):
-        response = render_template('trndev.html')
+        response = render_template('forum/trndev.html')
         self.response.out.write(response)
 
 class CombenPage(webapp.RequestHandler):
     def get(self):
-        response = render_template('comben.html')
+        response = render_template('forum/comben.html')
         self.response.out.write(response)
 
 class HipmsPage(webapp.RequestHandler):
     def get(self):
-        response = render_template('hipms.html')
+        response = render_template('forum/hipms.html')
         self.response.out.write(response)
 
 class OddevPage(webapp.RequestHandler):
     def get(self):
-        response = render_template('oddev.html')
+        response = render_template('forum/oddev.html')
         self.response.out.write(response)
 
 class AccountHandler(webapp.RequestHandler):
