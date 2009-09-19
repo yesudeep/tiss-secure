@@ -11,7 +11,12 @@
       :display block
       :width 140px
       :height 140px
+      
+.floated_list
+  +floated-list()
+  
 =tabs()
+  :margin-left 80px
   > li
     +display-inline-block
     :padding 20px
@@ -29,6 +34,7 @@
 =panes()
   > li
     :display none
+    :margin-left 80px
 
 #panes
   +panes
@@ -190,21 +196,6 @@ section
     :display none
     :margin-left 20px
 
-//.flow_panes
-//  :position relative
-//  :clear both
-//  :overflow hidden
-//  .flow_items
-//    :width 20000px
-//    :clear both
-//    :margin 0
-//    :padding 0
-//    div
-//      :float left
-//      :display block
-//      :width 650px
-//      :padding 0px 60px
-
 #our_recruiters
   ul
     +floated-list()
@@ -357,11 +348,15 @@ section
   :float left
 footer
   :background= "transparent" !url_footer_bg "repeat-x scroll 0 0"
-  :height 200px
+  :height 250px
   :width 100%
   :margin-top 50px
   >div
     +grid-container
+    
+#copyright
+  :font-size 0.8em
+  :color #a3a3a3
 
 #menu
   //:padding 15px

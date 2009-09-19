@@ -34,7 +34,6 @@ SCRIPT_FILES = Split("""
     script/admin/people.js
     script/admin/news.js
     script/admin/jobs.js
-    script/admin/groups.js
 """)
 #SCRIPT_FILES = ["script/" + f for f in SCRIPT_FILES]
 
@@ -62,6 +61,28 @@ IMAGE_FILES = Split("""
     image/altiba/thumbnail/altiba-5.jpg
     image/altiba/thumbnail/altiba-6.jpg
     image/altiba/thumbnail/altiba-7.jpg
+    image/altida/altida-1.jpg
+    image/altida/altida-2.jpg
+    image/altida/altida-3.jpg
+    image/altida/altida-4.jpg
+    image/altida/altida-5.jpg
+    image/altida/altida-6.jpg
+    image/altida/thumbnail/altida-1.jpg
+    image/altida/thumbnail/altida-2.jpg
+    image/altida/thumbnail/altida-3.jpg
+    image/altida/thumbnail/altida-4.jpg
+    image/altida/thumbnail/altida-5.jpg
+    image/altida/thumbnail/altida-6.jpg
+    image/altiha/altiha-1.jpg
+    image/altiha/altiha-2.jpg
+    image/altiha/altiha-3.jpg
+    image/altiha/altiha-4.jpg
+    image/altiha/altiha-5.jpg
+    image/altiha/thumbnail/altiha-1.jpg
+    image/altiha/thumbnail/altiha-2.jpg
+    image/altiha/thumbnail/altiha-3.jpg
+    image/altiha/thumbnail/altiha-4.jpg
+    image/altiha/thumbnail/altiha-5.jpg
     image/background/button_overlay.png
     image/icon/star.png
     image/background/textfield_normal.png
