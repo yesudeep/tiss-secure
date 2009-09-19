@@ -9,6 +9,15 @@ from google.appengine.api.labs import taskqueue
 
 jinja_env = Environment(loader=FileSystemLoader(['templates']))
 
+#Jinja2 custom filters
+def datetimeformat(value, format='%H:%M / %d-%m-%Y'):
+    return value.strftime(format)
+
+
+jinja_env = Environment(loader=FileSystemLoader(['templates']))
+jinja_env.filters['datetimeformat'] = datetimeformat
+
+
 dec = partial(int, base=10)
 
 def render_template(template_name, **context):

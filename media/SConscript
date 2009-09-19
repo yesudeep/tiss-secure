@@ -22,6 +22,19 @@ SCRIPT_FILES = Split("""
     script/lib/chickoojs/src/jquery/tools/1.1.1/tools.scrollable.navigator-1.0.1.js
     script/lib/chickoojs/src/jquery/easing/jquery.easing.1.3.js
     script/lib/chickoojs/src/jquery/hoverIntent/jquery.hoverIntent.js
+
+    script/lib/chickoojs/src/json2.js
+    script/lib/rightjs/core/right-src.js
+    script/lib/rightjs/ui/right-calendar-src.js
+    script/lib/rightjs/ui/right-tooltips-src.js
+    script/lib/rightjs/ui/right-lightbox-src.js
+    script/lib/chickoojs/src/jquery/form/jquery.form.js
+    script/lib/chickoojs/src/jquery/validate/jquery.validate.js
+    script/admin/common.js
+    script/admin/people.js
+    script/admin/news.js
+    script/admin/jobs.js
+    script/admin/groups.js
 """)
 #SCRIPT_FILES = ["script/" + f for f in SCRIPT_FILES]
 
@@ -49,10 +62,14 @@ IMAGE_FILES = Split("""
     image/altiba/thumbnail/altiba-5.jpg
     image/altiba/thumbnail/altiba-6.jpg
     image/altiba/thumbnail/altiba-7.jpg
-
+    image/background/button_overlay.png
+    image/icon/star.png
+    image/background/textfield_normal.png
+    image/background/textfield_readonly.png
 """)
 
 CSS_FILES = Split("""
+    css/generic.css
     css/screen.css
 """)
 
@@ -206,6 +223,31 @@ COMMON_JS_FILES = [SRC_DIR + f for f in COMMON_JS_FILES]
 lib_common_js = env.Concatenate([DEST_DIR + 'script/common.js'], COMMON_JS_FILES)
 env.YuiCompressorMinify(lib_common_js)
 #env.JsminMinify(lib_common_js)
+
+LIB_ADMIN_COMMON_JS_FILES =  Split("""
+    script/lib/chickoojs/src/json2.js
+    script/lib/rightjs/core/right-src.js
+    script/lib/rightjs/ui/right-calendar-src.js
+    script/lib/rightjs/ui/right-tooltips-src.js
+    script/lib/rightjs/ui/right-lightbox-src.js
+    script/lib/chickoojs/src/jquery/form/jquery.form.js
+    script/lib/chickoojs/src/jquery/validate/jquery.validate.js
+    script/admin/common.js
+    """)
+LIB_ADMIN_COMMON_JS_FILES = [SRC_DIR + f for f in LIB_ADMIN_COMMON_JS_FILES]
+lib_admin_common_js = env.Concatenate([DEST_DIR + 'script/lib/admin-common.js'], LIB_ADMIN_COMMON_JS_FILES)
+env.YuiCompressorMinify(lib_admin_common_js)
+
+
+admin_all_css_files =  Split("""
+    css/generic.css
+    css/admin.css
+    """)
+admin_all_css_files = [SRC_DIR + f for f in admin_all_css_files]
+admin_all_css = env.Concatenate([DEST_DIR + 'css/admin-all.css'], admin_all_css_files)
+env.YuiCompressorMinify(admin_all_css)
+
+
 
 # Include licenses.
 #c3 = env.Concatenate([DEST_DIR + 'script/lib/all-min.js'], [

@@ -1,0 +1,71 @@
+{% extends "admin/edit.html" %}
+
+
+{% block form_action %}/api/jobs/{{ job.key() }}/edit/{% endblock %}
+
+{% block form_fields %}
+  <label for="title">
+    <span class="prefix">title</span>
+    <input type="text" name="title" value="{{ job.title }}" />
+    <span class="suffix"></span>
+  </label>
+
+  <label for="description">
+    <span class="prefix">description</span>
+    <textarea name="description" cols="60" rows="10">{{ job.description }}</textarea>
+    <span class="suffix"></span>
+  </label>
+
+  <label for="company">
+    <span class="prefix">company</span>
+    <input type="text" name="company" value="{{ job.company }}" />
+    <span class="suffix"></span>
+  </label>
+
+  <label for="salary">
+    <span class="prefix">salary</span>
+    <input type="text" name="salary" value="{{ job.salary }}" />
+    <span class="suffix"></span>
+  </label>
+
+  <label for="job_type">
+    <span class="prefix">job type</span>
+    <select name="job_type">
+      {% for job_type in job_type_display_list %}
+        <option value="{{ job_type.0 }}" {% if job_type.0 == job.job_type %}selected="selected"{% endif %}>{{ job_type.1 }}</option>
+      {% endfor %}
+    </select>
+    <span class="suffix"></span>
+  </label>
+
+  <label for="location">
+    <span class="prefix">location</span>
+    <input type="text" name="location" value="{{ job.location }}" />
+    <span class="suffix"></span>
+  </label>
+
+  <label for="contact_name">
+    <span class="prefix">contact name</span>
+    <input type="text" name="contact_name" value="{{ job.contact_name }}" />
+    <span class="suffix"></span>
+  </label>
+
+  <label for="contact_email">
+    <span class="prefix">contact email</span>
+    <input type="text" name="contact_email" value="{{ job.contact_email }}" />
+    <span class="suffix"></span>
+  </label>
+
+  <label for="contact_phone">
+    <span class="prefix">contact phone</span>
+    <input type="text" name="contact_phone" value="{{ job.contact_phone }}" />
+    <span class="suffix"></span>
+  </label>
+
+  <label for="industry">
+    <span class="prefix">industry</span>
+    <input type="text" name="industry" value="{{ job.industry }}" />
+    <span class="suffix"></span>
+  </label>
+{% endblock %}
+

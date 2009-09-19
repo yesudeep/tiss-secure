@@ -5,12 +5,13 @@ import configuration as config
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 
-from models import RECRUITERS_ID_URLS
+from models import Job, News, RECRUITERS_ID_URLS
 from utils import render_template, dec
 
 class IndexHandler(webapp.RequestHandler):
     def get(self):
-        response = render_template('index.html')
+        news = News.get_latest(10)
+        response = render_template('index.html', news=news)
         self.response.out.write(response)
 
 class RecruitersPage(webapp.RequestHandler):
@@ -27,7 +28,7 @@ class AchievementPage(webapp.RequestHandler):
     def get(self):
         response = render_template('achievements.html')
         self.response.out.write(response)
-        
+
 class EventsPage(webapp.RequestHandler):
     def get(self):
         response = render_template('event.html')
@@ -42,7 +43,7 @@ class JobBoardPage(webapp.RequestHandler):
     def get(self):
         response = render_template('job_board.html')
         self.response.out.write(response)
-        
+
 class IndrelPage(webapp.RequestHandler):
     def get(self):
         response = render_template('indrel.html')

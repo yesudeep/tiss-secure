@@ -1,0 +1,25 @@
+{% extends "admin/edit.html" %}
+
+
+{% block form_action %}/api/news/{{ news.key() }}/edit/{% endblock %}
+
+{% block form_fields %}
+  <label for="title">
+    <span class="prefix">title</span>
+    <input type="text" name="title" value="{{ news.title }}" />
+    <span class="suffix"></span>
+  </label>
+
+  <label for="slug_title">
+    <span class="prefix">slug title</span>
+    <input type="text" name="slug_title" readonly="readonly" value="{{ news.slug_title }}" />
+    <span class="suffix">Example URL component: /news/{{ news.when_published|datetimeformat("%Y/%m/%d") }}/<span class="url_slug">{{ news.slug_title }}</span></span>
+  </label>
+
+  <label for="content">
+    <span class="prefix">content</span>
+    <textarea name="content" cols="70" rows="20">{{ news.content }}</textarea>
+    <span class="suffix"></span>
+  </label>
+{% endblock %}
+

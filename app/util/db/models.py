@@ -1,5 +1,33 @@
 from google.appengine.ext import db
 from django.utils import simplejson as json
+from data import countries
+
+ADDRESS_TYPES = (
+    'home',
+    'residence',
+    'work',
+    'correspondence',
+    'permanent',
+    'temporary',
+    'other',
+)
+
+PHONE_TYPES = (
+    'mobile',
+    'home',
+    'work',
+    'fax',
+    'pager',
+    'other',
+)
+
+EMAIL_TYPES = (
+    'home',
+    'personal',
+    'work',
+    'other',
+)
+
 
 class RegularModel(db.Model):
     """
@@ -51,4 +79,26 @@ class RegularModel(db.Model):
     def to_json(self, *props):
         json_dict = self.to_json_dict(*props)
         return json.dumps(json_dict)
+
+class PostalAddress(RegularModel):
+    address_type = db.StringProperty(choices=ADDRESS_TYPES)
+    full_address = db.PostalAddressProperty()
+    apartment = db.StringProperty()
+    state_province = db.StringProperty()
+    city = db.StringProperty()
+    zip_code = db.StringProperty()
+    street_name = db.StringProperty()
+    country = db.StringProperty(choices=countries.ISO_ALPHA_3_CODES)
+    landmark = db.StringProperty()
+
+class Phone(RegularModel):
+    phone_type = db.StringProperty(choices=PHONE_TYPES)
+    number = db.StringProperty()
+
+    def __str__(self):
+        return ' '.join([self.number, '(', self.phone_type, ')'])
+
+class EmailAddress(RegularModel):
+    email = db.EmailProperty()
+    email_type = db.StringProperty(choices=EMAIL_TYPES)
 

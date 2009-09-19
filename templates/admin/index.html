@@ -1,0 +1,32 @@
+{% extends "admin/base.html" %}
+
+{% block tag_header_content %}
+    <ul>
+        <li><a href="/admin/logout">Logout</a></li>
+    </ul>
+
+    <div id="notification">
+      <h1 id="notification-title">Saving information</h1>
+      <div id="notification-content">
+        <p>Please wait while we synchronize information with the servers...</p>
+      </div>
+    </div>
+{% endblock %}
+
+{% block tag_nav_content %}
+    <ul>
+        <li><a {% if page_name == 'people' %}class="active"{% endif %} id="nav_people" href="/admin/people/">People</a></li>
+        <li><a {% if page_name == 'news' %}class="active"{% endif %} id="nav_news" href="/admin/news/">News</a></li>
+        <li><a {% if page_name == 'jobs' %}class="active"{% endif %} id="nav_jobs" href="/admin/jobs/">Jobs</a></li>
+    </ul>
+{% endblock %}
+
+{% block tag_section_content %}
+{% endblock %}
+
+{% block tag_scripts %}
+<script type="text/javascript">
+window.scripts.push("{{ MEDIA_URL }}script/admin{{ MINIFIED }}.js");
+</script>
+{% endblock %}
+

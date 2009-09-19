@@ -35,9 +35,13 @@ handlers:
 
 
 
-#- url: /admin.*
-#  script: admin.py
-#  login: admin
+- url: /admin.*
+  script: admin.py
+  login: admin
+
+- url: /api.*
+  script: api.py
+  login: admin
 
 - url: /.*
   script: www.py
