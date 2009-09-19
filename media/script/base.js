@@ -67,7 +67,7 @@
             event: 'mouseover'
         });
 
-        jQuery("#introduction_tabs").tabs("#introduction_panes > li", {
+        jQuery("#tabs").tabs("#panes > li", {
           /*onBeforeClick: function() {
             this.getCurrentPane().addClass("current");
           },*/

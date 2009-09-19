@@ -22,7 +22,8 @@ HTML_FILES = Split("""
     achievements.html
     event.html
     gallery.html
-    job_board.html
+    jobs.html
+    post_job.html
     forum.html
     indrel.html
     trndev.html
@@ -38,6 +39,7 @@ HTML_FILES = Split("""
     admin/new.html
     admin/new_job.html
     admin/edit_job.html
+    admin/edit_person.html
 """)
 
 TEMPLATE_FILES = HTML_FILES + Split("""

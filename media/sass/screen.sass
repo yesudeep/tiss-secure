@@ -12,16 +12,28 @@
       :width 140px
       :height 140px
 =tabs()
-  > li > a
-    +awesome-button()
+  > li
+    +display-inline-block
+    :padding 20px
+    >a
+      :color white
+      :font-weight bold
+      :font-family "Lucida Grande", "Helvetica Neue", "Arial", "sans-serif"
+      +awesome-button(!color_awesome_gray_dark, 5px 10px, 25px)
+    a:hover
+      +awesome-button(!color_awesome_gray, 5px 10px, 25px)
+    a.current:hover
+      +awesome-button(!color_awesome_red, 5px 10px, 25px)
+    a.current
+      +awesome-button(!color_awesome_red_dark, 5px 10px, 25px)
 =panes()
   > li
     :display none
 
-.panes
+#panes
   +panes
 
-.tabs
+#tabs
   +tabs
 
 body
@@ -43,6 +55,7 @@ h1
   :font-weight normal
   :line-height 1.4
   :font-size 2.4em
+article h1
   :color rgba(100, 0, 0, 0.8)
   :text-shadow 2px 2px 2px #fff
 h2
@@ -50,6 +63,7 @@ h2
   :font-weight bold
   :line-height 1.4
   :font-size 1.2em
+article h2
   :color rgba(139, 11, 0, 0.8)
   :text-shadow 1px 1px 2px #fff
 p
@@ -148,7 +162,8 @@ section
 
   article
     :margin 0px auto 20px auto
-    :background-color rgba(255, 255, 255, 0.65)
+    :padding 10px
+    :background-color rgba(255, 255, 255, 0.5)
     +border-radius(10px)
     :border 1px solid #ffffff
   article#trunk
@@ -168,20 +183,7 @@ section
       :margin-left 10px
 
 #introduction_tabs
-  >li
-    +display-inline-block
-    :padding 20px
-    >a
-      :color white
-      :font-weight bold
-      :font-family Lucida Grande, Helvetica Nue
-      +awesome-button(!color_awesome_gray_dark, 5px 10px, 25px)
-    a:hover
-      +awesome-button(!color_awesome_gray, 5px 10px, 25px)
-    a.current:hover
-      +awesome-button(!color_awesome_red, 5px 10px, 25px)
-    a.current
-      +awesome-button(!color_awesome_red_dark, 5px 10px, 25px)
+
 
 #introduction_panes
   > li

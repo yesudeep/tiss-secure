@@ -6,7 +6,7 @@
           easing: 'easeInOutQuint'
         })
         .autoscroll({
-            steps: 4,
+            steps: 2,
             interval: 800
         })
         .circular();

@@ -2,7 +2,7 @@
 
 {% block tag_head %}
 	{% block tag_stylesheets %}
-	    <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/screen-min.css" media="screen, projection" charset="utf-8" />
+	    <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/screen-all{{ MINIFIED }}.css" media="screen, projection" charset="utf-8" />
 	{% endblock %}
 
 	{% block tag_additional_stylesheets %}{% endblock %}
@@ -52,8 +52,8 @@
                         <p>A sneak peak into our events.</p>
                     </li>
                     <li>
-                        <a href="/alumni/job_board"><h1>Job Board</h1></a>
-                        <p>Where jobs are written.</p>
+                        <a href="/alumni/jobs"><h1>Jobs</h1></a>
+                        <p>Post jobs and view existing ones.</p>
                     </li>
                 </ul>
             </li>

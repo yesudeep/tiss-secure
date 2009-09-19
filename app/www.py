@@ -5,7 +5,7 @@ import configuration as config
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 
-from models import Job, News, RECRUITERS_ID_URLS
+from models import Job, News, RECRUITERS_ID_URLS, JOB_TYPE_DISPLAY_LIST
 from utils import render_template, dec
 
 class IndexHandler(webapp.RequestHandler):
@@ -39,9 +39,30 @@ class GalleryPage(webapp.RequestHandler):
         response = render_template('gallery.html')
         self.response.out.write(response)
 
-class JobBoardPage(webapp.RequestHandler):
+class JobsNewPage(webapp.RequestHandler):
     def get(self):
-        response = render_template('job_board.html')
+        response = render_template('post_job.html', job_type_display_list=JOB_TYPE_DISPLAY_LIST)
+        self.response.out.write(response)
+
+    def post(self):
+        job = Job()
+        job.title = self.request.get('title')
+        job.description = self.request.get('description')
+        job.salary = self.request.get('salary')
+        job.location = self.request.get('location')
+        job.industry = self.request.get('industry')
+        job.contact_phone = self.request.get('contact_phone')
+        job.job_type = self.request.get('job_type')
+        job.company = self.request.get('company')
+        job.contact_name = self.request.get('contact_name')
+        job.contact_email = self.request.get('contact_email')
+        job.put()
+
+        self.response.out.write(job.to_json('title', 'is_deleted', 'is_active', 'is_starred', 'when_created'))
+
+class JobsPage(webapp.RequestHandler):
+    def get(self):
+        response = render_template('jobs.html')
         self.response.out.write(response)
 
 class IndrelPage(webapp.RequestHandler):
@@ -76,7 +97,8 @@ urls = (
     ('/alumni/achievements/?', AchievementPage),
     ('/alumni/events/?', EventsPage),
     ('/alumni/gallery/?', GalleryPage),
-    ('/alumni/job_board/?', JobBoardPage),
+    ('/alumni/jobs/new/?', JobsNewPage),
+    ('/alumni/jobs/?', JobsPage),
     ('/forum/indrel/?', IndrelPage),
     ('/forum/trndev/?', TrndevPage),
     ('/forum/comben/?', CombenPage),
