@@ -7,16 +7,27 @@
       <h1>Reach Us <span>We're just a phone call away.</span></h1>
     </div>
   </header>
-  <article id="trunk">
-    <form id="contactus_form">
-      <label>Name
-        <input type="text" />
+  <article>
+    <form id="contactus_form" class="decorated-fields table">
+      <label for="full_name">
+        <span class="prefix">Name</span>
+        <input type="text" name="full_name" value=""/>
+        <span class="suffix"></span>
       </label>
-      <label>Email
-        <input type="text" />
+      <label for="email">
+        <span class="prefix">Email</span>
+        <input type="text" name="email" value="" />
+        <span class="suffix"></span>
       </label>
-      <label>Message
-        <textarea cols="23"></textarea>
+      <label for="message">
+        <span class="prefix">Message</span>
+        <textarea cols="50" rows="10" name="message"></textarea>
+        <span class="suffix"></span>
+      </label>
+      <label for="submit">
+        <span class="prefix"></span>
+        <input type="submit" name="submit" value="Send Message" />
+        <span class="suffix"></span>
       </label>
     </form>
     <div id="address">
