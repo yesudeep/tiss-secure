@@ -5,12 +5,80 @@
 <section>
   <header>
     <div>
-      <h1>Tiss Job Board.</h1>
+      <h1>Offering jobs?  <span>Spread the news.</span></h1>
     </div>
   </header>
   <article>
+    <h1>Post a new Job here.</h1>
+    <form id="new_job" class="decorated-fields table" action="/admin/jobs/new" method="post">
+      <label for="title">
+        <span class="prefix">title</span>
+        <input type="text" name="title" value="" />
+        <span class="suffix"></span>
+      </label>
+
+      <label for="description">
+        <span class="prefix">description</span>
+        <textarea name="description" cols="60" rows="10"></textarea>
+        <span class="suffix"></span>
+      </label>
+
+      <label for="company">
+        <span class="prefix">company</span>
+        <input type="text" name="company" value="" />
+        <span class="suffix"></span>
+      </label>
+
+      <label for="salary">
+        <span class="prefix">salary</span>
+        <input type="text" name="salary" value="" />
+        <span class="suffix"></span>
+      </label>
+      <label for="job_type">
+        <span class="prefix">job type</span>
+        <select name="job_type">
+          {% for job_type in job_type_display_list %}
+            <option value="{{ job_type.0 }}">{{ job_type.1 }}</option>
+          {% endfor %}
+        </select>
+        <span class="suffix"></span>
+      </label>
+      <label for="location">
+        <span class="prefix">location</span>
+        <input type="text" name="location" value="" />
+        <span class="suffix"></span>
+      </label>
+      <label for="contact_name">
+        <span class="prefix">contact name</span>
+        <input type="text" name="contact_name" value="" />
+        <span class="suffix"></span>
+      </label>
+      <label for="contact_email">
+        <span class="prefix">contact email</span>
+        <input type="text" name="contact_email" value="" />
+        <span class="suffix"></span>
+      </label>
+      <label for="contact_phone">
+        <span class="prefix">contact phone</span>
+        <input type="text" name="contact_phone" value="" />
+        <span class="suffix"></span>
+      </label>
+      <label for="industry">
+        <span class="prefix">industry</span>
+        <input type="text" name="industry" value="" />
+        <span class="suffix"></span>
+      </label>
+      <label for="submit">
+        <span class="prefix"></span>
+        <input type="submit" name="submit" value="Post Job &raquo;" />
+        <span class="suffix"></span>
+      </label>
+    </form>
+
+
     <p></p>
   </article>
 </section>
 
 {% endblock %}
+

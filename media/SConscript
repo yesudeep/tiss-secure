@@ -247,7 +247,13 @@ admin_all_css_files = [SRC_DIR + f for f in admin_all_css_files]
 admin_all_css = env.Concatenate([DEST_DIR + 'css/admin-all.css'], admin_all_css_files)
 env.YuiCompressorMinify(admin_all_css)
 
-
+screen_all_css_files =  Split("""
+    css/generic.css
+    css/screen.css
+    """)
+screen_all_css_files = [SRC_DIR + f for f in screen_all_css_files]
+screen_all_css = env.Concatenate([DEST_DIR + 'css/screen-all.css'], screen_all_css_files)
+env.YuiCompressorMinify(screen_all_css)
 
 # Include licenses.
 #c3 = env.Concatenate([DEST_DIR + 'script/lib/all-min.js'], [
