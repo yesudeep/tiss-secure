@@ -91,8 +91,9 @@ class JobsNewPage(webapp.RequestHandler):
 class JobsPage(webapp.RequestHandler):
     @login_required_signup
     def get(self):
+        jobs = Job.get_latest(10)
         logout_url = users.create_logout_url('/')
-        response = render_template('jobs.html', logout_url=logout_url)
+        response = render_template('jobs.html', logout_url=logout_url, jobs=jobs)
         self.response.out.write(response)
 
 class IndrelPage(webapp.RequestHandler):

@@ -11,9 +11,31 @@
   <article>
     <a class="awesome-button warm large" href="/alumni/jobs/new/">Post a New Job</a>
     <table border="0" cellspacing="0" cellpadding="0">
-      <tr><th>Header</th></tr>
-      <tr><td>Data</td></tr>
-
+      <thead>
+        <tr>
+          <th>title</th>
+          <th>company</th>
+          <th>type</th>
+          <th>contact</th>
+        </tr>
+      </thead>
+      <tbody>
+       {% for job in jobs %}
+         <tr>
+          <td>
+            <h1>{{ job.title }}</h1>
+            <div class="info">
+              {{ job.description }}
+            </div>
+          </td>
+          <td>
+            {{ job.company }}
+          </td>
+          <td>{{ job.job_type }}</td>
+          <td>{{ job.contact_name }} ({{ job.contact_email }}, {{ job.contact_phone }})</td>
+         </tr>
+       {% endfor %}
+      </tbody>
     </table>
   </article>
 </section>
