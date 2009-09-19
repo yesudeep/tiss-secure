@@ -27,9 +27,11 @@
 <script type="text/javascript">
 $LOADER_SCRIPT
 window.scripts=[
-{% if MINIFIED %}"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"
-//"http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js"
-{% else %}"http://jqueryjs.googlecode.com/files/jquery-1.3.2.js"{% endif %}];
+{% if LOCAL %}
+"{{ MEDIA_URL }}script/lib/chickoojs/src/jquery/jquery-1.3.2{{ MINIFIED }}.js"
+{% else %}
+"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"
+{% endif %}];
 </script>
 {% endblock %}
 {% block tag_scripts_base %}{% endblock %}
