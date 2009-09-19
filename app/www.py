@@ -28,7 +28,7 @@ class AchievementPage(webapp.RequestHandler):
         response = render_template('achievements.html')
         self.response.out.write(response)
         
-class EventPage(webapp.RequestHandler):
+class EventsPage(webapp.RequestHandler):
     def get(self):
         response = render_template('event.html')
         self.response.out.write(response)
@@ -73,7 +73,7 @@ urls = (
     ('/placements/recruiters/?', RecruitersPage),
     ('/contactus/?', ContactUsPage),
     ('/alumni/achievements/?', AchievementPage),
-    ('/alumni/events/?', EventPage),
+    ('/alumni/events/?', EventsPage),
     ('/alumni/gallery/?', GalleryPage),
     ('/alumni/job_board/?', JobBoardPage),
     ('/forum/indrel/?', IndrelPage),
