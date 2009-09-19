@@ -145,17 +145,17 @@ nav
 
 #logout
   :position relative
-  +awesome-button(!color_awesome_black, 5px 10px, 10px)
+  +awesome-button(!color_awesome_green_dark, 10px 10px, 10px)
   //:color #00ccff
-  :left 835px
-  :font-size 0.8em
+  //:left 835px
+  :font-size 0.9em
   :margin-top 5px
+  :margin-left 835px
   :font-weight normal
   
 #logout:hover
-  +awesome-button(!color_awesome_black_dark, 5px 10px, 10px)
-  :font-size 0.8em
-  :font-weight normal
+  //+awesome-button(!color_awesome_black_dark, 10px 10px, 10px)
+  :background-color= !color_awesome_black_dark
 
 section
   :background= "transparent" !url_header_bg "no-repeat scroll 0 0"
