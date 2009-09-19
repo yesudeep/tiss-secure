@@ -143,6 +143,20 @@ nav
             :background-color= !color_nav_link_hover_bg
             :background-color= !color_nav_link_hover_bg_rgba
 
+#logout
+  :position relative
+  +awesome-button(!color_awesome_black, 5px 10px, 10px)
+  //:color #00ccff
+  :left 835px
+  :font-size 0.8em
+  :margin-top 5px
+  :font-weight normal
+  
+#logout:hover
+  +awesome-button(!color_awesome_black_dark, 5px 10px, 10px)
+  :font-size 0.8em
+  :font-weight normal
+
 section
   :background= "transparent" !url_header_bg "no-repeat scroll 0 0"
   +grid-container
