@@ -25,12 +25,13 @@
       :font-weight bold
       :font-family "Lucida Grande", "Helvetica Neue", "Arial", "sans-serif"
       +awesome-button(!color_awesome_gray_dark, 5px 10px, 25px)
+      :font-size 1em
     a:hover
-      +awesome-button(!color_awesome_gray, 5px 10px, 25px)
+      :background-color= !color_awesome_gray
     a.current:hover
-      +awesome-button(!color_awesome_red, 5px 10px, 25px)
+      :background-color= !color_awesome_red
     a.current
-      +awesome-button(!color_awesome_red_dark, 5px 10px, 25px)
+      :background-color= !color_awesome_red_dark
 =panes()
   > li
     :display none
@@ -453,13 +454,13 @@ footer
     :width 4050px
 
 // Contact us Page //
-#contactus_form
-  :width 200px
-  :padding 20px
-  :margin 10px
+//#contactus_form
+//  :width 200px
+//  :padding 20px
+//  :margin 10px
 
-#address
-  :width 300px
+//#address
+//  :width 300px
   :margin 5px
   p
     :margin 1em auto
