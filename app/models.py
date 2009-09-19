@@ -101,6 +101,19 @@ class Job(RegularModel):
     industry = db.StringProperty()
     poster = db.UserProperty(auto_current_user_add=True)
 
+    @classmethod
+    def get_latest(cls, count=10):
+        cache_key = 'Job.get_latest(' + str(count) + ')'
+        latest_jobs = memcache.get(cache_key)
+        if not latest_jobs:
+            latest_jobs = db.Query(Job) \
+                .order('-when_created') \
+                .filter('is_active =', True) \
+                .filter('is_deleted = ', False) \
+                .fetch(count)
+            memcache.set(cache_key, latest_jobs, CACHE_TIMEOUT)
+        return latest_jobs
+
 class News(RegularModel):
     """
     News articles that will be displayed in the news section.
