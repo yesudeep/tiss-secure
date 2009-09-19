@@ -76,8 +76,8 @@ article h2
 p
   :font-weight normal
 
-iframe
-  :margin 10px
+//iframe
+//  :margin 10px
 
 nav
   :overflow hidden
@@ -459,16 +459,33 @@ footer
 //  :padding 20px
 //  :margin 10px
 
-#address
+#contact
   p
     :margin-top 5px
     >em
       :font-style italic
-
-#google_talk
+      
+#google_talk_wrapper
   :position fixed
+  :left 5px
   :bottom 0px
-  :left 50px
+  :background-color cornflowerblue
+  +border-top-right-radius(5px)
+  +border-top-left-radius(5px)
+  > p
+    :font-size 16px
+    :color white
+    :padding 5px 5px 0px 
+    > a
+      :display block
+      :width 16px
+      :height 16px
+      :font-weight bold
+      :text-align center
+      :color cornflowerblue
+      :background-color white
+      :float right
+#google_talk
   :overflow hidden 
-  :width 300px
-  :height 446px
+  :width 200px
+  :height 246px

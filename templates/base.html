@@ -223,8 +223,11 @@
     </footer>
     {% endblock %}
     {% block tag_google_talk %}
-    <iframe id="google_talk" src="http://talkgadget.google.com/talkgadget/client?{{ GOOGLE_TALK_STYLESHEET|urlencode }}" 
+    <div id="google_talk_wrapper">
+      <p>Google Talk <a href="#google_talk">_</a></p>
+      <iframe id="google_talk" src="http://talkgadget.google.com/talkgadget/client?{{ GOOGLE_TALK_STYLESHEET|urlencode }}" 
 scrolling="no" frameborder="0"></iframe>
+    </div>
     {% endblock %}
 {% endblock %}
 
