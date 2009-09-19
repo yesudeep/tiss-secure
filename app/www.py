@@ -11,33 +11,57 @@ from utils import render_template, dec, login_required_signup
 
 class IndexHandler(webapp.RequestHandler):
     def get(self):
+        if users.get_current_user():
+            logout_url = users.create_logout_url('/')
+        else:
+            logout_url = None
         news = News.get_latest(10)
-        response = render_template('index.html', news=news)
+        response = render_template('index.html', logout_url=logout_url, news=news)
         self.response.out.write(response)
 
 class RecruitersPage(webapp.RequestHandler):
     def get(self):
-        response = render_template('recruiters.html', recruiters_list=RECRUITERS_ID_URLS)
+        if users.get_current_user():
+            logout_url = users.create_logout_url('/')
+        else:
+            logout_url = None
+        response = render_template('recruiters.html', logout_url=logout_url, recruiters_list=RECRUITERS_ID_URLS)
         self.response.out.write(response)
 
 class ContactUsPage(webapp.RequestHandler):
     def get(self):
-        response = render_template('contact_us.html')
+        if users.get_current_user():
+            logout_url = users.create_logout_url('/')
+        else:
+            logout_url = None
+        response = render_template('contact_us.html', logout_url=logout_url)
         self.response.out.write(response)
 
 class AchievementPage(webapp.RequestHandler):
     def get(self):
-        response = render_template('achievements.html')
+        if users.get_current_user():
+            logout_url = users.create_logout_url('/')
+        else:
+            logout_url = None
+        response = render_template('achievements.html', logout_url=logout_url)
         self.response.out.write(response)
 
 class EventsPage(webapp.RequestHandler):
     def get(self):
-        response = render_template('event.html')
+        if users.get_current_user():
+            logout_url = users.create_logout_url('/')
+        else:
+            logout_url = None
+        response = render_template('event.html', logout_url=logout_url)
         self.response.out.write(response)
 
 class GalleryPage(webapp.RequestHandler):
     def get(self):
-        response = render_template('gallery.html')
+        if users.get_current_user():
+            logout_url = users.create_logout_url('/')
+        else:
+            logout_url = None
+        response = render_template('gallery.html', logout_url=logout_url)
         self.response.out.write(response)
 
 class JobsNewPage(webapp.RequestHandler):
@@ -73,27 +97,49 @@ class JobsPage(webapp.RequestHandler):
 
 class IndrelPage(webapp.RequestHandler):
     def get(self):
-        response = render_template('indrel.html')
+        if users.get_current_user():
+            logout_url = users.create_logout_url('/')
+        else:
+            logout_url = None
+        response = render_template('forum/indrel.html', logout_url=logout_url)
         self.response.out.write(response)
 
 class TrndevPage(webapp.RequestHandler):
     def get(self):
-        response = render_template('trndev.html')
+        if users.get_current_user():
+            logout_url = users.create_logout_url('/')
+        else:
+            logout_url = None
+        response = render_template('forum/trndev.html', logout_url=logout_url)
         self.response.out.write(response)
 
 class CombenPage(webapp.RequestHandler):
     def get(self):
-        response = render_template('comben.html')
+        if users.get_current_user():
+            logout_url = users.create_logout_url('/')
+        else:
+            logout_url = None
+
+        response = render_template('forum/comben.html', logout_url=logout_url)
         self.response.out.write(response)
 
 class HipmsPage(webapp.RequestHandler):
     def get(self):
-        response = render_template('hipms.html')
+        if users.get_current_user():
+            logout_url = users.create_logout_url('/')
+        else:
+            logout_url = None
+
+        response = render_template('forum/hipms.html', logout_url=logout_url)
         self.response.out.write(response)
 
 class OddevPage(webapp.RequestHandler):
     def get(self):
-        response = render_template('oddev.html')
+        if users.get_current_user():
+            logout_url = users.create_logout_url('/')
+        else:
+            logout_url = None
+        response = render_template('forum/oddev.html', logout_url=logout_url)
         self.response.out.write(response)
 
 class AccountHandler(webapp.RequestHandler):
@@ -104,7 +150,7 @@ class AccountHandler(webapp.RequestHandler):
         if person:
             self.redirect(continue_uri)
         else:
-            response = render_template('signup.html', continue_uri=continue_uri)
+            response = render_template('signup.html', logout_url=logout_url, continue_uri=continue_uri)
             self.response.out.write(response)
 
     def post(self):

@@ -24,12 +24,12 @@ HTML_FILES = Split("""
     gallery.html
     jobs.html
     post_job.html
-    forum.html
-    indrel.html
-    trndev.html
-    comben.html
-    hipms.html
-    oddev.html
+    forum/forum.html
+    forum/indrel.html
+    forum/trndev.html
+    forum/comben.html
+    forum/hipms.html
+    forum/oddev.html
     signup.html
     admin/base.html
     admin/index.html
