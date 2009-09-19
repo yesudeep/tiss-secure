@@ -96,7 +96,7 @@ class Job(RegularModel):
     job_type = db.StringProperty(choices=JOB_TYPE_CHOICES)
     contact_name = db.StringProperty()
     contact_email = db.EmailProperty()
-    company_name = db.StringProperty()
+    company = db.StringProperty()
     contact_phone = db.PhoneNumberProperty()
     industry = db.StringProperty()
 
