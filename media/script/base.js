@@ -7,7 +7,7 @@
             nav: jQuery('nav'),
             nav_tabs: jQuery('nav > div.handle > div > ul'),
             nav_panes: jQuery('nav > div > ul.panes')
-        },
+        }; /*,
         colors = [
                 "#362d1d",
                 "#0c50dc",
@@ -37,9 +37,7 @@
                 "#5c3c0f"
                 ];
 
-        /**
-         * Cycles the background color
-         */
+        // Cycles the background color
         function cycleBackgroundColor(){
             var c = colors;
             elements.body.animate({
@@ -47,7 +45,7 @@
             }, 1000);
         }
         setInterval(cycleBackgroundColor, 10000);
-
+        */
         /**
          * Set the nav element to slide out and back in.
          */
@@ -55,7 +53,7 @@
             //elements.nav.stop().animate({top: "0px"}, 800, "easeInOutQuint");
         },
         function(){
-            elements.nav.stop().animate({top: "-200px"}, 600, "easeInOutQuint");
+            elements.nav.stop().animate({top: "-200px"}, 400, "easeInOutQuint");
         });
         jQuery('a', elements.nav_tabs).click(function(event){
             event.preventDefault();

@@ -1,7 +1,7 @@
 // common.js should be included before this file.
 
 function createItemHTML(person){
-    return dataListEntry(person, person.full_name, defaultActions('people', person), defaultTags());
+    return dataListEntry(person, person.first_name + ' ' + person.last_name, defaultActions('people', person), defaultTags());
 }
 
 function editItem(){

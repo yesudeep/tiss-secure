@@ -4,6 +4,25 @@
 {% block form_action %}/api/people/{{ person.key() }}/edit/{% endblock %}
 
 {% block form_fields %}
+  <label for="email">
+    <span class="prefix">email</span>
+    <input type="text" name="email" readonly="readonly" value="{{ person_email }}" />
+    <span class="suffix"></span>
+  </label>
+
+  <label for="first_name">
+    <span class="prefix">first name</span>
+    <input type="text" name="first_name" value="{{ person.first_name }}" />
+    <span class="suffix"></span>
+  </label>
+
+  <label for="last_name">
+    <span class="prefix">last name</span>
+    <input type="text" name="last_name" value="{{ person.last_name }}" />
+    <span class="suffix"></span>
+  </label>
+
+
 
 {% endblock %}
 
