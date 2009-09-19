@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block tag_trunk %}
+
+<section>
+  <header>
+    <div>
+      <h1>Just a little favor.  <span>Tell us about yourself.</span></h1>
+    </div>
+  </header>
+  <article>
+    <h1>Please provide more information about yourself here.</h1>
+    <form id="signup" class="decorated-fields table" action="/account/signup?continue={{ continue_uri }}" method="post">
+      <label for="first_name">
+        <span class="prefix">first name</span>
+        <input type="text" name="first_name" value="" />
+        <span class="suffix"></span>
+      </label>
+      <label for="last_name">
+        <span class="prefix">last name</span>
+        <input type="text" name="last_name" value="" />
+        <span class="suffix"></span>
+      </label>
+      <label for="submit">
+        <span class="prefix"></span>
+        <input type="submit" name="submit" value="Sign Up!" />
+        <span class="suffix"></span>
+      </label>
+    </form>
+    <p></p>
+  </article>
+</section>
+
+{% endblock %}
+

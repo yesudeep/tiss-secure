@@ -99,6 +99,7 @@ class Job(RegularModel):
     company = db.StringProperty()
     contact_phone = db.PhoneNumberProperty()
     industry = db.StringProperty()
+    poster = db.UserProperty(auto_current_user_add=True)
 
 class News(RegularModel):
     """
@@ -109,6 +110,7 @@ class News(RegularModel):
     content = db.TextProperty()
     content_html = db.TextProperty()
     when_published = db.DateTimeProperty()
+    author = db.UserProperty(auto_current_user_add=True)
 
     @classmethod
     def get_latest(cls, count=10):
@@ -124,11 +126,16 @@ class News(RegularModel):
         return latest_news
 
 class Person(RegularModel):
-    user = db.UserProperty()
+    user = db.UserProperty(auto_current_user_add=True)
     first_name = db.StringProperty()
     last_name = db.StringProperty()
     gender = db.StringProperty(choices=GENDER_CHOICES)
     birthdate = db.DateTimeProperty()
+
+    @classmethod
+    def is_user_already_registered(cls, user):
+        person = db.Query(Person).filter('user =', user).get()
+        return person
 
 class PersonAddress(PostalAddress):
     person = db.ReferenceProperty(Person, collection_name='addresses')
