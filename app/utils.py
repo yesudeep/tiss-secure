@@ -32,3 +32,29 @@ from datetime import datetime
 def get_iso_datetime_string(date_object):
   return date_object.strftime('%Y-%m-%dT%H:%M:%S')
 
+def login_required_signup(handler_method):
+    """A decorator to require that a user be logged in to access a handler.
+
+    To use it, decorate your get() method like this:
+
+    @login_required('/profile/')
+    def get(self):
+      user = users.get_current_user(self)
+      self.response.out.write('Hello, ' + user.nickname())
+
+    We will redirect to a login page if the user is not logged in. We redirect to the request URI,
+    if redirect_uri is not specified and Google Accounts only redirects back as a GET
+    request, so this should not be used for POSTs.
+    """
+    def check_login(self, *args):
+        if self.request.method != 'GET':
+            raise webapp.Error('The check_login decorator can only be used for GET '
+                         'requests')
+        user = users.get_current_user()
+        if not user:
+            self.redirect(users.create_login_url('/account/signup/?continue=' + self.request.uri))
+            return
+        else:
+            handler_method(self, *args)
+    return check_login
+

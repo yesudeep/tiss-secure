@@ -30,6 +30,7 @@ HTML_FILES = Split("""
     comben.html
     hipms.html
     oddev.html
+    signup.html
     admin/base.html
     admin/index.html
     admin/generic_list.html

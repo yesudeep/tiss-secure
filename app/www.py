@@ -2,11 +2,12 @@
 # -*- coding: utf-8 -*-
 
 import configuration as config
+from google.appengine.api import users, memcache
 from google.appengine.ext import webapp
-from google.appengine.ext.webapp.util import run_wsgi_app
+from google.appengine.ext.webapp.util import run_wsgi_app, login_required
 
-from models import Job, News, RECRUITERS_ID_URLS, JOB_TYPE_DISPLAY_LIST
-from utils import render_template, dec
+from models import Person, Job, News, RECRUITERS_ID_URLS, JOB_TYPE_DISPLAY_LIST
+from utils import render_template, dec, login_required_signup
 
 class IndexHandler(webapp.RequestHandler):
     def get(self):
@@ -40,12 +41,15 @@ class GalleryPage(webapp.RequestHandler):
         self.response.out.write(response)
 
 class JobsNewPage(webapp.RequestHandler):
+    @login_required_signup
     def get(self):
-        response = render_template('post_job.html', job_type_display_list=JOB_TYPE_DISPLAY_LIST)
+        logout_url = users.create_logout_url('/')
+        response = render_template('post_job.html', logout_url=logout_url, job_type_display_list=JOB_TYPE_DISPLAY_LIST)
         self.response.out.write(response)
 
     def post(self):
         job = Job()
+        #job.poster = users.get_current_user()
         job.title = self.request.get('title')
         job.description = self.request.get('description')
         job.salary = self.request.get('salary')
@@ -57,12 +61,13 @@ class JobsNewPage(webapp.RequestHandler):
         job.contact_name = self.request.get('contact_name')
         job.contact_email = self.request.get('contact_email')
         job.put()
-
         self.response.out.write(job.to_json('title', 'is_deleted', 'is_active', 'is_starred', 'when_created'))
 
 class JobsPage(webapp.RequestHandler):
+    @login_required_signup
     def get(self):
-        response = render_template('jobs.html')
+        logout_url = users.create_logout_url('/')
+        response = render_template('jobs.html', logout_url=logout_url)
         self.response.out.write(response)
 
 class IndrelPage(webapp.RequestHandler):
@@ -90,6 +95,25 @@ class OddevPage(webapp.RequestHandler):
         response = render_template('oddev.html')
         self.response.out.write(response)
 
+class AccountHandler(webapp.RequestHandler):
+    @login_required_signup
+    def get(self):
+        continue_uri = self.request.get('continue')
+        person = Person.is_user_already_registered(users.get_current_user())
+        if person:
+            self.redirect(continue_uri)
+        else:
+            response = render_template('signup.html', continue_uri=continue_uri)
+            self.response.out.write(response)
+
+    def post(self):
+        continue_uri = self.request.get('continue')
+        person = Person()
+        person.first_name = self.request.get('first_name')
+        person.last_name = self.request.get('last_name')
+        person.put()
+        self.redirect(continue_uri)
+
 urls = (
     ('/', IndexHandler),
     ('/placements/recruiters/?', RecruitersPage),
@@ -103,7 +127,9 @@ urls = (
     ('/forum/trndev/?', TrndevPage),
     ('/forum/comben/?', CombenPage),
     ('/forum/hipms/?', HipmsPage),
-    ('/forum/oddev/?', OddevPage)
+    ('/forum/oddev/?', OddevPage),
+
+    ('/account/signup/?', AccountHandler),
 )
 
 application = webapp.WSGIApplication(urls, debug=config.DEBUG)

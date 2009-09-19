@@ -6,6 +6,7 @@ from google.appengine.ext.webapp import template
 from appengine_utilities.sessions import Session
 
 
+
 class SessionUser(object):
     """
     A SessionUser object keeps track of user state.
