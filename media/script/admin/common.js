@@ -32,21 +32,25 @@ function defaultActions(type, item){
 }
 
 function showPromptDialog(options) {
+    var random_number = Math.floor(Math.random() * 27644437 + 1);
+
     options = options || {};
+    options.identifier = options.identifier + random_number || random_number;
     options.title = options.title || 'Untitled';
     options.message = options.message || "No message available.";
     options.subMessage = options.subMessage || "No message available.";
-    options.onNoClicked = options.onNoClicked || function(){};
-    options.onYesClicked = options.onYesClicked || function(){};
-    options.onCancelClicked = options.onCancelClicked || function(){};
+    options.onFormSubmit = options.onFormSubmit || function(e){};
+    options.onNoClicked = options.onNoClicked || function(a){};
+    options.onYesClicked = options.onYesClicked || function(a){};
+    options.onCancelClicked = options.onCancelClicked || function(a){};
     options.width = options.width || "550px";
     options.yesLabel = options.yesLabel || '<span class="symbol">&#10004;</span> Yes';
     options.cancelLabel = options.cancelLabel || "Cancel";
     options.noLabel = options.noLabel || '<span class="symbol">&times;</span> No';
 
-    var randId = Math.floor(Math.random() * 27644437 + 1);
+    var randId = options.identifier;
     var box = new Lightbox({showCloseButton: false, fxDuration: 100});
-    var content = '<p>' + options.message + '</p><p class="small">' +
+    var content = '<div id="message-' + randId +  '">' + options.message + '</div><p class="small">' +
         options.subMessage + '</p><div class="actions">';
     if (!options.hideCancelButton){
         content += '<button type="button" id="cancel-' + randId + '">' + options.cancelLabel + '</button>'
@@ -62,17 +66,21 @@ function showPromptDialog(options) {
     box.setTitle(options.title);
     box.show(content, {width: options.width});
 
-    jQuery('#yes-' + randId).live('click', function(e){
+    jQuery('#message-' + randId + ' form').live('submit', function(e){
         box.hide();
-        options.onYesClicked();
+        return options.onFormSubmit.call(this, e);
+    });
+    jQuery('#yes-' + randId).live('click', function(e){
+        options.onYesClicked(jQuery('#message-' + randId));
+        box.hide();
     });
     jQuery('#no-' + randId).live('click', function(e){
+        options.onNoClicked(jQuery('#message-' + randId));
         box.hide();
-        options.onNoClicked();
     });
     jQuery('#cancel-' + randId).live('click', function(e){
+        options.onCancelClicked(jQuery('#message-' + randId));
         box.hide();
-        options.onCancelClicked();
     });
 }
 
@@ -167,6 +175,65 @@ jQuery(function(){
         return false;
     });
 
+    jQuery('a[rel="add"]').live('click', function(event){
+        event.stopPropagation();
+        event.preventDefault();
+
+        var elem = jQuery(this),
+            url = elem.attr('href'),
+            text = elem.text(),
+            li = elem.parents('li'),
+            identifier = li.attr('id'),
+            title = elem.attr('title'),
+            form = '<form class="decorated-fields table" action="/foobar/" method="post"><label for="sample"><span class="prefix">sample</span><input type="text" name="sample" value="" /><span class="suffix"></span></label></form>';
+
+        //jQuery.get(url, {}, function(form, textStatus){
+            showPromptDialog({
+                identifier: identifier,
+                title: title,
+                message: form,
+                yesLabel: text,
+                cancelLabel: '&times; Cancel',
+                hideNoButton: true,
+                onFormSubmit: function(e){
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    var form = jQuery(this),
+                        action = form.attr('action'),
+                        method = form.attr('method'),
+                        formData = form.serialize();
+                    jQuery.ajax({
+                        type: method.toUpperCase(),
+                        url: action,
+                        data: formData,
+                        dataType: 'json',
+                        success: function(data){
+                            console.log(data);
+                        }
+                    });
+                    return false;
+                },
+                onYesClicked: function(container){
+                    var form = jQuery('form', container),
+                        action = form.attr('action'),
+                        method = form.attr('method'),
+                        formData = form.serialize();
+                    jQuery.ajax({
+                        type: method.toUpperCase(),
+                        url: action,
+                        data: formData,
+                        dataType: 'json',
+                        success: function(data){
+                            console.log(data);
+                        }
+                    });
+                }
+            });
+        //});
+
+        return false;
+    });
 
     jQuery('form.edit').live('submit', function(e){
         var form = jQuery(this),

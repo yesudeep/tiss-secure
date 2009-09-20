@@ -89,6 +89,7 @@ IMAGE_FILES = Split("""
     image/background/textfield_normal.png
     image/background/textfield_readonly.png
     image/background/grunge_paper.jpg
+    image/icon/favicon.png
 """)
 
 CSS_FILES = Split("""

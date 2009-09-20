@@ -25,6 +25,8 @@ def sanitize_url(url):
         url = url + '/'
     return url
 
+from google.appengine.api import users
+
 # See http://code.google.com/appengine/articles/gdata.html
 APPLICATION_ID = os.environ['APPLICATION_ID']
 APPLICATION_NAME = 'Tata Institute of Social Sciences HRM and LR'
@@ -79,6 +81,8 @@ TEMPLATE_BUILTINS = {
     'TEMPLATE_DEBUG': DEBUG,
     'MINIFIED': MINIFIED,
     'GOOGLE_TALK_STYLESHEET': GOOGLE_TALK_STYLESHEET,
+    'DEFAULT_LOGIN_URL': users.create_login_url('/'),
+    'DEFAULT_LOGOUT_URL': users.create_logout_url('/'),
 }
 
 TEMPLATE_DIRS = [

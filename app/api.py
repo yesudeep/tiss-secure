@@ -8,7 +8,7 @@ from google.appengine.api import memcache, users
 from google.appengine.ext.webapp.util import run_wsgi_app
 from utils import render_template, dec
 import logging
-from models import Person, News, Job, JOB_TYPE_DISPLAY_LIST
+from models import Person, News, Job, JOB_TYPE_DISPLAY_LIST, GENDER_CHOICES
 from django.utils import simplejson as json
 from datetime import datetime
 
@@ -59,7 +59,7 @@ class PersonEditHandler(webapp.RequestHandler):
     def get(self, key):
         person = db.get(db.Key(key))
         person_email = person.user.email()
-        response = render_template('admin/edit_person.html', person=person, person_email=person_email)
+        response = render_template('admin/edit_person.html', person=person, person_email=person_email, gender_choices=GENDER_CHOICES)
         self.response.out.write(response)
 
     def post(self, key):
