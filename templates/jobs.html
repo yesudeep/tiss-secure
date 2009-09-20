@@ -11,19 +11,30 @@
     </div>
   </header>
   <article>
-    <a class="awesome-button warm large" href="/alumni/jobs/new/">Post a New Job</a>
+    <a class="awesome-button warm large fixed_button" href="/alumni/jobs/new/">Post a New Job</a>
     <table border="0" cellspacing="0" cellpadding="0">
+      <colgroup>
+        <col width="12%"></col>
+        <col width="51%"></col>
+        <col width="18%"></col>
+        <col width="8%"></col>
+        <col width="11%"></col>
+      </colgroup>
       <thead>
         <tr>
-          <th>title</th>
-          <th>company</th>
-          <th>type</th>
-          <th>contact</th>
+          <th>Date</th>
+          <th>Title</th>
+          <th>Company</th>
+          <th>Type</th>
+          <th>Contact</th>
         </tr>
       </thead>
       <tbody>
        {% for job in jobs %}
          <tr>
+          <td>
+            {{ job.when_created }}
+          </td>
           <td>
             <h1>{{ job.title }}</h1>
             <div class="info">

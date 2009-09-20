@@ -190,7 +190,6 @@ section
     :width 80%
     :height 475px
 
-
 #news_ticker
   :width 80%
   p
@@ -489,3 +488,36 @@ footer
   :height 246px
   
 // Jobs Page //
+
+.fixed_button
+  :position relative
+  :top -55px
+  :left 780px
+  
+table
+  :width 900px
+  :margin 0px auto
+  >thead
+    :background-color= !color_awesome_black
+    +border-radius(10px)
+    //+border-top-left-radius(10px)
+    :height 30px
+    >tr
+      >th
+        :color white
+        :padding-left 10px
+        :font-size 0.9em
+        :font-weight bold
+  >tbody
+    :width 900px
+    >tr
+      :font-family= !font_stack_helvetica
+      :background-color= rgba(255, 255, 255, 0.6)
+      :border-top 1px solid white
+      >td
+        :padding 10px
+        :font-size 0.9em
+        >h1
+          :font-size 1.8em
+          :font-family= !font_stack_verdana
+          :font-weight bold
