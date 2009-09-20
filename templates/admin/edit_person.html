@@ -22,6 +22,34 @@
     <span class="suffix"></span>
   </label>
 
+  <label for="birthdate">
+    <span class="prefix">birthdate</span>
+    <input type="text" name="birthdate" value="{{ person.birthdate|datetimeformat('%Y-%m-%d') }}" />
+    <span class="suffix"></span>
+  </label>
+
+  <label for="gender">
+    <span class="prefix">gender</span>
+    <select name="gender">
+      {% for gender in gender_choices %}
+      <option value="{{ gender }}" {% if gender == person.gender %}selected="selected"{% endif %}>{{ gender }}</option>
+      {% endfor %}
+    </select>
+    <span class="suffix"></span>
+  </label>
+
+
+  <ul>
+  {% for phone in person.phones %}
+    <li>{{ phone.number }} ({{ phone.phone_type }}) <a rel="inline-edit" href="/api/phones/{{ phone.key() }}/edit/">edit</a></li>
+  {% endfor %}
+  </ul>
+
+  <ul>
+  {% for address in person.addresses %}
+    <li>{{ address.full_address }} ({{ address.address_type }}) <a rel="inline-edit" href="/api/addresses/{{ address.key() }}/edit/">edit</a></li>
+  {% endfor %}
+  </ul>
 
 
 {% endblock %}

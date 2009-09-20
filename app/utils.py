@@ -12,7 +12,11 @@ jinja_env = Environment(loader=FileSystemLoader(['templates']))
 
 #Jinja2 custom filters
 def datetimeformat(value, format='%H:%M / %d-%m-%Y'):
-    return value.strftime(format)
+    if value and hasattr(value, 'strftime'):
+        formatted_datetime = value.strftime(format)
+    else:
+        formatted_datetime = ""
+    return formatted_datetime
 
 jinja_env = Environment(loader=FileSystemLoader(['templates']))
 jinja_env.filters['datetimeformat'] = datetimeformat

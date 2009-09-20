@@ -144,7 +144,13 @@
             <li><form><input type="search" name="query" value="" /></form></li>
         </ul>
     </div></div>
-    {% if logout_url %}<a href="{{ logout_url }}" id="logout">Sign out</a>{% endif %}
+    {% if logout_url %}
+      <a href="{% block logout_url %}{{ logout_url }}{% endblock %}" id="logout">Sign out</a>
+    {% else %}
+      {% if login_url %}
+        <a href="{% block login_url %}{{ login_url }}{% endblock %}" id="login">Sign in</a>
+      {% endif %}
+    {% endif %}
 </nav>
 {% endblock %}
 
@@ -225,7 +231,7 @@
     {% block tag_google_talk %}
     <div id="google_talk_wrapper">
       <p>Google Talk <a href="#google_talk">_</a></p>
-      <iframe id="google_talk" src="http://talkgadget.google.com/talkgadget/client?{{ GOOGLE_TALK_STYLESHEET|urlencode }}" 
+      <iframe id="google_talk" src="http://talkgadget.google.com/talkgadget/client?{{ GOOGLE_TALK_STYLESHEET|urlencode }}"
 scrolling="no" frameborder="0"></iframe>
     </div>
     {% endblock %}

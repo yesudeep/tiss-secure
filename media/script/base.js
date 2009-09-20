@@ -6,7 +6,8 @@
             body: jQuery('body'),
             nav: jQuery('nav'),
             nav_tabs: jQuery('nav > div.handle > div > ul'),
-            nav_panes: jQuery('nav > div > ul.panes')
+            nav_panes: jQuery('nav > div > ul.panes'),
+            google_talk_minimize: jQuery('#google_talk_wrapper a[href="#google_talk"]'),
         }; /*,
         colors = [
                 "#362d1d",
@@ -36,7 +37,6 @@
                 "#2f4385",
                 "#5c3c0f"
                 ];
-
         // Cycles the background color
         function cycleBackgroundColor(){
             var c = colors;
@@ -46,9 +46,6 @@
         }
         setInterval(cycleBackgroundColor, 10000);
         */
-        /**
-         * Set the nav element to slide out and back in.
-         */
         elements.nav.hoverIntent(function(){
             //elements.nav.stop().animate({top: "0px"}, 800, "easeInOutQuint");
         },
@@ -60,15 +57,16 @@
             event.stopPropagation();
             elements.nav.stop().animate({top: "0px"}, 400, "easeInOutQuint");
             return false;
-        })
+        });
         elements.nav_tabs.tabs('nav > div > ul.panes > li', {
             event: 'mouseover'
         });
-
+        elements.google_talk_minimize.toggle(function(){
+            jQuery('#google_talk').css('height', '0px');
+        }, function(){
+            jQuery('#google_talk').css('height', '246px');
+        });
         jQuery("#tabs").tabs("#panes > li", {
-          /*onBeforeClick: function() {
-            this.getCurrentPane().addClass("current");
-          },*/
           effect: 'fade'
         });
     });
