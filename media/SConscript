@@ -264,6 +264,16 @@ LIB_ADMIN_COMMON_JS_FILES = [SRC_DIR + f for f in LIB_ADMIN_COMMON_JS_FILES]
 lib_admin_common_js = env.Concatenate([DEST_DIR + 'script/lib/admin-common.js'], LIB_ADMIN_COMMON_JS_FILES)
 env.YuiCompressorMinify(lib_admin_common_js)
 
+LIB_INDEX_JS_FILES =  Split("""
+    script/lib/chickoojs/src/jquery/tools/1.1.1/tools.flashembed-1.0.4.js
+    script/index.js
+""")
+LIB_INDEX_JS_FILES = [SRC_DIR + f for f in LIB_INDEX_JS_FILES]
+lib_index_js = env.Concatenate([DEST_DIR + 'script/page/index.js'], LIB_INDEX_JS_FILES)
+env.YuiCompressorMinify(lib_index_js)
+env.JsminMinify(lib_index_js)
+
+
 
 admin_all_css_files =  Split("""
     css/generic.css
