@@ -7,7 +7,7 @@
             nav: jQuery('nav'),
             nav_tabs: jQuery('nav > div.handle > div > ul'),
             nav_panes: jQuery('nav > div > ul.panes'),
-            google_talk_minimize: jQuery('#google_talk_wrapper a[href="#google_talk"]'),
+            google_talk_wrapper: jQuery('#google_talk_wrapper'),
         }; /*,
         colors = [
                 "#362d1d",
@@ -61,15 +61,14 @@
         elements.nav_tabs.tabs('nav > div > ul.panes > li', {
             event: 'mouseover'
         });
-        elements.google_talk_minimize.toggle(function(){
-            jQuery('#google_talk').css('height', '0px');
-        }, function(){
+        elements.google_talk_wrapper.toggle(function(){
             jQuery('#google_talk').css('height', '246px');
+        }, function(){
+            jQuery('#google_talk').css('height', '0px');
         });
         jQuery("#tabs").tabs("#panes > li", {
           effect: 'fade'
         });
     });
-
 })(jQuery);
 

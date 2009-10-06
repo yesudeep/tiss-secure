@@ -461,39 +461,43 @@ footer
       :font-weight bold
       :color #8B2500
 
-//Google Talk Gadget //      
+//Google Talk Gadget //
 #google_talk_wrapper
   :position fixed
   :right 5px
   :bottom 0px
-  :background-color cornflowerblue
+  :background-color rgb(0, 0, 0)
+  :background-color rgba(0, 0, 0, 0.7)
   +border-top-right-radius(5px)
   +border-top-left-radius(5px)
+  :z-index 90
+  :cursor pointer
   > p
     :font-size 16px
     :color white
-    :padding 5px 5px 0px 
+    :padding 5px 5px 0px
     a
       :display block
       :width 16px
       :height 16px
       :font-weight bold
       :text-align center
-      :color cornflowerblue
+      :color black
       :background-color white
       :float right
 #google_talk
-  :overflow hidden 
+  :overflow hidden
   :width 200px
-  :height 246px
-  
+  :height 0px
+  //246px
+
 // Jobs Page //
 
 .fixed_button
   :position relative
   :top -55px
   :left 780px
-  
+
 table
   :width 900px
   :margin 0px auto
@@ -521,3 +525,4 @@ table
           :font-size 1.8em
           :font-family= !font_stack_verdana
           :font-weight bold
+
