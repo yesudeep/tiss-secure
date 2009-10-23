@@ -9,12 +9,34 @@
     </div>
   </header>
   <article>
-    <ul>
+    <ul id="alumni_achievers">
       <li>
-        
-      </li>      
+        <span><img src="{{ MEDIA_URL }}image/alumni/adil_malia.jpg" alt="Adil Malia" width="200px" height="200px" /></span>
+        <h1>Adil Malia</h1>
+        <h2>President Human Resources, Essar Group.</h2>
+      </li>
+      <li>
+        <span><img src="{{ MEDIA_URL }}image/alumni/maitra.jpg" alt="Mandip Maitra" width="200px" height="200px" /></span>
+        <h1>Mandip Maitra</h1>
+        <h2>Head Human Resources, HDFC Bank.</h2>
+      </li> 
+      <li>
+        <span><img src="{{ MEDIA_URL }}image/alumni/makarand_khatavkar.jpg" alt="Makarand Khatavkar" width="200px" height="200px" /></span>
+        <h1>Makarand Khatavkar</h1>
+        <h2>Managing Director and Head Human Resources, Duetsche Bank.</h2>
+      </li> 
+      <li>
+        <span><img src="{{ MEDIA_URL }}image/alumni/santrupt.jpg" alt="Santrupt Mishra" width="200px" height="200px" /></span>
+        <h1>Santrupt Mishra</h1>
+        <h2>Director, Aditya Birla Group.</h2>
+      </li>       
     </ul>
   </article>
 </section>
 
+{% endblock %}
+{% block tag_scripts %}
+<script type="text/javascript">
+window.scripts.push("{{ MEDIA_URL }}script/page/achievement{{ MINIFIED }}.js");
+</script>
 {% endblock %}
