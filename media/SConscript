@@ -84,9 +84,14 @@ IMAGE_FILES = Split("""
     image/altiha/thumbnail/altiha-3.jpg
     image/altiha/thumbnail/altiha-4.jpg
     image/altiha/thumbnail/altiha-5.jpg
+    image/alumni/adil_malia.jpg
+    image/alumni/maitra.jpg
+    image/alumni/makarand_khatavkar.jpg
+    image/alumni/santrupt.jpg
     image/background/button_overlay.png
     image/icon/star.png
     image/background/textfield_normal.png
+    image/background/polaroid.png
     image/background/textfield_readonly.png
     image/background/grunge_paper.jpg
     image/icon/favicon.png
@@ -272,6 +277,15 @@ LIB_INDEX_JS_FILES = [SRC_DIR + f for f in LIB_INDEX_JS_FILES]
 lib_index_js = env.Concatenate([DEST_DIR + 'script/page/index.js'], LIB_INDEX_JS_FILES)
 env.YuiCompressorMinify(lib_index_js)
 env.JsminMinify(lib_index_js)
+
+LIB_ACHIEVEMENT_JS_FILES =  Split("""
+    script/jquery.innerfade.js
+    script/achievement.js
+""")
+LIB_ACHIEVEMENT_JS_FILES = [SRC_DIR + f for f in LIB_ACHIEVEMENT_JS_FILES]
+lib_achievement_js = env.Concatenate([DEST_DIR + 'script/page/achievement.js'], LIB_ACHIEVEMENT_JS_FILES)
+env.YuiCompressorMinify(lib_achievement_js)
+env.JsminMinify(lib_achievement_js)
 
 
 
