@@ -206,6 +206,32 @@ stitched_images = [
                 image/edited_logos/tata.jpg
                 image/edited_logos/wipro.jpg
                 image/edited_logos/yahoo.jpg
+                image/edited_logos/barista.jpg
+                image/edited_logos/bindasmovies.jpg
+
+                image/edited_logos/bru.jpg
+                image/edited_logos/capgemini.jpg
+                image/edited_logos/emkay.jpg
+                image/edited_logos/fame.jpg
+                image/edited_logos/humancapital.jpg
+                image/edited_logos/indiadevelopmentgateway.jpg
+                
+                image/edited_logos/intellcap.jpg
+                image/edited_logos/lbw.jpg
+                image/edited_logos/mafoi.jpg
+                image/edited_logos/naukri.jpg
+                image/edited_logos/nen.jpg
+                image/edited_logos/pagalguy.jpg
+                
+                image/edited_logos/nielsen.jpg
+                image/edited_logos/powerhorse.jpg
+                image/edited_logos/radiomirchi.jpg
+                image/edited_logos/rcf.jpg
+                image/edited_logos/shrmindia.jpg
+                image/edited_logos/syntel.jpg
+                
+                image/edited_logos/utvi.jpg
+                image/edited_logos/timesascent.jpg
             """),
             orientation='horizontal'
             ),
