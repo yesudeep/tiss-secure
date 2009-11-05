@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block tag_trunk %}
+<section>
+  <header>
+    <div>
+      <h1>Differential Learning<span> Fieldwork</span></h1>
+    </div>
+  </header>
+  <ul id="fieldwork">
+    <li><a href="#fieldwork_pane">Fieldwork</a></li>
+    <li><a href="#key_facts">Key Facts</a></li>
+    <li><a href="#fieldwork_organizations">Fieldwork Organizations</a></li>
+  </ul>
+  <article>
+    <ul id="panes">
+    
+      <li id="fieldwork_pane">
+        <p>The Fieldwork programme is an integral part of the HRM &amp; LR curriculum and provides
+opportunities for students to reflect, apply and integrate acquired skills to work situations in
+organizations. It thereby serves as an interface between theory and practice.</p>
+        <p>The HRM &amp; LR students are placed in four different organizations, representing different
+industry sectors, during the two year duration of their programme. The fieldwork programme
+comprises of the following -</p>
+        <ol>
+          <li>Concurrent placement - In the first three semesters, students attend fieldwork in three
+different organizations, twice a week</li>
+          <li>Corporate block placement - In the final semester, students undertake a month long block
+fieldwork placement in an organization</li>
+          <li>NGO block placement - At the end of the fourth semester, the students work in a
+Non governmental organization for one month</li>
+        </ol>
+      </li>
+      <li id="key_facts">
+        Some bullshit
+      </li>
+      <li id="fieldwork_organizations">
+        fgkjdfgh
+      </li>
+    </ul>
+  </article>
+</section>
+{% endblock %}
+
+{% block tag_scripts_base %}
+<script type="text/javascript">
+  window.scripts.push(
+    "{{ MEDIA_URL }}script/common{{ MINIFIED }}.js"
+  );
+</script>
+{% endblock %}
+

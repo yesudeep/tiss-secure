@@ -28,6 +28,16 @@ class RecruitersPage(webapp.RequestHandler):
         response = render_template('recruiters.html', logout_url=logout_url, recruiters_list=RECRUITERS_ID_URLS)
         self.response.out.write(response)
 
+class Differential_LearningPage(webapp.RequestHandler):
+    def get(self):
+        if users.get_current_user():
+            logout_url = users.create_logout_url('/')
+        else:
+            logout_url = None
+        response = render_template('differential_learning.html', logout_url=logout_url)
+        self.response.out.write(response)
+
+
 class ContactUsPage(webapp.RequestHandler):
     def get(self):
         if users.get_current_user():
@@ -167,6 +177,7 @@ class AccountHandler(webapp.RequestHandler):
 urls = (
     ('/', IndexHandler),
     ('/placements/recruiters/?', RecruitersPage),
+    ('/placements/differential_learning/?', Differential_LearningPage),
     ('/contactus/?', ContactUsPage),
     ('/alumni/achievements/?', AchievementPage),
     ('/alumni/events/?', EventsPage),

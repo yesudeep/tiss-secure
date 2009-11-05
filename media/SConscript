@@ -46,6 +46,7 @@ IMAGE_FILES = Split("""
     image/background/overlay_black.png
     image/background/separator.png
     image/img_shadow.png
+    image/background/close.png
     image/background/footer.png
     image/contact_us.png
     image/altiba/altiba-1.jpg
@@ -95,6 +96,7 @@ IMAGE_FILES = Split("""
     image/background/textfield_readonly.png
     image/background/grunge_paper.jpg
     image/icon/favicon.png
+    
 """)
 
 CSS_FILES = Split("""
@@ -303,6 +305,17 @@ LIB_INDEX_JS_FILES = [SRC_DIR + f for f in LIB_INDEX_JS_FILES]
 lib_index_js = env.Concatenate([DEST_DIR + 'script/page/index.js'], LIB_INDEX_JS_FILES)
 env.YuiCompressorMinify(lib_index_js)
 env.JsminMinify(lib_index_js)
+
+LIB_GALLERY_JS_FILES =  Split("""
+    script/lib/chickoojs/src/jquery/tools/1.1.1/tools.overlay-1.1.1.js
+    script/gallery.js
+""")
+LIB_GALLERY_JS_FILES = [SRC_DIR + f for f in LIB_GALLERY_JS_FILES]
+lib_gallery_js = env.Concatenate([DEST_DIR + 'script/page/gallery.js'], LIB_GALLERY_JS_FILES)
+env.YuiCompressorMinify(lib_gallery_js)
+env.JsminMinify(lib_gallery_js)
+
+
 
 LIB_ACHIEVEMENT_JS_FILES =  Split("""
     script/jquery.innerfade.js

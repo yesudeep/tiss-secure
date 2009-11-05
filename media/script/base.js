@@ -69,6 +69,9 @@
         jQuery("#tabs").tabs("#panes > li", {
           effect: 'fade'
         });
+        jQuery("#fieldwork").tabs("#panes > li", {
+          effect: 'fade'
+        });
     });
 })(jQuery);
 
