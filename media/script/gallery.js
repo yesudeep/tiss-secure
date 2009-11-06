@@ -1,3 +1,3 @@
 jQuery(function(){
-  jQuery(".gallery >li >a").lightBox();
+  jQuery("#altiba_gallery >li >a, #altida_gallery >li >a, #altiha_gallery >li >a").lightBox();
 });
