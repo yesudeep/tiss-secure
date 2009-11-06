@@ -35,6 +35,7 @@ SCRIPT_FILES = Split("""
     script/admin/people.js
     script/admin/news.js
     script/admin/jobs.js
+    script/jquery.lightbox-0.5.js
 """)
 #SCRIPT_FILES = ["script/" + f for f in SCRIPT_FILES]
 
@@ -96,6 +97,11 @@ IMAGE_FILES = Split("""
     image/background/textfield_readonly.png
     image/background/grunge_paper.jpg
     image/icon/favicon.png
+    image/lightbox/lightbox-blank.gif
+    image/lightbox/lightbox-btn-close.gif
+    image/lightbox/lightbox-btn-next.gif
+    image/lightbox/lightbox-btn-prev.gif
+    image/lightbox/lightbox-ico-loading.gif
     
 """)
 
@@ -103,6 +109,7 @@ CSS_FILES = Split("""
     css/generic.css
     css/screen.css
     css/google_talk.css
+    css/jquery.lightbox-0.5.css
 """)
 
 # Do not include IMAGE files in here.
@@ -234,6 +241,8 @@ stitched_images = [
                 
                 image/edited_logos/utvi.jpg
                 image/edited_logos/timesascent.jpg
+                
+                
             """),
             orientation='horizontal'
             ),
@@ -307,13 +316,13 @@ env.YuiCompressorMinify(lib_index_js)
 env.JsminMinify(lib_index_js)
 
 LIB_GALLERY_JS_FILES =  Split("""
-    script/lib/chickoojs/src/jquery/tools/1.1.1/tools.overlay-1.1.1.js
+    script/jquery.lightbox-0.5.js
     script/gallery.js
 """)
 LIB_GALLERY_JS_FILES = [SRC_DIR + f for f in LIB_GALLERY_JS_FILES]
 lib_gallery_js = env.Concatenate([DEST_DIR + 'script/page/gallery.js'], LIB_GALLERY_JS_FILES)
 env.YuiCompressorMinify(lib_gallery_js)
-env.JsminMinify(lib_gallery_js)
+#env.JsminMinify(lib_gallery_js)
 
 
 

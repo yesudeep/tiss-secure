@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block tag_additional_stylesheets %}
+  <link rel="stylesheet" href="{{ MEDIA_URL }}css/jquery.lightbox-0.5.css" type="text/css" charset="utf-8" />
+{% endblock %}
+
 {% block tag_trunk %}
 
 <section>
@@ -17,7 +21,7 @@
     <ul id="panes">
       <li id="altiba">
         <h1>Do You Remember The 'TISS Quiz'?</h1>
-        <ul class="floated_list">
+        <ul class="floated_list gallery">
           <li>
             <a href="{{ MEDIA_URL }}image/altiba/altiba-1.jpg" title="Image Description Altiba 1"><img src="{{ MEDIA_URL }}image/altiba/thumbnail/altiba-1.jpg" /></a>
           </li>
@@ -44,7 +48,7 @@
       </li>
       <li id="altida">
         <h1>The 'Vitual TISS Campus'.</h1>
-        <ul class="floated_list">
+        <ul class="floated_list gallery">
           <li>
             <a href="{{ MEDIA_URL }}image/altida/altida-1.jpg" title="Image Description Altida 1"><img src="{{ MEDIA_URL }}image/altida/thumbnail/altida-1.jpg" /></a>
           </li>
@@ -68,7 +72,7 @@
       </li>
       <li id="altiha">
         <h1>An Informal Evening With Old Friends.</h1>
-        <ul class="floated_list">
+        <ul class="floated_list gallery">
           <li>
             <a href="{{ MEDIA_URL }}image/altiha/altiha-1.jpg" title="Image Description Altiha 1"><img src="{{ MEDIA_URL }}image/altiha/thumbnail/altiha-1.jpg" /></a>
           </li>
@@ -92,3 +96,10 @@
 </section>
 
 {% endblock %}
+
+{% block tag_scripts %}
+<script type="text/javascript">
+window.scripts.push("{{ MEDIA_URL }}script/page/gallery{{ MINIFIED }}.js");
+</script>
+{% endblock %}
+
