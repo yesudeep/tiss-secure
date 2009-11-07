@@ -102,6 +102,42 @@ IMAGE_FILES = Split("""
     image/lightbox/lightbox-btn-next.gif
     image/lightbox/lightbox-btn-prev.gif
     image/lightbox/lightbox-ico-loading.gif
+    image/fieldwork_organizations/bfsi/abn-amro.jpg
+    image/fieldwork_organizations/bfsi/citi-bank.jpg
+    image/fieldwork_organizations/bfsi/deustch-bank.jpg
+    image/fieldwork_organizations/bfsi/nse.jpg    
+    image/fieldwork_organizations/consulting/ddi.jpg
+    image/fieldwork_organizations/fmcg/g-mills.jpg
+    image/fieldwork_organizations/fmcg/godrej.jpg
+    image/fieldwork_organizations/fmcg/hindustan-unilever.jpg
+    image/fieldwork_organizations/fmcg/jhonson-and-jonhson.jpg
+    image/fieldwork_organizations/fmcg/loreal.jpg
+    image/fieldwork_organizations/fmcg/pepsico.jpg
+    image/fieldwork_organizations/pharma/glenmark.jpg
+    image/fieldwork_organizations/pharma/monsanto.jpg
+    image/fieldwork_organizations/pharma/nestle.jpg
+    image/fieldwork_organizations/pharma/sanofi-aventis.jpg
+    image/fieldwork_organizations/pharma/schering-plough.jpg
+    image/fieldwork_organizations/pharma/ucb.jpg
+    image/fieldwork_organizations/pharma/wyeth.jpg
+    image/fieldwork_organizations/IT/accenture.jpg
+    image/fieldwork_organizations/IT/first-source.jpg
+    image/fieldwork_organizations/IT/ibm.jpg
+    image/fieldwork_organizations/services/McDonalds.jpg
+    image/fieldwork_organizations/services/pantaloons-retail.jpg
+    image/fieldwork_organizations/services/taj-hotels.jpg
+    image/fieldwork_organizations/media/inx-media.jpg
+    image/fieldwork_organizations/media/radio-mirchi.jpg
+    image/fieldwork_organizations/oil_and_natural_gas/akzonobel.jpg
+    image/fieldwork_organizations/oil_and_natural_gas/asian-paints.jpg
+    image/fieldwork_organizations/oil_and_natural_gas/bpcl.jpg
+    image/fieldwork_organizations/oil_and_natural_gas/crompton-greaves.jpg
+    image/fieldwork_organizations/oil_and_natural_gas/shell.jpg
+    image/fieldwork_organizations/oil_and_natural_gas/tata-motors.jpg
+    image/fieldwork_organizations/oil_and_natural_gas/tata-power.jpg
+    image/fieldwork_organizations/oil_and_natural_gas/tata-steel.jpg
+    image/fieldwork_organizations/oil_and_natural_gas/unitech.jpg
+    
     
 """)
 
@@ -241,7 +277,6 @@ stitched_images = [
                 
                 image/edited_logos/utvi.jpg
                 image/edited_logos/timesascent.jpg
-                
                 
             """),
             orientation='horizontal'
