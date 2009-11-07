@@ -19,6 +19,7 @@ HTML_FILES = Split("""
     index.html
     recruiters.html
     differential_learning.html
+    reports.html
     contact_us.html
     achievements.html
     event.html
