@@ -36,6 +36,8 @@ SCRIPT_FILES = Split("""
     script/admin/news.js
     script/admin/jobs.js
     script/jquery.lightbox-0.5.js
+    script/visualize.jQuery.js
+    script/reports.js
 """)
 #SCRIPT_FILES = ["script/" + f for f in SCRIPT_FILES]
 
@@ -47,7 +49,6 @@ IMAGE_FILES = Split("""
     image/background/overlay_black.png
     image/background/separator.png
     image/img_shadow.png
-    image/background/close.png
     image/background/footer.png
     image/contact_us.png
     image/altiba/altiba-1.jpg
@@ -146,6 +147,8 @@ CSS_FILES = Split("""
     css/screen.css
     css/google_talk.css
     css/jquery.lightbox-0.5.css
+    css/visualize.jQuery.css
+    css/demopage.css
 """)
 
 # Do not include IMAGE files in here.
@@ -357,8 +360,16 @@ LIB_GALLERY_JS_FILES =  Split("""
 LIB_GALLERY_JS_FILES = [SRC_DIR + f for f in LIB_GALLERY_JS_FILES]
 lib_gallery_js = env.Concatenate([DEST_DIR + 'script/page/gallery.js'], LIB_GALLERY_JS_FILES)
 env.YuiCompressorMinify(lib_gallery_js)
-#env.JsminMinify(lib_gallery_js)
+env.JsminMinify(lib_gallery_js)
 
+LIB_REPORT_JS_FILES =  Split("""
+    script/visualize.jQuery.js
+    script/reports.js
+""")
+LIB_REPORT_JS_FILES = [SRC_DIR + f for f in LIB_REPORT_JS_FILES]
+lib_reports_js = env.Concatenate([DEST_DIR + 'script/page/reports.js'], LIB_REPORT_JS_FILES)
+env.YuiCompressorMinify(lib_reports_js)
+env.JsminMinify(lib_reports_js)
 
 
 LIB_ACHIEVEMENT_JS_FILES =  Split("""

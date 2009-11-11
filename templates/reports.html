@@ -1,5 +1,96 @@
 {% extends "base.html" %}
 
+{% block tag_additional_stylesheets %}
+  <link type="text/css" rel="stylesheet" href="{{ MEDIA_URL }}css/visualize.jQuery.css"/>
+  <link type="text/css" rel="stylesheet" href="{{ MEDIA_URL }}css/demopage.css"/>
+{% endblock %}
+
 {% block tag_trunk %}
 
+<section>
+  <header>
+    <div>
+      <h1>Reports.<span>Let the numbers speak.</span></h1>
+    </div>
+  </header>
+  <ul id="fieldwork">
+    <li><a href="#summer_report">Summer Report</a></li>
+    <li><a href="#final_report">Final Report</a></li>
+  </ul>
+  <article>
+    <ul>
+      <li id="#summer_report">
+        <h1>Summer Plcaement 2008 - 2009 Report</h1>
+        <table>
+          <tbody>
+            <tr>
+              <td>Average Stipend</td>
+              <td>INR 25,873 per month</td>
+            </tr>
+            <tr>
+              <td>Highest Stipend</td>
+              <td>INR 50,000 per month</td>
+            </tr>
+            <tr>
+              <td>Batch Strength</td>
+              <td>64</td>
+            </tr>
+            <tr>
+              <td>Number Of Recruiters</td>
+              <td>31</td>
+            </tr>
+          </tbody>
+        </table>
+        <table id="summer_pie_chart">
+          <tbody>
+            <tr>
+              <th>BFSI</th>
+              <td>5</td>
+            </tr>
+            <tr>
+              <th>Conglomerate</th>
+              <td>19</td>
+            </tr>
+            <tr>
+              <th>Consulting</th>
+              <td>9</td>
+            </tr>
+            <tr>
+              <th>IT/ITES</th>
+              <td>21</td>
+            </tr>
+            <tr>
+              <th>FMCG</th>
+              <td>24</td>
+            </tr>
+            <tr>
+              <th>Manufacturing</th>
+              <td>21</td>
+            </tr>
+            <tr>
+              <th>Others</th>
+              <td>1</td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </li>
+      <li id="#final_report">
+        Interns
+      </li>
+    </ul>
+
+    
+  </article>
+</section>
+
 {% endblock %}
+
+{% block tag_scripts_base %}
+<script type="text/javascript">
+  window.scripts.push(
+    "{{ MEDIA_URL }}script/page/reports{{ MINIFIED }}.js"
+  );
+</script>
+{% endblock %}
+
