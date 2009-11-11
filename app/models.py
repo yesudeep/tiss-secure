@@ -21,6 +21,7 @@ GENDER_CHOICES = (
     'female'
 )
 
+
 COMPANIES = {'abn-amro': {'name': 'ABN-AMRO',
               'tags': [TAG_INTERNSHIP],
               'url': 'http://abnamro.com/'},
