@@ -45,6 +45,15 @@ class AchievementPage(webapp.RequestHandler):
             logout_url = None
         response = render_template('achievements.html', logout_url=logout_url)
         self.response.out.write(response)
+        
+class AgendaPage(webapp.RequestHandler):
+    def get(self):
+        if users.get_current_user():
+            logout_url = users.create_logout_url('/')
+        else:
+            logout_url = None
+        response = render_template('agenda.html', logout_url=logout_url)
+        self.response.out.write(response)
 
 class EventsPage(webapp.RequestHandler):
     def get(self):
@@ -178,7 +187,7 @@ urls = (
     ('/forum/comben/?', CombenPage),
     ('/forum/hipms/?', HipmsPage),
     ('/forum/oddev/?', OddevPage),
-
+    ('/tatvabodha/agenda/?', AgendaPage),
     ('/account/signup/?', AccountHandler),
 )
 
