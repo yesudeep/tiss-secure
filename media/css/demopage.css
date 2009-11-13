@@ -1,5 +1,5 @@
-body { font-size: 62.5%; font-family: Verdana, sans-serif; }
-/*demo styles*/
+/*body { font-size: 62.5%; font-family: Verdana, sans-serif; }
+demo styles*/
 table {width: 500px; height: 200px; border-collapse: collapse; margin-left: 30px; }
 table.accessHide { position: absolute; left: -999999px; }
 td, th {text-align: center; border: 1px solid #ddd;  height: 1.5em; padding: 4px;}
