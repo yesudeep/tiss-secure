@@ -1,5 +1,5 @@
 /*plugin styles*/
-.visualize { border: 1px solid #888; position: relative; background: #fafafa; }
+.visualize { position: relative;}
 .visualize canvas { position: absolute; }
 .visualize ul,.visualize li { margin: 0; padding: 0;}
 
