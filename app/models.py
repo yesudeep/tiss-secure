@@ -329,24 +329,25 @@ for identifier, company in COMPANIES.iteritems():
     tags = company.get('tags', [])
     if TAG_RECRUITMENT in tags:
         RECRUITERS[identifier] = company
-    elif TAG_INTERNSHIP in tags:
+    if TAG_INTERNSHIP in tags:
         INTERNSHIPS[identifier] = company
-    elif TAG_BFSI in tags:
+    if TAG_BFSI in tags:
         BFSI[identifier] = company
-    elif TAG_FMCG in tags:
+    if TAG_FMCG in tags:
         FMCG[identifier] = company
-    elif TAG_PHARMA in tags:
+    if TAG_PHARMA in tags:
         PHARMA[identifier] = company
-    elif TAG_IT in tags:
+    if TAG_IT in tags:
         IT[identifier] = company
-    elif TAG_SERVICES in tags:
+    if TAG_SERVICES in tags:
         SERVICES[identifier] = company
-    elif TAG_MEDIA in tags:
+    if TAG_MEDIA in tags:
         MEDIA[identifier] = company
-    elif TAG_MANUFACTURING in tags:
+    if TAG_MANUFACTURING in tags:
         MANUFACTURING[identifier] = company  
-    elif TAG_CONSULTING in tags:
+    if TAG_CONSULTING in tags:
         CONSULTING[identifier] = company
+        
 
     
 RECRUITERS_ID_URLS = [(identifier, val["url"]) for identifier, val in RECRUITERS.iteritems()]
@@ -354,8 +355,10 @@ BFSI_ID_URLS = [(identifier, val["url"]) for identifier, val in BFSI.iteritems()
 FMCG_ID_URLS = [(identifier, val["url"]) for identifier, val in FMCG.iteritems()]
 PHARMA_ID_URLS = [(identifier, val["url"]) for identifier, val in PHARMA.iteritems()]
 IT_ID_URLS = [(identifier, val["url"]) for identifier, val in IT.iteritems()]
-SERVICES_ID_URLS = [(identifier, val["url"]) for identifier, val in BFSI.iteritems()]
-
+SERVICES_ID_URLS = [(identifier, val["url"]) for identifier, val in SERVICES.iteritems()]
+MEDIA_ID_URLS = [(identifier, val["url"]) for identifier, val in MEDIA.iteritems()]
+MANUFACTURING_ID_URLS = [(identifier, val["url"]) for identifier, val in MANUFACTURING.iteritems()]
+CONSULTING_ID_URLS = [(identifier, val["url"]) for identifier, val in CONSULTING.iteritems()]
 
 JOB_TYPE_DISPLAY_MAP = {
     'part_time': 'Part-Time',

@@ -6,7 +6,7 @@ from google.appengine.api import users, memcache
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app, login_required
 
-from models import Person, Job, News, RECRUITERS_ID_URLS, JOB_TYPE_DISPLAY_LIST
+from models import Person, Job, News, RECRUITERS_ID_URLS, JOB_TYPE_DISPLAY_LIST, BFSI_ID_URLS, FMCG_ID_URLS, PHARMA_ID_URLS, IT_ID_URLS, SERVICES_ID_URLS, MEDIA_ID_URLS, MANUFACTURING_ID_URLS, CONSULTING_ID_URLS 
 from utils import render_template, dec, login_required_signup
 
 class IndexHandler(webapp.RequestHandler):
@@ -34,7 +34,7 @@ class Differential_LearningPage(webapp.RequestHandler):
             logout_url = users.create_logout_url('/')
         else:
             logout_url = None
-        response = render_template('differential_learning.html', logout_url=logout_url)
+        response = render_template('differential_learning.html', logout_url=logout_url, bfsi_list=BFSI_ID_URLS, fmcg_list=FMCG_ID_URLS, pharma_list=PHARMA_ID_URLS, services_list=SERVICES_ID_URLS, it_list=IT_ID_URLS, media_list=MEDIA_ID_URLS, manufacturing_list=MANUFACTURING_ID_URLS, consulting_list=CONSULTING_ID_URLS)
         self.response.out.write(response)
         
 class ReportsPage(webapp.RequestHandler):

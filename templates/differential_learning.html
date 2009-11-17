@@ -61,21 +61,21 @@ revised and timely inputs are solicited from industry experts.</p>
           </li>
           <li>IT/ITES/Telecom
             <ul>
-              {% for it in pharma_list %}
+              {% for it in it_list %}
                 <li><a href="{{ it.1 }}" target="_blank" id="{{ it.0 }}" class="company"></a></li>
               {% endfor %}            
             </ul>
           </li>
           <li>Services
             <ul>
-              {% for service in services_list %}
+              {% for services in services_list %}
                 <li><a href="{{ services.1 }}" target="_blank" id="{{ services.0 }}" class="company"></a></li>
               {% endfor %}
             </ul>
           </li>
           <li>Media and Entertainment
             <ul>
-              {% for media in pharma_list %}
+              {% for media in media_list %}
                 <li><a href="{{ media.1 }}" target="_blank" id="{{ media.0 }}" class="company"></a></li>
               {% endfor %}
             </ul>
