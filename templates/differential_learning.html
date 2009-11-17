@@ -39,69 +39,59 @@ revised and timely inputs are solicited from industry experts.</p>
         <ul>
           <li>Banking, Financial Services and Insurance (BFSI)
             <ul>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/bfsi/abn-amro.jpg" title="ABN-AMRO" width="96" height="96" /></li>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/bfsi/citi-bank.jpg" title="Citi Bank" width="96" height="96" /></li>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/bfsi/deustch-bank.jpg" title="Deustch Bank" width="96" height="96" /></li>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/bfsi/nse.jpg" title="NSE" width="96" height="96" /></li>
+              {% for bfsi in bfsi_list %}
+                <li><a href="{{ bfsi.1 }}" target="_blank" id="{{ bfsi.0 }}" class="company"></a></li>
+              {% endfor %}
             </ul>
           </li>
           <li>Fast Moving Consumer Goods (FMCG)
             <ul>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/fmcg/g-mills.jpg" title="G mills" width="96" height="96" /></li>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/fmcg/godrej.jpg" title="Godrej" width="96" height="96" /></li>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/fmcg/hindustan-unilever.jpg" title="Hindustan Uniliver" width="96" height="96" /></li>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/fmcg/jhonson-and-jonhson.jpg" title="Johnson & johnson" width="96" height="96" /></li>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/fmcg/loreal.jpg" title="ABN-AMRO" width="96" height="96" /></li>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/fmcg/pepsico.jpg" title="ABN-AMRO" width="96" height="96" /></li>
+              {% for fmcg in fmcg_list %}
+                <li><a href="{{ fmcg.1 }}" target="_blank" id="{{ fmcg.0 }}" class="company"></a></li>
+              {% endfor %}
             </ul>
           </li>
           <li>Pharma/Healthcare/Biotech
             <ul>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/pharma/glenmark.jpg" title="Glenmark" width="96" height="96" /></li>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/pharma/monsanto.jpg" title="Monsanto" width="96" height="96" /></li>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/pharma/nestle.jpg" title="Nestle" width="96" height="96" /></li>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/pharma/sanofi-aventis.jpg" title="Sanofi-aventis" width="96" height="96" /></li>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/pharma/schering-plough.jpg" title="Schering-plough" width="96" height="96" /></li>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/pharma/ucb.jpg" title="ucb" width="96" height="96" /></li>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/pharma/wyeth.jpg" title="Wyeth" width="96" height="96" /></li>
+              {% for pharma in pharma_list %}
+                <li><a href="{{ pharma.1 }}" target="_blank" id="{{ pharma.0 }}" class="company"></a></li>
+              {% endfor %}
+              
             </ul>
           </li>
           <li>IT/ITES/Telecom
-           <ul>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/IT/accenture.jpg" title="Accenture" width="96" height="96" /></li>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/IT/first-source.jpg" title="First-source" width="96" height="96" /></li>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/IT/ibm.jpg" title="IBM" width="96" height="96" /></li>
+            <ul>
+              {% for it in pharma_list %}
+                <li><a href="{{ it.1 }}" target="_blank" id="{{ it.0 }}" class="company"></a></li>
+              {% endfor %}            
             </ul>
           </li>
           <li>Services
-          <ul>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/services/McDonalds.jpg" title="McDonalds" width="96" height="96" /></li>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/services/pantaloons-retail.jpg" title="Pantaloons-retail" width="96" height="96" /></li>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/services/taj-hotels.jpg" title="Taj-hotels" width="96" height="96" /></li>
+            <ul>
+              {% for service in services_list %}
+                <li><a href="{{ services.1 }}" target="_blank" id="{{ services.0 }}" class="company"></a></li>
+              {% endfor %}
             </ul>
-           </li>
+          </li>
           <li>Media and Entertainment
-           <ul>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/media/inx-media.jpg" title="Inx-media" width="96" height="96" /></li>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/media/radio-mirchi.jpg" title="Radio-mirchi" width="96" height="96" /></li>
+            <ul>
+              {% for media in pharma_list %}
+                <li><a href="{{ media.1 }}" target="_blank" id="{{ media.0 }}" class="company"></a></li>
+              {% endfor %}
             </ul>
           </li>
           <li>Manufacturing/Oil &amp; Natural Gas
-          <ul>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/oil_and_natural_gas/akzonobel.jpg" title="Akzonobel" width="96" height="96" /></li>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/oil_and_natural_gas/asian-paints.jpg" title="Asian-paints" width="96" height="96" /></li>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/oil_and_natural_gas/bpcl.jpg" title="BPCL" width="96" height="96" /></li>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/oil_and_natural_gas/crompton-greaves.jpg" title="Crompton-Greaves" width="96" height="96" /></li>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/oil_and_natural_gas/shell.jpg" title="Shell" width="96" height="96" /></li>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/oil_and_natural_gas/tata-motors.jpg" title="Tata-motors" width="96" height="96" /></li>           <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/oil_and_natural_gas/tata-power.jpg" title="Tata-power" width="96" height="96" /></li>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/oil_and_natural_gas/tata-steel.jpg" title="Tata-steel" width="96" height="96" /></li>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/oil_and_natural_gas/unitech.jpg" title="Unitech" width="96" height="96" /></li>
+            <ul>
+              {% for manufacturing in manufacturing_list %}
+                <li><a href="{{ manufacturing.1 }}" target="_blank" id="{{ manufacturing.0 }}" class="company"></a></li>
+              {% endfor %}
             </ul>
           </li>
           <li>Consulting
             <ul>
-              <li><img src="{{ MEDIA_URL }}image/fieldwork_organizations/consulting/ddi.jpg"</li>
-
+              {% for consulting in consulting_list %}
+                <li><a href="{{ consulting.1 }}" target="_blank" id="{{ consulting.0 }}" class="company"></a></li>
+              {% endfor %}
             </ul>
           </li>
         </ul>

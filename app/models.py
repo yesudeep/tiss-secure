@@ -11,6 +11,14 @@ import logging
 
 TAG_RECRUITMENT = 'recruitment'
 TAG_INTERNSHIP = 'internship'
+TAG_BFSI = 'bfsi'
+TAG_FMCG = 'fmcg'
+TAG_PHARMA = 'pharma'
+TAG_IT = 'it'
+TAG_SERVICES = 'services'
+TAG_MEDIA = 'media'
+TAG_MANUFACTURING = 'manufacturing'
+TAG_CONSULTING = 'consulting'
 
 logging.basicConfig(level=logging.INFO)
 
@@ -18,21 +26,21 @@ CACHE_TIMEOUT = 60 # seconds
 
 GENDER_CHOICES = (
     'male',
-    'female'
+    'female',
 )
 
 
 COMPANIES = {'abn-amro': {'name': 'ABN-AMRO',
-              'tags': [TAG_INTERNSHIP],
+              'tags': [TAG_INTERNSHIP, TAG_BFSI], 
               'url': 'http://abnamro.com/'},
     'accenture': {'name': 'Accenture',
-               'tags': [TAG_RECRUITMENT, TAG_INTERNSHIP],
+               'tags': [TAG_RECRUITMENT, TAG_INTERNSHIP, TAG_IT],
                'url': 'http://www.accenture.com/'},
     'akzonobel': {'name': 'Akzonobel',
-               'tags': [TAG_INTERNSHIP],
+               'tags': [TAG_INTERNSHIP, TAG_MANUFACTURING],
                'url': 'http://www.akzonobel.com/'},
     'asian-paints': {'name': 'Asian Paints',
-                  'tags': [TAG_RECRUITMENT, TAG_INTERNSHIP],
+                  'tags': [TAG_RECRUITMENT, TAG_INTERNSHIP, TAG_MANUFACTURING],
                   'url': 'http://asianpaints.com/'},
     'astrazeneca': {'name': 'Astrazeneca',
                  'tags': [TAG_RECRUITMENT],
@@ -47,7 +55,7 @@ COMPANIES = {'abn-amro': {'name': 'ABN-AMRO',
                   'tags': [TAG_RECRUITMENT],
                   'url': 'http://www.bindassmovies.com/'},
     'bpcl': {'name': 'Bharat Petroleum',
-          'tags': [TAG_RECRUITMENT, TAG_INTERNSHIP],
+          'tags': [TAG_RECRUITMENT, TAG_INTERNSHIP, TAG_MANUFACTURING],
           'url': 'http://www.bharatpetroleum.com/'},
     'bru': {'name': 'Bru',
          'tags': [TAG_RECRUITMENT],
@@ -59,7 +67,7 @@ COMPANIES = {'abn-amro': {'name': 'ABN-AMRO',
                'tags': [TAG_RECRUITMENT],
                'url': 'http://www.capgemini.com/'},
     'citibank': {'name': 'Citibank',
-              'tags': [TAG_RECRUITMENT],
+              'tags': [TAG_RECRUITMENT, TAG_BFSI],
               'url': 'http://www.citibank.com/us/home.htm'},
     'coca-cola': {'name': 'Coca-Cola',
                'tags': [TAG_RECRUITMENT],
@@ -71,13 +79,13 @@ COMPANIES = {'abn-amro': {'name': 'ABN-AMRO',
                           'tags': [TAG_RECRUITMENT],
                           'url': 'http://my.countrywide.com/'},
     'crompton-greaves': {'name': 'Crompton-Greaves',
-                      'tags': [TAG_INTERNSHIP],
+                      'tags': [TAG_INTERNSHIP, TAG_MANUFACTURING],
                       'url': 'http://www.cglonline.com/'},
     'ddi': {'name': 'Diagonstic Devices Inc.',
-         'tags': [TAG_INTERNSHIP],
+         'tags': [TAG_INTERNSHIP, TAG_CONSULTING],
          'url': 'http://www.prodigymeter.com/'},
     'deutsche-bank': {'name': 'Deutsche Bank',
-                   'tags': [TAG_RECRUITMENT, TAG_INTERNSHIP],
+                   'tags': [TAG_RECRUITMENT, TAG_INTERNSHIP, TAG_BFSI],
                    'url': 'http://www.db.com'},
     'dr-reddy': {'name': 'Dr. Reddy',
               'tags': [TAG_RECRUITMENT],
@@ -95,25 +103,25 @@ COMPANIES = {'abn-amro': {'name': 'ABN-AMRO',
               'tags': [TAG_RECRUITMENT],
               'url': 'http://www.fidelity.co.in/'},
     'firstsource': {'name': 'Firstsource',
-                 'tags': [TAG_RECRUITMENT, TAG_INTERNSHIP],
+                 'tags': [TAG_RECRUITMENT, TAG_INTERNSHIP, TAG_IT],
                  'url': 'http://www.firstsource.com/'},
     'g-mills': {'name': 'G Mills',
-             'tags': [TAG_INTERNSHIP],
+             'tags': [TAG_INTERNSHIP, TAG_FMCG],
              'url': 'http://www.generalmills.com/'},
     'ge-shipping': {'name': 'GE Shipping',
                  'tags': [TAG_RECRUITMENT],
                  'url': 'http://www.greatship.com/'},
     'glenmark': {'name': 'Glenmark',
-              'tags': [TAG_INTERNSHIP],
+              'tags': [TAG_INTERNSHIP, TAG_PHARMA],
               'url': 'http://www.glenmarkpharma.com/'},
     'godrej': {'name': 'Godrej',
-            'tags': [TAG_INTERNSHIP],
+            'tags': [TAG_INTERNSHIP, TAG_FMCG],
             'url': 'http://www.godrej.com/'},
     'google': {'name': 'Google',
             'tags': [TAG_RECRUITMENT],
             'url': 'http://www.google.com'},
     'hindustan-unilever': {'name': 'Hindustan Unilever',
-                        'tags': [TAG_RECRUITMENT, TAG_INTERNSHIP],
+                        'tags': [TAG_RECRUITMENT, TAG_INTERNSHIP, TAG_FMCG],
                         'url': 'http://www.www.hul.co.in/'},
     'honeywell': {'name': 'Honeywell',
                'tags': [TAG_RECRUITMENT],
@@ -128,7 +136,7 @@ COMPANIES = {'abn-amro': {'name': 'ABN-AMRO',
                   'tags': [TAG_RECRUITMENT],
                   'url': 'http://www.humancapital.net/'},
     'ibm': {'name': 'IBM',
-         'tags': [TAG_RECRUITMENT, TAG_INTERNSHIP],
+         'tags': [TAG_RECRUITMENT, TAG_INTERNSHIP, TAG_IT],
          'url': 'http://www.ibm.com/'},
     'icici-prudential': {'name': 'ICICI Prudential',
                       'tags': [TAG_RECRUITMENT],
@@ -143,10 +151,10 @@ COMPANIES = {'abn-amro': {'name': 'ABN-AMRO',
                'tags': [TAG_RECRUITMENT],
                'url': 'http://www.intellcap.com/'},
     'inx-media': {'name': 'Inx-media',
-               'tags': [TAG_INTERNSHIP],
+               'tags': [TAG_INTERNSHIP, TAG_MEDIA],
                'url': 'http://www.inxgroup.com/'},
     'johnson-and-johnson': {'name': 'Johnson and Johnson',
-                         'tags': [TAG_RECRUITMENT, TAG_INTERNSHIP],
+                         'tags': [TAG_RECRUITMENT, TAG_INTERNSHIP, TAG_FMCG],
                          'url': 'http://www.jnj.com/'},
     'jp-morgan-chase': {'name': 'JP Morgan Chase',
                      'tags': [TAG_RECRUITMENT],
@@ -158,7 +166,7 @@ COMPANIES = {'abn-amro': {'name': 'ABN-AMRO',
          'tags': [TAG_RECRUITMENT],
          'url': 'http://www.consultlbw.com/'},
     'loreal': {'name': "L'oreal",
-            'tags': [TAG_INTERNSHIP],
+            'tags': [TAG_INTERNSHIP, TAG_FMCG],
             'url': 'http://www.loreal.co.in/'},
     'mafoi': {'name': 'Ma Foi',
            'tags': [TAG_RECRUITMENT],
@@ -170,7 +178,7 @@ COMPANIES = {'abn-amro': {'name': 'ABN-AMRO',
             'tags': [TAG_RECRUITMENT],
             'url': 'http://www.marico.com/'},
     'mcdonalds': {'name': 'McDonalds',
-               'tags': [TAG_INTERNSHIP],
+               'tags': [TAG_INTERNSHIP, TAG_SERVICES],
                'url': 'http://www.mcdonaldsindia.com/'},
     'mercer': {'name': 'Mercer',
             'tags': [TAG_RECRUITMENT],
@@ -179,7 +187,7 @@ COMPANIES = {'abn-amro': {'name': 'ABN-AMRO',
                'tags': [TAG_RECRUITMENT],
                'url': 'http://www.microsoft.com/'},
     'monsato': {'name': 'Monsato',
-             'tags': [TAG_INTERNSHIP],
+             'tags': [TAG_INTERNSHIP, TAG_PHARMA],
              'url': 'http://www.monsatoindia.com/'},
     'motorola': {'name': 'Motorola',
               'tags': [TAG_RECRUITMENT],
@@ -191,7 +199,7 @@ COMPANIES = {'abn-amro': {'name': 'ABN-AMRO',
          'tags': [TAG_RECRUITMENT],
          'url': 'http://www.nenonline.com/'},
     'nestle': {'name': 'Nestle',
-            'tags': [TAG_RECRUITMENT, TAG_INTERNSHIP],
+            'tags': [TAG_RECRUITMENT, TAG_INTERNSHIP, TAG_PHARMA],
             'url': 'http://www.nestle.com/'},
     'nielsen': {'name': 'Nielsen',
              'tags': [TAG_RECRUITMENT],
@@ -203,7 +211,7 @@ COMPANIES = {'abn-amro': {'name': 'ABN-AMRO',
               'tags': [TAG_RECRUITMENT],
               'url': 'http://www.novartis.com/'},
     'nse': {'name': 'NSE',
-         'tags': [TAG_INTERNSHIP],
+         'tags': [TAG_INTERNSHIP, TAG_BFSI],
          'url': 'http://www.nseindia.com/'},
     'oracle': {'name': 'Oracle',
             'tags': [TAG_RECRUITMENT],
@@ -212,13 +220,13 @@ COMPANIES = {'abn-amro': {'name': 'ABN-AMRO',
               'tags': [TAG_RECRUITMENT],
               'url': 'http://www.pagalguy.com/'},
     'pantaloons-retail': {'name': 'Pantaloons-retail',
-                       'tags': [TAG_INTERNSHIP],
+                       'tags': [TAG_INTERNSHIP, TAG_SERVICES],
                        'url': 'http://www.pantaloon.com/'},
     'patni': {'name': 'Patni',
            'tags': [TAG_RECRUITMENT],
            'url': 'http://www.patni.com/'},
     'pepsi': {'name': 'Pepsi',
-           'tags': [TAG_RECRUITMENT, TAG_INTERNSHIP],
+           'tags': [TAG_RECRUITMENT, TAG_INTERNSHIP, TAG_FMCG],
            'url': 'http://www.pepsi.com/'},
     'pfizer': {'name': 'Pfizer',
             'tags': [TAG_RECRUITMENT],
@@ -233,7 +241,7 @@ COMPANIES = {'abn-amro': {'name': 'ABN-AMRO',
          'tags': [TAG_RECRUITMENT],
          'url': 'http://www.pwc.com/'},
     'radio mirchi': {'name': 'Radio Mirchi',
-                  'tags': [TAG_RECRUITMENT, TAG_INTERNSHIP],
+                  'tags': [TAG_RECRUITMENT, TAG_INTERNSHIP, TAG_MEDIA],
                   'url': 'http://www.radiomirchi.com/'},
     'ranbaxy': {'name': 'Ranbaxy',
              'tags': [TAG_RECRUITMENT],
@@ -245,14 +253,14 @@ COMPANIES = {'abn-amro': {'name': 'ABN-AMRO',
          'tags': [TAG_RECRUITMENT],
          'url': 'http://www.rpggroup.com/'},
     'sanofi-aventis': {'name': 'Sanofi-aventis',
-                    'tags': [TAG_INTERNSHIP],
+                    'tags': [TAG_INTERNSHIP, TAG_PHARMA],
                     'url': 'http://www.radiomirchi.com/'},
     'sap': {'name': 'SAP', 'tags': [TAG_RECRUITMENT], 'url': 'http://www.sap.com/'},
     'schering-plough': {'name': 'Schering-plough',
-                     'tags': [TAG_INTERNSHIP],
+                     'tags': [TAG_INTERNSHIP, TAG_PHARMA],
                      'url': 'http://www.schering-plough.com/'},
     'shell': {'name': 'Shell',
-           'tags': [TAG_INTERNSHIP],
+           'tags': [TAG_INTERNSHIP, TAG_MANUFACTURING],
            'url': 'http://www.shell.com/'},
     'shrmindia': {'name': 'SHRM India',
                'tags': [TAG_RECRUITMENT],
@@ -270,26 +278,26 @@ COMPANIES = {'abn-amro': {'name': 'ABN-AMRO',
             'tags': [TAG_RECRUITMENT],
             'url': 'http://www.syntel.com/'},
     'taj': {'name': 'Taj Hotels',
-         'tags': [TAG_RECRUITMENT, TAG_INTERNSHIP],
+         'tags': [TAG_RECRUITMENT, TAG_INTERNSHIP, TAG_SERVICES],
          'url': 'http://www.tajhotels.com/'},
     'tata': {'name': 'TATA',
-          'tags': [TAG_RECRUITMENT],
+          'tags': [TAG_RECRUITMENT, TAG_MANUFACTURING],
           'url': 'http://www.tata.com/'},
     'tata-motors': {'name': 'Tata Motors',
                  'tags': [TAG_INTERNSHIP],
                  'url': 'http://www.tatamotors.com/'},
     'tata-powers': {'name': 'Tata Powers',
-                 'tags': [TAG_INTERNSHIP],
+                 'tags': [TAG_INTERNSHIP, TAG_MANUFACTURING],
                  'url': 'http://www.tatapower.com/'},
     'tata-steel': {'name': 'Tata Steel',
-                'tags': [TAG_INTERNSHIP],
+                'tags': [TAG_INTERNSHIP, TAG_MANUFACTURING],
                 'url': 'http://www.tatastell.co.in/'},
     'timesascent': {'name': 'Time Ascent',
                  'tags': [TAG_RECRUITMENT],
                  'url': 'http://www.timeascent.in/'},
-    'ucb': {'name': 'UCB', 'tags': [TAG_INTERNSHIP], 'url': 'http://www.ucb.com/'},
+    'ucb': {'name': 'UCB', 'tags': [TAG_INTERNSHIP, TAG_PHARMA], 'url': 'http://www.ucb.com/'},
     'unitech': {'name': 'Unitech',
-             'tags': [TAG_INTERNSHIP],
+             'tags': [TAG_INTERNSHIP, TAG_MANUFACTURING],
              'url': 'http://www.unitech.com/'},
     'utv-i': {'name': 'UTV-i',
            'tags': [TAG_RECRUITMENT],
@@ -298,7 +306,7 @@ COMPANIES = {'abn-amro': {'name': 'ABN-AMRO',
            'tags': [TAG_RECRUITMENT],
            'url': 'http://www.wipro.com/'},
     'wyeth': {'name': 'Wyeth',
-           'tags': [TAG_INTERNSHIP],
+           'tags': [TAG_INTERNSHIP, TAG_PHARMA],
            'url': 'http://www.wyethindia.com/'},
     'yahoo': {'name': 'Yahoo! Inc.',
            'tags': [TAG_RECRUITMENT],
@@ -307,6 +315,15 @@ COMPANIES = {'abn-amro': {'name': 'ABN-AMRO',
 
 RECRUITERS = {}
 INTERNSHIPS = {}
+BFSI = {}
+FMCG = {}
+PHARMA = {}
+IT = {}
+SERVICES = {}
+MEDIA = {}
+MANUFACTURING = {}
+CONSULTING = {}
+
 
 for identifier, company in COMPANIES.iteritems():
     tags = company.get('tags', [])
@@ -314,8 +331,31 @@ for identifier, company in COMPANIES.iteritems():
         RECRUITERS[identifier] = company
     elif TAG_INTERNSHIP in tags:
         INTERNSHIPS[identifier] = company
+    elif TAG_BFSI in tags:
+        BFSI[identifier] = company
+    elif TAG_FMCG in tags:
+        FMCG[identifier] = company
+    elif TAG_PHARMA in tags:
+        PHARMA[identifier] = company
+    elif TAG_IT in tags:
+        IT[identifier] = company
+    elif TAG_SERVICES in tags:
+        SERVICES[identifier] = company
+    elif TAG_MEDIA in tags:
+        MEDIA[identifier] = company
+    elif TAG_MANUFACTURING in tags:
+        MANUFACTURING[identifier] = company  
+    elif TAG_CONSULTING in tags:
+        CONSULTING[identifier] = company
 
+    
 RECRUITERS_ID_URLS = [(identifier, val["url"]) for identifier, val in RECRUITERS.iteritems()]
+BFSI_ID_URLS = [(identifier, val["url"]) for identifier, val in BFSI.iteritems()]
+FMCG_ID_URLS = [(identifier, val["url"]) for identifier, val in FMCG.iteritems()]
+PHARMA_ID_URLS = [(identifier, val["url"]) for identifier, val in PHARMA.iteritems()]
+IT_ID_URLS = [(identifier, val["url"]) for identifier, val in IT.iteritems()]
+SERVICES_ID_URLS = [(identifier, val["url"]) for identifier, val in BFSI.iteritems()]
+
 
 JOB_TYPE_DISPLAY_MAP = {
     'part_time': 'Part-Time',
