@@ -69,7 +69,7 @@
         jQuery("#tabs").tabs("#panes > li", {
           effect: 'fade'
         });
-        jQuery("#fieldwork").tabs("#panes > li", {
+        jQuery("#transparent_tabs").tabs("#panes > li", {
           effect: 'fade'
         });
     });
