@@ -51,6 +51,9 @@ IMAGE_FILES = Split("""
     image/img_shadow.png
     image/background/footer.png
     image/contact_us.png
+    image/icon/ngo_block_placement.png    
+    image/icon/corporate_block_placement.png
+    image/icon/concurrent_block_placement.png
     image/altiba/altiba-1.jpg
     image/altiba/altiba-2.jpg
     image/altiba/altiba-3.jpg
