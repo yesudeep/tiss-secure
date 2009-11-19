@@ -35,10 +35,13 @@
 =panes()
   > li
     :display none
-    :margin-left 80px
+    :padding 0px 10px        
 
 #panes
   +panes
+
+#panes.presentation
+  :margin-left 80px
 
 #tabs
   +tabs
@@ -215,6 +218,7 @@ section
   ul
     +floated-list()
 
+       
 a.company
   :background white url("../image/recruiter_logos.jpg") scroll no-repeat 0 0
 #accenture
@@ -594,6 +598,8 @@ table
       img
         :padding 15px
 
+//Differential learning //
+
 #transparent_tabs
   :margin-left 490px
   li
@@ -612,13 +618,102 @@ table
       //:border 1px solid #fff
       
 #fieldwork_organizations
-  ul
-    li
-      ul
-        li
-          +display-inline-block
-          border: 5px solid #666
-          margin-right: 15px
+  ul >li 
+    :padding-top 5px
+    >ul
+      +floated-list
+      li    
+        :background transparent url("../image/img_shadow_small.png") scroll no-repeat bottom left
+        :height 118px
+        a
+          :width 96px
+          :height 96px
+          :background white url("../image/internship_companies.jpg") scroll no-repeat 0 0
+
+.companies #abn-amro
+  :background-position 0px 0px
+.companies #citibank
+  :background-position -96px 0px
+.companies #deutsche-bank
+  :background-position -192px 0px
+.companies #nse
+  :background-position -288px 0px
+
+.companies #g-mills
+  :background-position -384px 0px
+.companies #godrej
+  :background-position -480px 0px
+.companies #hindustan-unilever
+  :background-position -576px 0px
+.companies #johnson-and-johnson
+  :background-position -672px 0px
+.companies #loreal
+  :background-position -768px 0px
+.companies #pepsi
+  :background-position -864px 0px
+
+.companies #glenmark
+  :background-position -960px 0px
+.companies #monsato
+  :background-position -1056px 0px
+.companies #nestle
+  :background-position -1152px 0px
+.companies #sanofi-aventis
+  :background-position -1248px 0px
+.companies #schering-plough
+  :background-position -1344px 0px
+.companies #ucb
+  :background-position -1440px 0px
+.companies #wyeth
+  :background-position -1536px 0px
+
+.companies #accenture
+  :background-position -1632px 0px
+.companies #firstsource
+  :background-position -1728px 0px
+.companies #ibm
+  :background-position -1824px 0px
+
+.companies #mcdonalds
+  :background-position -1920px 0px
+.companies #pantaloons-retail
+  :background-position -2016px 0px
+.companies #taj
+  :background-position -2112px 0px
+
+.companies #ninex-media
+  :background-position -2208px 0px
+.companies #radio-mirchi
+  :background-position -2304px 0px
+
+.companies #akzonobel
+  :background-position -2400px 0px
+.companies #asian-paints
+  :background-position -2496px 0px
+.companies #bpcl
+  :background-position -2592px 0px
+.companies #crompton-greaves
+  :background-position -2688px 0px
+.companies #shell
+  :background-position -2784px 0px
+.companies #tata
+  :background-position -2880px 0px
+.companies #tata-powers
+  :background-position -2976px 0px
+.companies #tata-steel
+  :background-position -3072px 0px
+.companies #unitech
+  :background-position -3168px 0px
+
+.companies #ddi
+  :background-position -3264px 0px
+
+#placement_type
+  li
+    +display-inline-block
+    :width 30%
+    :vertical-align top
+    :margin-right 20px
 
 // Reports page //
 

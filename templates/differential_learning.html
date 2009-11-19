@@ -17,13 +17,9 @@
     <ul id="panes">
       <li id="fieldwork_pane">
         <h1>Practice what you learn.</h1>
-        <p>The Fieldwork programme is an integral part of the HRM &amp; LR curriculum and provides
-opportunities for students to reflect, apply and integrate acquired skills to work situations in
-organizations. It thereby serves as an interface between theory and practice.</p>
-        <p>The HRM &amp; LR students are placed in four different organizations, representing different
-industry sectors, during the two year duration of their programme.</p>
-        <p>The programme is overseen by the Dean of the School of Management and Labour Studies and by the School Board. Currently, the school deals with more than 100 organizations with respect to fieldwork. The fieldwork curriculum and practice is regularly
-revised and timely inputs are solicited from industry experts.</p>
+        <p>The Fieldwork programme provides opportunities for students to reflect, apply and integrate acquired skills to work situations in
+organizations. Students are placed in four different organizations, representing different industry sectors, during the two year duration of their programme.</p>        
+        <p>The programme is overseen by the Dean and by the School Board. Currently, the school deals with more than 100 organizations with respect to fieldwork.</p>
         <p>The students are expected to record their learnings and to compare actual business practices with theory. Focus group discussions as well as individualized feedback sessions are conducted on a weekly basis with a faculty mentor.</p>
         <ul id="placement_type">
           <li>
@@ -45,60 +41,68 @@ revised and timely inputs are solicited from industry experts.</p>
       </li>
       <li id="fieldwork_organizations">
         <ul>
-          <li>Banking, Financial Services and Insurance (BFSI)
+          <li>
+            <h2>Banking, Financial Services and Insurance (BFSI)</h2>
             <ul>
               {% for bfsi in bfsi_list %}
-                <li><a href="{{ bfsi.1 }}" target="_blank" id="{{ bfsi.0 }}" class="company"></a></li>
+                <li class="companies"><a href="{{ bfsi.1 }}" target="_blank" id="{{ bfsi.0 }}"></a></li>
               {% endfor %}
             </ul>
           </li>
-          <li>Fast Moving Consumer Goods (FMCG)
+          <li>
+            <h2>Fast Moving Consumer Goods (FMCG)</h2>
             <ul>
               {% for fmcg in fmcg_list %}
-                <li><a href="{{ fmcg.1 }}" target="_blank" id="{{ fmcg.0 }}" class="company"></a></li>
+                <li class="companies"><a href="{{ fmcg.1 }}" target="_blank" id="{{ fmcg.0 }}"></a></li>
               {% endfor %}
             </ul>
           </li>
-          <li>Pharma/Healthcare/Biotech
+          <li>
+            <h2>Pharma/Healthcare/Biotech</h2>
             <ul>
               {% for pharma in pharma_list %}
-                <li><a href="{{ pharma.1 }}" target="_blank" id="{{ pharma.0 }}" class="company"></a></li>
+                <li class="companies"><a href="{{ pharma.1 }}" target="_blank" id="{{ pharma.0 }}"></a></li>
               {% endfor %}
               
             </ul>
           </li>
-          <li>IT/ITES/Telecom
+          <li>
+            <h2>Manufacturing/Oil &amp; Natural Gas</h2>
+            <ul>
+              {% for manufacturing in manufacturing_list %}
+                <li class="companies"><a href="{{ manufacturing.1 }}" target="_blank" id="{{ manufacturing.0 }}"></a></li>
+              {% endfor %}
+            </ul>
+          </li>
+          <li>
+            <h2>IT/ITES/Telecom</h2>
             <ul>
               {% for it in it_list %}
-                <li><a href="{{ it.1 }}" target="_blank" id="{{ it.0 }}" class="company"></a></li>
+                <li class="companies"><a href="{{ it.1 }}" target="_blank" id="{{ it.0 }}"></a></li>
               {% endfor %}            
             </ul>
           </li>
-          <li>Services
+          <li>
+            <h2>Services</h2>
             <ul>
               {% for services in services_list %}
-                <li><a href="{{ services.1 }}" target="_blank" id="{{ services.0 }}" class="company"></a></li>
+                <li class="companies"><a href="{{ services.1 }}" target="_blank" id="{{ services.0 }}"></a></li>
               {% endfor %}
             </ul>
           </li>
-          <li>Media and Entertainment
+          <li>
+            <h2>Media and Entertainment</h2>
             <ul>
               {% for media in media_list %}
-                <li><a href="{{ media.1 }}" target="_blank" id="{{ media.0 }}" class="company"></a></li>
+                <li class="companies"><a href="{{ media.1 }}" target="_blank" id="{{ media.0 }}"></a></li>
               {% endfor %}
             </ul>
           </li>
-          <li>Manufacturing/Oil &amp; Natural Gas
-            <ul>
-              {% for manufacturing in manufacturing_list %}
-                <li><a href="{{ manufacturing.1 }}" target="_blank" id="{{ manufacturing.0 }}" class="company"></a></li>
-              {% endfor %}
-            </ul>
-          </li>
-          <li>Consulting
+          <li>
+            <h2>Consulting</h2>
             <ul>
               {% for consulting in consulting_list %}
-                <li><a href="{{ consulting.1 }}" target="_blank" id="{{ consulting.0 }}" class="company"></a></li>
+                <li class="companies"><a href="{{ consulting.1 }}" target="_blank" id="{{ consulting.0 }}"></a></li>
               {% endfor %}
             </ul>
           </li>

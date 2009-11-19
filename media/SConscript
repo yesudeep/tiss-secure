@@ -49,11 +49,20 @@ IMAGE_FILES = Split("""
     image/background/overlay_black.png
     image/background/separator.png
     image/img_shadow.png
+    image/img_shadow_small.png
     image/background/footer.png
     image/contact_us.png
     image/icon/ngo_block_placement.png    
     image/icon/corporate_block_placement.png
     image/icon/concurrent_block_placement.png
+    image/icon/bfsi.png
+    image/icon/fmcg.png
+    image/icon/it.png
+    image/icon/media-entertainment.png
+    image/icon/consulting.png
+    image/icon/healthcare.png
+    image/icon/services.png
+    image/icon/oil-natural-gas.png
     image/altiba/altiba-1.jpg
     image/altiba/altiba-2.jpg
     image/altiba/altiba-3.jpg
@@ -258,7 +267,6 @@ stitched_images = [
                 image/fieldwork_organizations/bfsi/citi-bank.jpg
                 image/fieldwork_organizations/bfsi/deustch-bank.jpg
                 image/fieldwork_organizations/bfsi/nse.jpg    
-                image/fieldwork_organizations/consulting/ddi.jpg
                 image/fieldwork_organizations/fmcg/g-mills.jpg
                 image/fieldwork_organizations/fmcg/godrej.jpg
                 image/fieldwork_organizations/fmcg/hindustan-unilever.jpg
@@ -289,6 +297,7 @@ stitched_images = [
                 image/fieldwork_organizations/oil_and_natural_gas/tata-power.jpg
                 image/fieldwork_organizations/oil_and_natural_gas/tata-steel.jpg
                 image/fieldwork_organizations/oil_and_natural_gas/unitech.jpg
+                image/fieldwork_organizations/consulting/ddi.jpg
             """),
             orientation='horizontal'  
             ),
