@@ -1,4 +1,4 @@
-jQuery(function(){
+/*jQuery(function(){
     jQuery("#alumni_achievers").innerfade({
       animationtype: 'fade',
       speed: 'slow',
@@ -6,4 +6,4 @@ jQuery(function(){
       type: 'sequence',
       containerheight: '250px'
     });
-});
+});*/
