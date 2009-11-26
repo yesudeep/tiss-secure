@@ -48,6 +48,9 @@
 
 body
   :font-family= !font_stack_verdana
+  :background= !color_body_bg !url_grunge_bg "repeat scroll 0 0"
+  
+body.alumni
   :background= !color_body_bg !url_alumni_bg "repeat scroll 0 0"
 
 a
@@ -576,7 +579,7 @@ table
           :font-family= !font_stack_verdana
           :font-weight bold
 // Achievements Page //
-#alumni_achievers
+#people_names_designations
   :overflow auto
   :margin 0px auto
   li
@@ -742,4 +745,38 @@ table
         :font-size 1em
         :font-weight bold
         :padding 5px
+// Committee's page //
 
+#accordion
+  >h2
+    :background #007D9A url("../image/background/overlay_white.png") repeat-x scroll 0 0
+    :color white
+    :font-size 1em
+    :padding 5px 10px
+    :text-shadow 1px 1px 1px #111
+    +border-radius(10px)
+    +box-shadow(1px 2px 3px rgba(0, 0, 0, 0.8))
+    :margin-bottom 4px
+    :cursor pointer
+  >h2:hover
+    :background-color #176579 
+  div.pane
+    :display none
+    :background-color rgba(255, 255, 255, 0.5)
+    :padding 5px 10px
+    +border-radius(10px)
+    :margin-bottom 5px
+    ul
+      li
+        :line-height 1.4
+        :margin-bottom 10px
+    dl
+      dt
+        :color #8b0b00
+        :text-shadow 1px 1px 2px #fff
+      dd
+        :line-height 1.4
+        :margin-bottom 10px
+    em
+      :color #8b0b00
+      :text-shadow 1px 1px 2px #fff

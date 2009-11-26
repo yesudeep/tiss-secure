@@ -44,6 +44,7 @@ HTML_FILES = Split("""
     admin/new_job.html
     admin/edit_job.html
     admin/edit_person.html
+    student_committee.html
 """)
 
 TEMPLATE_FILES = HTML_FILES + Split("""

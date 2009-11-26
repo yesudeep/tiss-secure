@@ -47,6 +47,7 @@ IMAGE_FILES = Split("""
     image/logo_small_stroked.png
     image/logo_shield_small.png
     image/background/overlay_black.png
+    image/background/overlay_white.png
     image/background/separator.png
     image/img_shadow.png
     image/img_shadow_small.png
@@ -109,6 +110,7 @@ IMAGE_FILES = Split("""
     image/background/polaroid.png
     image/background/textfield_readonly.png
     image/background/grunge_paper.jpg
+    image/background/grunge_alumni.jpg
     image/icon/favicon.png
     image/lightbox/lightbox-blank.gif
     image/lightbox/lightbox-btn-close.gif

@@ -72,6 +72,11 @@
         jQuery("#transparent_tabs").tabs("#panes > li", {
           effect: 'fade'
         });
+        jQuery("#accordion").tabs("#accordion div.pane", {
+          tabs: 'h2',
+          effect: 'slide',
+          initialIndex: null
+        });
     });
 })(jQuery);
 
