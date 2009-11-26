@@ -14,6 +14,7 @@ DEST_DIR = '../' + env['MEDIA_DEST_DIR'] + '/'
 SCRIPT_FILES = Split("""
     script/base.js
     script/recruiters.js
+    script/contact_us.js
     script/lib/chickoojs/src/jquery/color/jquery.color.js
     script/lib/chickoojs/src/jquery/tools/1.1.1/tools.tabs-1.0.3.js
     script/lib/chickoojs/src/jquery/tools/1.1.1/tools.scrollable-1.1.1.js
@@ -372,6 +373,16 @@ LIB_INDEX_JS_FILES = [SRC_DIR + f for f in LIB_INDEX_JS_FILES]
 lib_index_js = env.Concatenate([DEST_DIR + 'script/page/index.js'], LIB_INDEX_JS_FILES)
 env.YuiCompressorMinify(lib_index_js)
 env.JsminMinify(lib_index_js)
+
+CONTACT_US_JS_FILES =  Split("""
+    script/jquery.qtip-1.0.0-rc3.js
+    script/contact_us.js
+""")
+CONTACT_US_JS_FILES = [SRC_DIR + f for f in CONTACT_US_JS_FILES]
+contact_us_js = env.Concatenate([DEST_DIR + 'script/page/contact_us.js'], CONTACT_US_JS_FILES)
+env.YuiCompressorMinify(contact_us_js)
+#env.JsminMinify(sponsors_js)
+
 
 LIB_GALLERY_JS_FILES =  Split("""
     script/jquery.lightbox-0.5.js

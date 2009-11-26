@@ -211,7 +211,7 @@
             </ul>
           </li>
         </ul>
-        <a href="/contactus" id="contact_us" title="Reach us"></a>
+        <a href="" id="contact_us" title="Contact us at: Sion Trombay Road, Deonar, Mumbai - (022)25525500"></a>
         <ul id="copyright">
           <li>
             Content Copyright &copy; 2009
@@ -236,7 +236,8 @@ scrolling="no" frameborder="0"></iframe>
 {% block tag_scripts_base %}
 <script type="text/javascript">
   window.scripts.push(
-    "{{ MEDIA_URL }}script/common{{ MINIFIED }}.js"
+    "{{ MEDIA_URL }}script/common{{ MINIFIED }}.js",
+    "{{ MEDIA_URL }}script/page/contact_us{{ MINIFIED }}.js"
   );
 </script>
 {% endblock %}
