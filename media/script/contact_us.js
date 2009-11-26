@@ -8,7 +8,7 @@ jQuery(function() {
       }
     },
     style: {
-      width: 400,
+      width: 350,
       padding: 5,
       color: 'black',
       textAlign: 'center',
