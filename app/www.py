@@ -55,6 +55,33 @@ class StudentCommitteesPage(webapp.RequestHandler):
         response = render_template('student_committee.html', logout_url=logout_url)
         self.response.out.write(response)
 
+class FacultyProfilePage(webapp.RequestHandler):
+    def get(self):
+        if users.get_current_user():
+            logout_url = users.create_logout_url('/')
+        else:
+            logout_url = None
+        response = render_template('faculty_profile.html', logout_url=logout_url)
+        self.response.out.write(response)
+
+class FacultyResearchPage(webapp.RequestHandler):
+    def get(self):
+        if users.get_current_user():
+            logout_url = users.create_logout_url('/')
+        else:
+            logout_url = None
+        response = render_template('faculty_research.html', logout_url=logout_url)
+        self.response.out.write(response)
+
+
+class WorkingPapersPage(webapp.RequestHandler):
+    def get(self):
+        if users.get_current_user():
+            logout_url = users.create_logout_url('/')
+        else:
+            logout_url = None
+        response = render_template('working_papers.html', logout_url=logout_url)
+        self.response.out.write(response)
 
 class ContactUsPage(webapp.RequestHandler):
     def get(self):
@@ -220,6 +247,9 @@ urls = (
     ('/forum/oddev/?', OddevPage),
     ('/tatvabodha/agenda/?', AgendaPage),
     ('/account/signup/?', AccountHandler),
+    ('/faculty/profiles/?', FacultyProfilePage),
+    ('/faculty/research/?', FacultyResearchPage),
+    ('/faculty/working_papers/?', WorkingPapersPage),
 )
 
 application = webapp.WSGIApplication(urls, debug=config.DEBUG)

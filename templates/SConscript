@@ -27,6 +27,9 @@ HTML_FILES = Split("""
     gallery.html
     jobs.html
     post_job.html
+    faculty_profile.html
+    faculty_research.html
+    working_papers.html
     forum/forum.html
     forum/indrel.html
     forum/trndev.html
