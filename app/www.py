@@ -46,6 +46,15 @@ class ReportsPage(webapp.RequestHandler):
         response = render_template('reports.html', logout_url=logout_url)
         self.response.out.write(response)
 
+class StudentCommitteesPage(webapp.RequestHandler):
+    def get(self):
+        if users.get_current_user():
+            logout_url = users.create_logout_url('/')
+        else:
+            logout_url = None
+        response = render_template('student_committee.html', logout_url=logout_url)
+        self.response.out.write(response)
+
 
 class ContactUsPage(webapp.RequestHandler):
     def get(self):
@@ -198,6 +207,7 @@ urls = (
     ('/placements/differential_learning/?', Differential_LearningPage),
     ('/placements/reports/?', ReportsPage),
     ('/contactus/?', ContactUsPage),
+    ('/students/committees/?', StudentCommitteesPage),
     ('/alumni/achievements/?', AchievementPage),
     ('/alumni/events/?', EventsPage),
     ('/alumni/gallery/?', GalleryPage),
