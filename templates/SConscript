@@ -30,6 +30,7 @@ HTML_FILES = Split("""
     faculty_profile.html
     faculty_research.html
     working_papers.html
+    profile/sample.html
     forum/forum.html
     forum/indrel.html
     forum/trndev.html

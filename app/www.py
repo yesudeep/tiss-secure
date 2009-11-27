@@ -64,6 +64,15 @@ class FacultyProfilePage(webapp.RequestHandler):
         response = render_template('faculty_profile.html', logout_url=logout_url)
         self.response.out.write(response)
 
+class ProfileDetailsPage(webapp.RequestHandler):
+    def get(self):
+        if users.get_current_user():
+            logout_url = users.create_logout_url('/')
+        else:
+            logout_url = None
+        response = render_template('profile/sample.html', logout_url=logout_url)
+        self.response.out.write(response)
+
 class FacultyResearchPage(webapp.RequestHandler):
     def get(self):
         if users.get_current_user():
@@ -250,6 +259,7 @@ urls = (
     ('/faculty/profiles/?', FacultyProfilePage),
     ('/faculty/research/?', FacultyResearchPage),
     ('/faculty/working_papers/?', WorkingPapersPage),
+    ('/faculty/profile/faculty/?', ProfileDetailsPage),
 )
 
 application = webapp.WSGIApplication(urls, debug=config.DEBUG)
