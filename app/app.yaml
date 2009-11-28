@@ -1,5 +1,5 @@
 application: tiss-secure
-version: sandbox
+version: development
 runtime: python
 api_version: 1
 
@@ -27,25 +27,24 @@ handlers:
   expiration: 7d
 
 - url: /console/static/
-  static_dir: lib/console/app/view/static
+  static_dir: console/app/view/static
   expiration: 7d
 
 - url: /console.*
-  script: lib/console/app/console.py
+  script: console/app/console.py
   login: admin
 
-- url: /remote_api.*
-  script: $PYTHON_LIB/google/appengine/ext/remote_api/handler.py
-  login: admin
+#- url: /remote_api.*
+#  script: $PYTHON_LIB/google/appengine/ext/remote_api/handler.py
+#  login: admin
 
-- url: /admin.*
-  script: admin.py
-  login: admin
+#- url: /admin.*
+#  script: admin.py
+#  login: admin
 
-- url: /api.*
-  script: api.py
-  login: admin
+#- url: /api.*
+#  script: api.py
+#  login: admin
 
 - url: /.*
-  script: www.py
-
+  script: handlers.py
