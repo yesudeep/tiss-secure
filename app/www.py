@@ -60,13 +60,10 @@ class StudentCommitteesPage(webapp.RequestHandler):
         response = render_template('student_committee.html', logout_url=logout_url)
         self.response.out.write(response)
 
-class FacultyProfilePage(webapp.RequestHandler):
-    def get(self):
-        if users.get_current_user():
-            logout_url = users.create_logout_url('/')
-        else:
-            logout_url = None
-        response = render_template('faculty_profile.html', logout_url=logout_url)
+class ProfileListHandler(webapp.RequestHandler):
+    def get(self, profile_type):
+        
+        response = render_template('profile_list.html')
         self.response.out.write(response)
 
 class ProfileDetailsPage(webapp.RequestHandler):
@@ -261,21 +258,18 @@ urls = (
     ('/forum/oddev/?', OddevPage),
     ('/tatvabodha/agenda/?', AgendaPage),
     ('/account/signup/?', AccountHandler),
-    ('/faculty/profiles/?', FacultyProfilePage),
+    ('/profile/(faculty|alumni|student)/?', ProfileListHandler),
     ('/faculty/research/?', FacultyResearchPage),
     ('/faculty/working_papers/?', WorkingPapersPage),
     ('/faculty/profile/faculty/?', ProfileDetailsPage),
 )
 
-application = webapp.WSGIApplication(urls, debug=config.DEBUG)
-
-
 def main():
     from gaefy.db.datastore_cache import DatastoreCachingShim
+    application = webapp.WSGIApplication(urls, debug=config.DEBUG)
     DatastoreCachingShim.Install()
     run_wsgi_app(application)
     DatastoreCachingShim.Uninstall()
 
 if __name__ == '__main__':
     main()
-
