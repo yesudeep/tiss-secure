@@ -26,6 +26,7 @@ handlers:
   secure: never
   expiration: 7d
 
+# App-Engine Console from Proven Corporation.
 - url: /console/static/
   static_dir: console/app/view/static
   expiration: 7d
