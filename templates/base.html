@@ -2,7 +2,7 @@
 
 {% block tag_head %}
 	{% block tag_stylesheets %}
-	    <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/screen-all{{ MINIFIED }}.css" media="screen, projection" charset="utf-8" />
+	    <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/screen-all{{ CSS_MINIFIED }}.css" media="screen, projection" charset="utf-8" />
 	{% endblock %}
 
 	{% block tag_additional_stylesheets %}{% endblock %}
@@ -236,8 +236,8 @@ scrolling="no" frameborder="0"></iframe>
 {% block tag_scripts_base %}
 <script type="text/javascript">
   window.scripts.push(
-    "{{ MEDIA_URL }}script/common{{ MINIFIED }}.js",
-    "{{ MEDIA_URL }}script/page/contact_us{{ MINIFIED }}.js"
+    "{{ MEDIA_URL }}script/common{{ JS_MINIFIED }}.js",
+    "{{ MEDIA_URL }}script/page/contact_us{{ JS_MINIFIED }}.js"
   );
 </script>
 {% endblock %}
