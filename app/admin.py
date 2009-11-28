@@ -2,13 +2,17 @@
 # -*- coding: utf-8 -*-
 
 import configuration as config
-import logging
+#import logging
 from google.appengine.api import users, memcache
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
-from utils import render_template, dec
+from utils import dec
+from haggoo.template.jinja2 import render_generator
+from gaefy.jinja2.code_loaders import FileSystemCodeLoader
 
-logging.basicConfig(level=logging.DEBUG)
+render_template = render_generator(loader=FileSystemCodeLoader, builtins=config.TEMPLATE_BUILTINS)
+
+#logging.basicConfig(level=logging.DEBUG)
 
 class PeopleHandler(webapp.RequestHandler):
     def get(self):
@@ -26,7 +30,7 @@ class NewsHandler(webapp.RequestHandler):
         self.response.out.write(response)
 
 urls = [
-	('/admin/?', PeopleHandler),
+    ('/admin/?', PeopleHandler),
     ('/admin/people/?', PeopleHandler),
     ('/admin/jobs/?', JobsHandler),
     ('/admin/news/?', NewsHandler),

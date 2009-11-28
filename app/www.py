@@ -7,7 +7,12 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app, login_required
 
 from models import Person, Job, News, RECRUITERS_ID_URLS, JOB_TYPE_DISPLAY_LIST, BFSI_ID_URLS, FMCG_ID_URLS, PHARMA_ID_URLS, IT_ID_URLS, SERVICES_ID_URLS, MEDIA_ID_URLS, MANUFACTURING_ID_URLS, CONSULTING_ID_URLS 
-from utils import render_template, dec, login_required_signup
+#from utils import render_template, dec, login_required_signup
+from haggoo.template.jinja2 import render_generator
+from gaefy.jinja2.code_loaders import FileSystemCodeLoader
+from utils import dec, login_required_signup
+
+render_template = render_generator(loader=FileSystemCodeLoader, builtins=config.TEMPLATE_BUILTINS)
 
 class IndexHandler(webapp.RequestHandler):
     def get(self):
