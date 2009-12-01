@@ -10,7 +10,7 @@
     >a
       :display block
       :width 140px
-      :height 140px      
+      :height 140px
 
 .floated_list
   +floated-list()
@@ -35,7 +35,7 @@
 =panes()
   > li
     :display none
-    :padding 0px 10px        
+    :padding 0px 10px
 
 #panes
   +panes
@@ -49,7 +49,7 @@
 body
   :font-family= !font_stack_verdana
   :background= !color_body_bg !url_grunge_bg "repeat scroll 0 0"
-  
+
 body.alumni
   :background= !color_body_bg !url_alumni_bg "repeat scroll 0 0"
 
@@ -219,7 +219,7 @@ section
     +floated-list()
     li
       a
-        :background white url("../image/recruiter_logos.jpg") scroll no-repeat 0 0  
+        :background white url("../image/recruiter_logos.jpg") scroll no-repeat 0 0
       #accenture
         :background-position 0px 0px
       #asian-paints
@@ -323,7 +323,7 @@ section
       #yahoo
         :background-position -7000px 0px
       #barista
-        :background-position -7140px 0px              
+        :background-position -7140px 0px
       #bindasmovies
         :background-position -7280px 0px
       #bru
@@ -355,7 +355,7 @@ section
       #powerhorse
         :background-position -9240px 0px
       #power
-        :background-position -9380px 0px 
+        :background-position -9380px 0px
       #radiomirchi
         :background-position -9520px 0px
       #rcf
@@ -363,7 +363,7 @@ section
       #shrmindia
         :background-position -9800px 0px
       #syntel
-        :background-position -9940px 0px 
+        :background-position -9940px 0px
       #utv-i
         :background-position -10080px 0px
       #timesascent
@@ -499,9 +499,10 @@ footer
   :width 620px
   :margin 80px
   :height 325px
+  :padding 10px 20px
   .scrollable_items
     :position absolute
-    :width 4050px
+    :width 6450px
 
 //Contact Us Page //
 #contact
@@ -596,8 +597,8 @@ table
       :font-family= !font_stack_verdana
       :font-size 0.9em
       :font-weight normal
-      :text-shadow none      
-      
+      :text-shadow none
+
 
 //Differential learning //
 
@@ -617,19 +618,30 @@ table
       :background-color rgba(255, 255, 255, 0.5)
       +border-radius(8px)
       //:border 1px solid #fff
-      
+
 #fieldwork_organizations
-  ul >li 
+  ul >li
     :padding-top 5px
     >ul
       +floated-list
-      li    
+      li
         :background transparent url("../image/img_shadow_small.png") scroll no-repeat bottom left
         :height 118px
         a
           :width 96px
           :height 96px
           :background white url("../image/internship_companies.jpg") scroll no-repeat 0 0
+
+.companies
+  > li
+    > a
+      //+transform(rotate(-2deg))
+      :position relative
+    > a:hover
+      +box-shadow(1px 1px 8px #444)
+      +transform(scale(1.25))
+      :-webkit-transition -webkit-transform .45s ease
+      :z-index 5
 
 .companies #abn-amro
   :background-position 0px 0px
@@ -745,7 +757,7 @@ table
     :margin-bottom 4px
     :cursor pointer
   >h2:hover
-    :background-color #176579 
+    :background-color #176579
   div.pane
     :display none
     :background-color rgba(255, 255, 255, 0.5)
