@@ -1,51 +1,20 @@
 (function($){
-
     jQuery(function(){
-
         var elements = {
+            external_links: jQuery('a[href^="http://"]'),
             body: jQuery('body'),
             nav: jQuery('nav'),
             nav_tabs: jQuery('nav > div.handle > div > ul'),
             nav_panes: jQuery('nav > div > ul.panes'),
             google_talk_wrapper: jQuery('#google_talk_wrapper'),
-        }; /*,
-        colors = [
-                "#362d1d",
-                "#0c50dc",
-                "#7cb306",
-                "#800080",
-                "#602414",
-                "#321e0b",
-                "#aebd87",
-                "#ba6e87",
-                "#5e3a49",
-                "#62671a",
-                "#38927c",
-                "#ae6ad2",
-                "#6a8efd",
-                "#818fd7",
-                "#6f59d6",
-                "#306fb8",
-                "#85b91e",
-                "#8dccdc",
-                "#84b2dc",
-                "#19400f",
-                "#1e1f82",
-                "#7061eb",
-                "#55315c",
-                "#685f7d",
-                "#2f4385",
-                "#5c3c0f"
-                ];
-        // Cycles the background color
-        function cycleBackgroundColor(){
-            var c = colors;
-            elements.body.animate({
-                backgroundColor: c[Math.floor(Math.random() * c.length)]
-            }, 1000);
-        }
-        setInterval(cycleBackgroundColor, 10000);
-        */
+            exposables: jQuery('.companies, .awesome-button')
+        };
+        elements.exposables.hover(function(){
+                jQuery(this).expose({api:true, loadSpeed: 100, color: '#000'}).load();
+            }, function(){
+                jQuery(this).expose({api:true, closeSpeed: 100}).close();
+            });
+        elements.external_links.attr('target', '_blank').attr('title', 'Opens the link a new tab/window.');
         elements.nav.hoverIntent(function(){
             //elements.nav.stop().animate({top: "0px"}, 800, "easeInOutQuint");
         },
@@ -79,4 +48,3 @@
         });
     });
 })(jQuery);
-
