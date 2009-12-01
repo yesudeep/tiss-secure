@@ -31,7 +31,7 @@ GENDER_CHOICES = (
 
 
 COMPANIES = {'abn-amro': {'name': 'ABN-AMRO',
-              'tags': [TAG_INTERNSHIP, TAG_BFSI], 
+              'tags': [TAG_INTERNSHIP, TAG_BFSI],
               'url': 'http://abnamro.com/'},
     'accenture': {'name': 'Accenture',
                'tags': [TAG_RECRUITMENT, TAG_INTERNSHIP, TAG_IT],
@@ -122,7 +122,7 @@ COMPANIES = {'abn-amro': {'name': 'ABN-AMRO',
             'url': 'http://www.google.com'},
     'hindustan-unilever': {'name': 'Hindustan Unilever',
                         'tags': [TAG_RECRUITMENT, TAG_INTERNSHIP, TAG_FMCG],
-                        'url': 'http://www.www.hul.co.in/'},
+                        'url': 'http://www.hul.co.in/'},
     'honeywell': {'name': 'Honeywell',
                'tags': [TAG_RECRUITMENT],
                'url': 'http://www.honeywell.com/'},
@@ -282,7 +282,7 @@ COMPANIES = {'abn-amro': {'name': 'ABN-AMRO',
          'url': 'http://www.tajhotels.com/'},
     'tata': {'name': 'TATA',
           'tags': [TAG_RECRUITMENT],
-          'url': 'http://www.tata.com/'},    
+          'url': 'http://www.tata.com/'},
     'tata-powers': {'name': 'Tata Powers',
                  'tags': [TAG_INTERNSHIP, TAG_MANUFACTURING],
                  'url': 'http://www.tatapower.com/'},
@@ -341,12 +341,12 @@ for identifier, company in COMPANIES.iteritems():
     if TAG_MEDIA in tags:
         MEDIA[identifier] = company
     if TAG_MANUFACTURING in tags:
-        MANUFACTURING[identifier] = company  
+        MANUFACTURING[identifier] = company
     if TAG_CONSULTING in tags:
         CONSULTING[identifier] = company
-        
 
-    
+
+
 RECRUITERS_ID_URLS = [(identifier, val["url"]) for identifier, val in RECRUITERS.iteritems()]
 BFSI_ID_URLS = [(identifier, val["url"]) for identifier, val in BFSI.iteritems()]
 FMCG_ID_URLS = [(identifier, val["url"]) for identifier, val in FMCG.iteritems()]
