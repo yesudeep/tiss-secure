@@ -7,3 +7,6 @@
 [submodule "app/gaeutilities"]
 	path = app/gaeutilities
 	url = git://github.com/joerussbowman/gaeutilities.git
+[submodule "app/pyporter2"]
+	path = app/pyporter2
+	url = git://github.com/mdirolf/pyporter2.git
