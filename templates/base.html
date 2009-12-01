@@ -236,8 +236,13 @@ scrolling="no" frameborder="0"></iframe>
 {% block tag_scripts_base %}
 <script type="text/javascript">
   window.scripts.push(
-    "{{ MEDIA_URL }}script/common{{ JS_MINIFIED }}.js",
-    "{{ MEDIA_URL }}script/page/contact_us{{ JS_MINIFIED }}.js"
+  {% if LOCAL %}
+  "{{ MEDIA_URL }}script/lib/chickoojs/src/jquery/tools/1.1.2/jquery.tools.min.js",
+  {% else %}
+  "http://cdn.jquerytools.org/1.1.2/full/jquery.tools.min.js",
+  {% endif %}
+  "{{ MEDIA_URL }}script/page/base{{ JS_MINIFIED }}.js",
+  "{{ MEDIA_URL }}script/page/contact_us{{ JS_MINIFIED }}.js"
   );
 </script>
 {% endblock %}
