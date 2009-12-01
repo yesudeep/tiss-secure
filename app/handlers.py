@@ -1,19 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import configuration as config
+import configuration
 from google.appengine.api import users, memcache
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app, login_required
 
-from models import Person, Job, News, RECRUITERS_ID_URLS, JOB_TYPE_DISPLAY_LIST, BFSI_ID_URLS, FMCG_ID_URLS, PHARMA_ID_URLS, IT_ID_URLS, SERVICES_ID_URLS, MEDIA_ID_URLS, MANUFACTURING_ID_URLS, CONSULTING_ID_URLS 
+from models import Person, Job, News, RECRUITERS_ID_URLS, JOB_TYPE_DISPLAY_LIST, BFSI_ID_URLS, FMCG_ID_URLS, PHARMA_ID_URLS, IT_ID_URLS, SERVICES_ID_URLS, MEDIA_ID_URLS, MANUFACTURING_ID_URLS, CONSULTING_ID_URLS
 #from utils import render_template, dec, login_required_signup
 from haggoo.template.jinja2 import render_generator
 from gaefy.jinja2.code_loaders import FileSystemCodeLoader
 from utils import dec, login_required_signup
 
-render_template = render_generator(loader=FileSystemCodeLoader, builtins=config.TEMPLATE_BUILTINS)
+render_template = render_generator(loader=FileSystemCodeLoader, builtins=configuration.TEMPLATE_BUILTINS)
 
+# Handlers
 class IndexHandler(webapp.RequestHandler):
     def get(self):
         if users.get_current_user():
@@ -41,7 +42,7 @@ class Differential_LearningPage(webapp.RequestHandler):
             logout_url = None
         response = render_template('differential_learning.html', logout_url=logout_url, bfsi_list=BFSI_ID_URLS, fmcg_list=FMCG_ID_URLS, pharma_list=PHARMA_ID_URLS, services_list=SERVICES_ID_URLS, it_list=IT_ID_URLS, media_list=MEDIA_ID_URLS, manufacturing_list=MANUFACTURING_ID_URLS, consulting_list=CONSULTING_ID_URLS)
         self.response.out.write(response)
-        
+
 class ReportsPage(webapp.RequestHandler):
     def get(self):
         if users.get_current_user():
@@ -62,7 +63,7 @@ class StudentCommitteesPage(webapp.RequestHandler):
 
 class ProfileListHandler(webapp.RequestHandler):
     def get(self, profile_type):
-        
+
         response = render_template('profile_list.html')
         self.response.out.write(response)
 
@@ -111,7 +112,7 @@ class AchievementPage(webapp.RequestHandler):
             logout_url = None
         response = render_template('achievements.html', logout_url=logout_url)
         self.response.out.write(response)
-        
+
 class AgendaPage(webapp.RequestHandler):
     def get(self):
         if users.get_current_user():
@@ -266,7 +267,7 @@ urls = (
 
 def main():
     from gaefy.db.datastore_cache import DatastoreCachingShim
-    application = webapp.WSGIApplication(urls, debug=config.DEBUG)
+    application = webapp.WSGIApplication(urls, debug=configuration.DEBUG)
     DatastoreCachingShim.Install()
     run_wsgi_app(application)
     DatastoreCachingShim.Uninstall()
