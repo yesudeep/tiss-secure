@@ -30,6 +30,8 @@ from os.path import dirname, abspath, realpath, join as path_join
 
 DIR_PATH = abspath(dirname(realpath(__file__)))
 EXTRA_LIB_PATH = [
+    # This one should always be first to keep
+    # local imports local before system imports.
     dirname(DIR_PATH),
     path_join(DIR_PATH, 'appengine'),
     path_join(DIR_PATH, 'gaeutilities'),
@@ -42,6 +44,7 @@ sys.path = EXTRA_LIB_PATH + sys.path
 from google.appengine.api import users
 
 def sanitize_url(url):
+    """Check whether a URL ends with a slash and add it if it doesn't."""
     if not url.endswith('/'):
         url = url + '/'
     return url
@@ -82,7 +85,7 @@ else:
     HOST_NAME = SERVER_NAME
     LOCAL = False
     DEBUG = False
-    MEDIA_URL = "http://static.%s/s/" % (NAKED_DOMAIN, )
+    MEDIA_URL = "http://static.%s/u/3071568/public/" % (NAKED_DOMAIN, )
 
 if DEBUG:
     # Minification suffixes to use for CSS and JS files.
