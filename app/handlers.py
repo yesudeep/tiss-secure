@@ -63,7 +63,7 @@ class StudentCommitteesPage(webapp.RequestHandler):
 
 class ProfileListHandler(webapp.RequestHandler):
     def get(self, profile_type):
-
+        logging.info(">>>>>>>>>>>>>> Profile type is: " + profile_type)
         response = render_template('profile_list.html')
         self.response.out.write(response)
 
@@ -220,7 +220,15 @@ class OddevPage(webapp.RequestHandler):
         response = render_template('forum/oddev.html', logout_url=logout_url)
         self.response.out.write(response)
 
-class AccountHandler(webapp.RequestHandler):
+# ***************************************************************************
+# Handlers for accounts
+#
+class AccountProfileHandler(webapp.RequestHandler):
+    @login_required_signup
+    def get(self):
+        pass
+
+class AccountSignupHandler(webapp.RequestHandler):
     @login_required_signup
     def get(self):
         continue_uri = self.request.get('continue')
@@ -252,14 +260,23 @@ urls = (
     ('/alumni/gallery/?', GalleryPage),
     ('/alumni/jobs/new/?', JobsNewPage),
     ('/alumni/jobs/?', JobsPage),
+
+    # Forums
     ('/forum/indrel/?', IndrelPage),
     ('/forum/trndev/?', TrndevPage),
     ('/forum/comben/?', CombenPage),
     ('/forum/hipms/?', HipmsPage),
     ('/forum/oddev/?', OddevPage),
+
     ('/tatvabodha/agenda/?', AgendaPage),
-    ('/account/signup/?', AccountHandler),
-    ('/profile/(faculty|alumni|student)/?', ProfileListHandler),
+
+    # Accounts
+    ('/account/signup/?', AccountSignupHandler),
+    ('/account/profile/?', AccountProfileHandler),
+
+    # Profiles
+    ('/profile/(faculty|students|alumni)/?', ProfileListHandler),
+
     ('/faculty/research/?', FacultyResearchPage),
     ('/faculty/working_papers/?', WorkingPapersPage),
     ('/faculty/profile/faculty/?', ProfileDetailsPage),
