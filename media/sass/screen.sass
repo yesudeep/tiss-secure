@@ -56,32 +56,26 @@ body.alumni
 a
   :text-decoration none
   :color #5a0000
-
 a:hover
   :color #880000
-  //:font-weight bold
 
-//nav:hover
-  :margin-top 0px
-h1
-  :font-family= !font_stack_georgia
-  :font-weight normal
-  :line-height 1.4
-  :font-size 2.4em
-article h1
-  :color rgba(100, 0, 0, 0.8)
-  :text-shadow 2px 2px 2px #fff
-h2
+h1, h2
   :font-family= !font_stack_helvetica
-  :font-weight bold
   :line-height 1.4
+h1
+  :font-size 2.4em
+h2
   :font-size 1.2em
-article h2
-  :color rgb(139, 11, 0)
-  :text-shadow 1px 1px 2px #fff
+article
+  h1
+    :color rgba(100, 0, 0, 0.8)
+    :text-shadow 2px 2px 2px #fff
+  h2
+    :color rgb(139, 11, 0)
+    :text-shadow 1px 1px 2px #fff
 p
   :font-weight normal
-  :line-height 1.4
+  :line-height 1.5
   :margin-bottom 10px
 
 
@@ -112,8 +106,9 @@ nav
             h1
               :font-size 1.2em
               :text-shadow 0px 1px 1px #000
-              :color #fde310
               :font-family= !font_stack_helvetica
+              a
+                :color #fde310
             p
               :font-size 0.8em
               :margin-bottom 0.6em
@@ -165,7 +160,7 @@ nav
   :background-color= !color_awesome_black_dark
 
 section
-  :background= "transparent" !url_header_bg "no-repeat scroll 0 0"
+  //:background= "transparent" !url_header_bg "no-repeat scroll 0 0"
   +grid-container
   :min-height 400px
   >header
@@ -173,20 +168,11 @@ section
       :padding 80px 0px 40px 0px
       >h1
         :color #f8e430
-        :text-shadow none
-        :font-weight bold
-        :font-family= !font_stack_verdana
-        :letter-spacing -0.05em
-        :line-height 1.4em
         :text-shadow 2px 2px 2px #222
         >span
           :color white
           :font-size 1.8em
-          :letter-spacing -0.04em
-          //:text-shadow none
           :display block
-          :font-family= !font_stack_verdana
-          :font-weight normal
 
   article
     :margin 0px auto 20px auto
