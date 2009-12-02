@@ -12,7 +12,11 @@ from haggoo.template.jinja2 import render_generator
 from gaefy.jinja2.code_loaders import FileSystemCodeLoader
 from utils import dec, login_required_signup
 
+import logging
+
 render_template = render_generator(loader=FileSystemCodeLoader, builtins=configuration.TEMPLATE_BUILTINS)
+
+logging.basicConfig(level=logging.DEBUG)
 
 # Handlers
 class IndexHandler(webapp.RequestHandler):
